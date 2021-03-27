@@ -1,6 +1,6 @@
 <%-- 
-    Document   : registration
-    Created on : 20/03/2021, 4:42:23 PM
+    Document   : logout
+    Created on : 27/03/2021, 4:01:11 PM
     Author     : johnballa
 --%>
 
@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>IoTBay Registration</title>
+        <title>JSP Page</title>
     </head>
     <body>
-        <h1>.....</h1>
+        <h1>Hello World!</h1>
     </body>
 </html>
