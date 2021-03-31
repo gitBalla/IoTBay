@@ -6,7 +6,21 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html>    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Welcome!</title>   
+    </head>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="registration.jsp">Register</a></li>
+          <li><a href="login.jsp">Login</a></li>
+          <li><a href="">Browse Catalogue</a></li>
+        </ul>
+      </nav>
+    </header>
     <%
         //parameter variable declarations and requests (only the ones that are currently required/being used)
         String submitted = request.getParameter("submitted");
@@ -19,11 +33,6 @@
         //if form has been submitted from this page, present welcome page
         if(submitted != null && submitted.equals("yes")){
     %>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Welcome!</title>   
-
-    </head>
     <body>
         <%
             //if the required fields have not been filled out
