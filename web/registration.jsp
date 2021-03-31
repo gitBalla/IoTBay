@@ -36,7 +36,7 @@
     <body>
         <%
             //if the required fields have not been filled out
-            if(!(firstname!=null && lastname!=null && email!=null && password!=null)){
+            if(firstname.equals("") || lastname.equals("") || email.equals("") || password.equals("")){
         %>
             <h1>Please fill out the required fields to continue.</h1>
             <form action="./registration.jsp">
