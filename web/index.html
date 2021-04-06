@@ -9,20 +9,31 @@ and open the template in the editor.
     <title>IoTBay - Your Source for IoT Devices</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="iotbayStyle.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
       <nav>
-        <ul>
+        <ul class="menu">
           <li><a href="index.html">Home</a></li>
           <li><a href="registration.jsp">Register</a></li>
           <li><a href="login.jsp">Login</a></li>
           <li><a href="">Browse Catalogue</a></li>
+          <div class="search-container">
+            <form action="">
+              <button type="submit">Submit</button>
+              <input id="searchbar" type="text" placeholder="Search.." />
+            </form>
+          </div>
         </ul>
       </nav>
     </header>
     <main>
-      <h1>Welcome to IoTBay!</h1>
+      <h1 class="main_title">Welcome to IoTBay!</h1>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. In optio
         similique eos magnam pariatur officiis illum ratione beatae, ad ullam
