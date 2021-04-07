@@ -21,6 +21,34 @@ body {
 
 .main_title {
     text-align: center;
+    font-size: 50px;
+}
+
+.landing_body {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 70%;
+    text-align: center;
+}
+
+.landing_body p {
+    font-size: 20px;
+}
+
+.landing_body a {
+    background-color: green;
+    color: white;
+    padding: 1em 1.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    top: 20px;
+    margin: 0 20px;
+}
+
+.landing_body a:hover {
+    background-color: grey;
+    cursor: pointer;
 }
 
 .menu {
