@@ -29,10 +29,10 @@
         String lastname = request.getParameter("lastname");        
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        String address1 = request.getParameter("address1");
-        String city = request.getParameter("city");
-        String state = request.getParameter("state");
-        String tos = request.getParameter("tos");
+        //String address1 = request.getParameter("address1");
+        //String city = request.getParameter("city");
+        //String state = request.getParameter("state");
+        //String tos = request.getParameter("tos");
         
         //if form has been submitted from this page, present welcome page
         if(submitted != null && submitted.equals("yes")){
