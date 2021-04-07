@@ -1,7 +1,7 @@
 <%-- 
     Document   : registration
     Created on : 20/03/2021, 4:42:23 PM
-    Author     : johnballa
+    Author     : johnballa & hamartillano
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -22,7 +22,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="registration.jsp">Register</a></li>
           <li><a href="login.jsp">Login</a></li>
-          <li><a href="login.jsp">Browse Catalogue</a></li>
+          <li><a href="">Browse Catalogue</a></li>
           <div class="search-container">
             <form action="">
               <button type="submit">Submit</button>
