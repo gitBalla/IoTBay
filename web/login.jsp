@@ -8,8 +8,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="iotbayStyle.css" />
         <link
             href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap"
@@ -33,7 +33,7 @@
         </nav>
     </header>
     <body>
-        <form action="" method="post">
+        <form id="loginForm" action="" method="post">
             <fieldset>
                 <legend>IoTBay Account Login</legend>
                 <table>
@@ -56,7 +56,10 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td><input type="submit" id="login" name="login" value="Login"></input></td>
+                        <td>
+                            <input type="submit" id="login" class="submit" name="login" value="Login"></input>
+                            <a class="submit" href="./index.jsp">Cancel</a>
+                        </td>
                     </tr>
                 </table>
             </fieldset>

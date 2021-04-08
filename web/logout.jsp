@@ -36,8 +36,11 @@
           </ul>
         </nav>
       </header>
-      <h1>You are now logged out.</h1>
-      <h2>Thanks for visiting IoTBay, ${customer.firstName}</h1>
+      <h1 class="main_title">You are now logged out.</h1>
+      <div class="landing_body"><p>Thanks for visiting IoTBay, ${customer.firstName}</p>
+        <a href="login.jsp">Login again</a>
+        <a>Start Browsing</a>
+      </div>
     </body>
     <%
         session.invalidate();

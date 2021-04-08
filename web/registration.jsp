@@ -33,7 +33,7 @@
       </nav>
     </header>
     <body>
-        <form action="./welcome.jsp" method="post">
+        <form id="registrationForm" action="./welcome.jsp" method="post">
             <fieldset>
                 <legend>IoTBay Account Registration:</legend>
                 <table>
@@ -92,12 +92,15 @@
                                 <option value="no">No</option> 
                                 <option value="yes">Yes</option>
                             </select>
-                            <a href="./tos.html" target="_blank"> Read the TOS </a>
+                            <a href="./tos.html" target="_blank">Read the Terms of Service</a>
                         </td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td><input type="submit" id="register" name="register" value="Register"></input></td>
+                        <td>
+                            <input type="submit" id="register" class="submit" name="register" value="Register"></input>
+                            <a class="submit" href="./index.jsp">Cancel</a>
+                        </td>
                     </tr>
                 </table>
             </fieldset>

@@ -17,6 +17,11 @@ body {
     margin: 0;
 }
 
+form {
+  width: 500px;
+  margin: 0px auto;
+}
+
 /* classes */
 
 .main_title {
@@ -47,6 +52,44 @@ body {
 }
 
 .landing_body a:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+.formButton{
+    background-color: green;
+    color: white;
+    padding: 1em 1.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    top: 20px;
+    margin: 0 20px;
+}
+
+.formButton:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+.buttonForm {
+    text-align: center;
+}
+
+.submit { /*a submit button mimic of the a type above so submit form buttons have the same style*/
+    font-size: 16px;
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 1em 1.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    top: 20px;
+    margin: 0 0 20px 2px;
+}
+
+.submit:hover {
     background-color: grey;
     cursor: pointer;
 }
@@ -93,6 +136,10 @@ body {
 
 .search-container button:hover {
     background-color: #ddffbc;
+}
+
+.displayTable {
+  margin: 0px auto;
 }
 
 /* ids */
