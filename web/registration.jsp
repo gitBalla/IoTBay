@@ -40,6 +40,9 @@
         String lastname = request.getParameter("lastname");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        String addressline1 = request.getParameter("addressline1");
+        String city = request.getParameter("city");
+        String state = request.getParameter("state");
         String tos = request.getParameter("tos");
 
         //if form has been submitted from this page, present welcome page
@@ -65,7 +68,10 @@
         } else {
         %>
         <h1>Welcome, <%=firstname%> <%=lastname%>!</h1>
-        <h3>Your account is registered with <%=email%>.</h3>
+        <h3>Your registered email is <%=email%>.</h3>
+        <h3>Your registered address is <%=addressline1%>.</h3>
+        <h3>Your registered city is <%=city%>.</h3>
+        <h3>Your registered state is <%=state%>.</h3>
         <%
             } //end of welcome page scenarios
         %>
