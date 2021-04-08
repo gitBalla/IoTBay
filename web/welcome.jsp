@@ -78,7 +78,7 @@
         %>
         <h1>Welcome, <%=firstname%> <%=lastname%>!</h1>
         <h3>Your registered email is <%=email%>.</h3>
-        <h3>Your registered address is <%=addressline1%>.</h3>
+        <h3>Your registered address is <%=addressline1%>, <%=addressline2%>.</h3>
         <h3>Your registered city is <%=city%>.</h3>
         <h3>Your registered state is <%=state%>.</h3>
         <%

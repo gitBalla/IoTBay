@@ -33,6 +33,33 @@
         </nav>
     </header>
     <body>
-        <h1>LOGIN FORM HERE</h1>
+        <form action="" method="post">
+            <fieldset>
+                <legend>IoTBay Account Login</legend>
+                <table>
+                    <tr>
+                        <td><label for="loginType">Login Type:</label></td>
+                        <td>
+                            <select id="loginType" name="loginType">
+                                <option value="user">User</option>
+                                <option value="staff">Staff</option>                             
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">Email:</label></td>
+                        <td><input type="email" id="email" name="email"></input></td>
+                    </tr>
+                    <tr>
+                        <td><label for="password">Password:</label></td>
+                        <td><input type="password" id="password" name="password"></input></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" id="login" name="login" value="Login"></input></td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
     </body>
 </html>

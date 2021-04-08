@@ -37,7 +37,7 @@
         </nav>
       </header>
       <h1>You are now logged out.</h1>
-      <h1>Thanks for visiting IoTBay, ${customer.firstName}</h1>
+      <h2>Thanks for visiting IoTBay, ${customer.firstName}</h1>
     </body>
     <%
         session.invalidate();
