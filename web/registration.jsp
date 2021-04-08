@@ -19,7 +19,7 @@
     <header>
       <nav>
         <ul class="menu">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.jsp">Home</a></li>
           <li><a href="registration.jsp">Register</a></li>
           <li><a href="login.jsp">Login</a></li>
           <li><a href="">Browse Catalogue</a></li>

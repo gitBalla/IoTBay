@@ -1,11 +1,13 @@
+<%-- 
+    Document   : index.jsp
+    Created on : 08/04/2021, 2:48:17 PM
+    Author     : vince
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
-  <head>
+    <head>
     <title>IoTBay - Your Source for IoT Devices</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,7 +21,7 @@ and open the template in the editor.
     <header>
       <nav>
         <ul class="menu">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.jsp">Home</a></li>
           <li><a href="registration.jsp">Register</a></li>
           <li><a href="login.jsp">Login</a></li>
           <li><a href="">Browse Catalogue</a></li>
@@ -35,11 +37,11 @@ and open the template in the editor.
     <main>
       <h1 class="main_title">Welcome to IoTBay!</h1>
       <div class="landing_body">
-        <p class="landing_description">
+        <p>
           Your first stop for all things IoT. We house a vast array of products that are easy to find and purchase.
         </p>
-        <a href="registration.jsp" class="link_button_1">Create an account</a>
-        <a href="" class="link_button_2">Start Browsing</a>
+        <a href="registration.jsp">Create an account</a>
+        <a href="">Start Browsing</a>
       </div>
     </main>
   </body>
