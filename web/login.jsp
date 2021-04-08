@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Login</title>
         <link rel="stylesheet" href="iotbayStyle.css" />
         <link
             href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap"
@@ -22,7 +22,7 @@
                 <li><a href="index.jsp">Home</a></li>
                 <li><a href="registration.jsp">Register</a></li>
                 <li><a href="login.jsp">Login</a></li>
-                <li><a href="">Browse Catalogue</a></li>
+                <li><a>Browse Catalogue</a></li>
                 <div class="search-container">
                     <form action="">
                         <button type="submit">Submit</button>

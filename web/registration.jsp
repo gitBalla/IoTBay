@@ -22,7 +22,7 @@
           <li><a href="index.jsp">Home</a></li>
           <li><a href="registration.jsp">Register</a></li>
           <li><a href="login.jsp">Login</a></li>
-          <li><a href="">Browse Catalogue</a></li>
+          <li><a>Browse Catalogue</a></li>
           <div class="search-container">
             <form action="">
               <button type="submit">Submit</button>
@@ -32,56 +32,8 @@
         </ul>
       </nav>
     </header>
-    <!-- initialize parameters and if statement for welcome page, followed by else statement for registration form -->
-    <%
-        //parameter variable declarations and requests (only the ones that are currently required/being used)
-        String submitted = request.getParameter("submitted");
-        String firstname = request.getParameter("firstname");
-        String lastname = request.getParameter("lastname");
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        String addressline1 = request.getParameter("addressline1");
-        String city = request.getParameter("city");
-        String state = request.getParameter("state");
-        String tos = request.getParameter("tos");
-
-        //if form has been submitted from this page, present welcome page
-        if (submitted != null && submitted.equals("yes")) {
-    %>
     <body>
-        <%
-            //if the required fields have not been filled out
-            if (firstname.equals("") || lastname.equals("") || email.equals("") || password.equals("")) {
-        %>
-        <h1>Please fill out the required fields to continue.</h1>
-        <form action="./registration.jsp">
-            <input type="submit" id="register" value="return to registration"></input>
-        <%
-            //if the required fields have been filled out, but the tos has not been agreed to
-        } else if (tos.equals("no")) {
-        %>
-        <h1>Please agree to the terms of service to continue.</h1>
-        <form action="./registration.jsp">
-            <input type="submit" id="register" value="return to registration"></input>
-        <%
-            //everything else (which means required fields are complete and tos is agreed)
-        } else {
-        %>
-        <h1>Welcome, <%=firstname%> <%=lastname%>!</h1>
-        <h3>Your registered email is <%=email%>.</h3>
-        <h3>Your registered address is <%=addressline1%>.</h3>
-        <h3>Your registered city is <%=city%>.</h3>
-        <h3>Your registered state is <%=state%>.</h3>
-        <%
-            } //end of welcome page scenarios
-        %>
-    </body>
-    <%
-        //if the registration form was not submitted to reach this page (aka first visit this session), present reg form
-    } else {
-    %>
-    <body>
-        <form action="./registration.jsp" method="post"> <!-- links the form back to itself for the first if statement -->
+        <form action="./welcome.jsp" method="post">
             <fieldset>
                 <legend>IoTBay Account Registration:</legend>
                 <table>
@@ -117,6 +69,10 @@
                         <td><input type="text" id="city" name="city"></input></td>
                     </tr>
                     <tr>
+                        <td><label for="city">Postcode:</label></td>
+                        <td><input type="text" id="postcode" name="postcode"></input></td>
+                    </tr>
+                    <tr>
                         <td><label for="state">State/Territory:</label></td>
                         <td>
                             <select id="state" name="state">
@@ -144,9 +100,7 @@
                         <td><input type="submit" id="register" name="register" value="Register"></input></td>
                     </tr>
                 </table>
-                <input type="hidden" id="submitted" name="submitted" value="yes">
             </fieldset>
         </form>
     </body>
-    <% }%>
 </html>
