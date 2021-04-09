@@ -37,7 +37,7 @@ public class Customer implements java.io.Serializable{
         this.state = state;
         this.postCode = postCode;
     }
-
+    
     public String getEmail() {
         return email;
     }

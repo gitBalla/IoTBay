@@ -42,23 +42,23 @@
                     </tr>
                     <tr>
                         <td><label for="firstname">First Name*:</label></td>
-                        <td><input type="text" id="firstname" name="firstname"></input></td>
+                        <td><input type="text" id="firstname" name="firstname" required></input></td>
                     </tr>
                     <tr>
                         <td><label for="lastname">Last Name*:</label></td>
-                        <td><input type="text" id="lastname" name="lastname"></input></td>
+                        <td><input type="text" id="lastname" name="lastname" required></input></td>
                     </tr>                    
                     <tr>
                         <td><label for="email">Email*:</label></td>
-                        <td><input type="email" id="email" name="email"></input></td>
+                        <td><input type="email" id="email" name="email" ></input></td>
                     </tr>
                     <tr>
                         <td><label for="password">Password*:</label></td>
-                        <td><input type="password" id="password" name="password"></input></td>
+                        <td><input type="password" id="password" name="password" required></input></td>
                     </tr>
                     <tr>
                         <td><label for="addressline1">Address Line 1:</label></td>
-                        <td><input type="text" id="addressline1" name="addressline1"></input></td>
+                        <td><input type="text" id="addressline1" name="addressline1" required></input></td>
                     </tr>
                     <tr>
                         <td><label for="addressline2">Address Line 2:</label></td>
@@ -66,24 +66,15 @@
                     </tr>
                     <tr>
                         <td><label for="city">City:</label></td>
-                        <td><input type="text" id="city" name="city"></input></td>
+                        <td><input type="text" id="city" name="city" required></input></td>
                     </tr>
                     <tr>
                         <td><label for="city">Postcode:</label></td>
-                        <td><input type="text" id="postcode" name="postcode"></input></td>
+                        <td><input type="number" id="postcode" name="postcode" minlength="4" maxlength="5" required></input></td>
                     </tr>
                     <tr>
                         <td><label for="state">State/Territory:</label></td>
-                        <td>
-                            <select id="state" name="state">
-                                <option></option> <!-- keeps the field blank to start-->                            
-                                <option value="NSW">NSW</option>
-                                <option value="ACT">ACT</option>
-                                <option value="WA">WA</option>
-                                <option value="QLD">QLD</option>
-                                <option value="NT">NT</option>                                
-                            </select>
-                        </td>
+                        <td><input type="text" id="state" name="state" minlength="2" maxlength="3" pattern="[A-Z]*" title="Please use state abbreviation, i.e. 'NSW','SA'" required></input></td>
                     </tr>
                     <tr>
                         <td><label for="tos">Agree to TOS*:</label></td>
