@@ -21,7 +21,6 @@
         </ul>
       </nav>
     </header>
-    
     <%
         //parameter variable declarations and requests (only the ones that are currently required/being used)
         String submitted = request.getParameter("submitted");
@@ -29,21 +28,17 @@
         String lastname = request.getParameter("lastname");        
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        String address1 = request.getParameter("address1");
-        String city = request.getParameter("city");
-        String state = request.getParameter("state");
         String tos = request.getParameter("tos");
         
         //if form has been submitted from this page, present welcome page
         if(submitted != null && submitted.equals("yes")){
     %>
-    
     <body>
         <%
             //if the required fields have not been filled out
             if(firstname.equals("") || lastname.equals("") || email.equals("") || password.equals("")){
         %>
-        <h1>Please fill out all the required fields to continue.</h1>
+            <h1>Please fill out the required fields to continue.</h1>
             <form action="./registration.jsp">
                 <input type="submit" id="register" value="return to registration"></input>
         <%
@@ -55,18 +50,14 @@
                 <input type="submit" id="register" value="return to registration"></input>
         <%
             //everything else (which means required fields are complete and tos is agreed)
-            } else {
+            } else{
         %>
             <h1>Welcome, <%=firstname%> <%=lastname%>!</h1>
-            <h2>Your account is registered with <%=email%>.</h2>
-            <a href="browse_catalogue.jsp">
-                <h3>Continue to IoT Bay Catalogue</h3>
-            </a>
+            <h3>Your account is registered with <%=email%>.</h3>
         <%
             }
         %>
     </body>
-    
     <% 
         //if the registration form was not submitted to reach this page (aka first visit this session)
         } else{
