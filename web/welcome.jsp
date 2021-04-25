@@ -28,9 +28,10 @@
         String city = request.getParameter("city");
         String postcode = request.getParameter("postcode");
         String state = request.getParameter("state");
+        String phoneNum = request.getParameter("phoneNum");
         String tos = request.getParameter("tos");
         
-        Customer customer = new Customer(email, firstname, lastname, password, addressline1, addressline2, city, state, postcode);
+        Customer customer = new Customer(email, firstname, lastname, password, addressline1, addressline2, city, state, postcode, phoneNum);
         session.setAttribute("customer", customer);
     %>
     <body>
@@ -46,7 +47,7 @@
               <%
                   } else {
               %>
-              <li><a>Account</a></li>
+              <li><a href="./account.jsp">Account</a></li>
               <li><a href="./logout.jsp">Logout</a></li>
               <%
                   }
@@ -95,7 +96,7 @@
                 </tr>
             </table></br>
             <div class="landing_body">
-                <a>View Account</a>
+                <a href="account.jsp">View Account</a>
                 <a>Start Browsing</a>
             </div>
         <%

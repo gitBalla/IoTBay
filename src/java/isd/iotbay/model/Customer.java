@@ -20,13 +20,14 @@ public class Customer implements java.io.Serializable{
     private String city;
     private String state;
     private String postCode;
+    private String phoneNum;
     
     //constructors
 
     public Customer() {
     }
 
-    public Customer(String email, String firstName, String lastName, String password, String addressLine1, String addressLine2, String city, String state, String postCode) {
+    public Customer(String email, String firstName, String lastName, String password, String addressLine1, String addressLine2, String city, String state, String postCode, String phoneNum) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -36,6 +37,7 @@ public class Customer implements java.io.Serializable{
         this.city = city;
         this.state = state;
         this.postCode = postCode;
+        this.phoneNum = phoneNum;
     }
     
     public String getEmail() {
@@ -110,6 +112,12 @@ public class Customer implements java.io.Serializable{
         this.postCode = postCode;
     }
     
-    
+    public String getPhoneNum() {
+        return phoneNum;
+    }
+
+    public void setPhoneNum(String postCode) {
+        this.phoneNum = phoneNum;
+    }
     
 }
