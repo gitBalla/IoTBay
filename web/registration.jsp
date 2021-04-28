@@ -22,7 +22,7 @@
           <li><a href="index.jsp">Home</a></li>
           <li><a href="registration.jsp">Register</a></li>
           <li><a href="login.jsp">Login</a></li>
-          <li><a>Browse Catalogue</a></li>
+          <li><a href="catalogue.jsp">Browse Catalogue</a></li>
           <div class="search-container">
             <form action="">
               <button type="submit">Submit</button>

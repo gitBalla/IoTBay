@@ -38,7 +38,7 @@
           <%
               }
           %>
-          <li><a>Browse Catalogue</a></li>
+          <li><a href="./catalogue.jsp">Browse Catalogue</a></li>
           <div class="search-container">
             <form action="">
               <button type="submit">Submit</button>
@@ -61,11 +61,11 @@
         <%
               } else {
         %>
-        <a href="registration.jsp">Create an account</a>
+        <a href="./registration.jsp">Create an account</a>
         <%
               }
         %>
-        <a>Start Browsing</a>
+        <a href="./catalogue.jsp">Start Browsing</a>
       </div>
     </main>
   </body>

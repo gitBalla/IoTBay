@@ -96,8 +96,8 @@
                 </tr>
             </table></br>
             <div class="landing_body">
-                <a href="account.jsp">View Account</a>
-                <a>Start Browsing</a>
+                <a href="./account.jsp">View Account</a>
+                <a href="./catalogue.jsp">Start Browsing</a>
             </div>
         <%
             }

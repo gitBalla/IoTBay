@@ -28,7 +28,7 @@
           <li><a href="./index.jsp">Home</a></li>
           <li><a href="./account.jsp">Account</a></li>
           <li><a href="./logout.jsp">Logout</a></li>
-          <li><a>Browse Catalogue</a></li>
+          <li><a href="catalogue.jsp">Browse Catalogue</a></li>
           <div class="search-container">
             <form action="">
               <button type="submit">Submit</button>

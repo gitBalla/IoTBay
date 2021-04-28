@@ -26,7 +26,7 @@
             <li><a href="./index.jsp">Home</a></li>
             <li><a href="./registration.jsp">Register</a></li>
             <li><a href="./login.jsp">Login</a></li>
-            <li><a>Browse Catalogue</a></li>
+            <li><a href="./catalogue.jsp">Browse Catalogue</a></li>
             <div class="search-container">
               <form action="">
                 <button type="submit">Submit</button>
@@ -39,7 +39,7 @@
       <h1 class="main_title">You are now logged out.</h1>
       <div class="landing_body"><p>Thanks for visiting IoTBay, ${customer.firstName}</p>
         <a href="./login.jsp">Login again</a>
-        <a>Start Browsing</a>
+        <a href="./catalogue.jsp">Start Browsing</a>
       </div>
     </body>
     <%
