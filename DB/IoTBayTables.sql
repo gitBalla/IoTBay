@@ -5,7 +5,7 @@
 
 -- create table for user, superclass of customer and staff
 CREATE TABLE USER_T (
-    USERID      INTEGER     NOT NULL, 
+    USERID      INTEGER     NOT NULL AUTO_INCREMENT, 
     EMAIL       VARCHAR(50) NOT NULL, 
     FIRSTNAME   VARCHAR(20) NOT NULL, 
     LASTNAME    VARCHAR(20) NOT NULL, 
@@ -15,7 +15,7 @@ CREATE TABLE USER_T (
 
 -- create table for customer, subclass of user
 CREATE TABLE CUSTOMER_T (
-    USERID      INTEGER     NOT NULL, 
+    USERID      INTEGER     NOT NULL AUTO_INCREMENT, 
     ADDRESS1    VARCHAR(50),
     ADDRESS2    VARCHAR(50),
     CITY        VARCHAR(15),
@@ -28,7 +28,7 @@ CREATE TABLE CUSTOMER_T (
 
 --create table for staff, subclass of user, superclass of adminstaff
 CREATE TABLE STAFF_T (
-    USERID      INTEGER     NOT NULL, 
+    USERID      INTEGER     NOT NULL AUTO_INCREMENT, 
     STAFFID     INTEGER     NOT NULL,
     PRIMARY KEY (USERID),
     FOREIGN KEY (USERID) REFERENCES USER_T (USERID)
@@ -36,7 +36,7 @@ CREATE TABLE STAFF_T (
 
 --create table for staff, subclass of staff, user
 CREATE TABLE ADMINSTAFF_T (
-    USERID      INTEGER       NOT NULL, 
+    USERID      INTEGER       NOT NULL AUTO_INCREMENT, 
     PRIMARY KEY (USERID),
     FOREIGN KEY (USERID) REFERENCES STAFF_T (USERID)
     );
