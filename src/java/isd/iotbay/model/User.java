@@ -9,26 +9,24 @@ package isd.iotbay.model;
  *
  * @author johnballa
  */
-public class Staff extends User{
+public class User implements java.io.Serializable{
     //declarations
     
     private String email;
     private String firstName;
     private String lastName;
     private String password;
-    private String staffID;
     
     //constructors
 
-    public Staff() {
+    public User() {
     }
 
-    public Staff(String email, String firstName, String lastName, String password, String staffID) {
+    public User(String email, String firstName, String lastName, String password) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
-        this.staffID = staffID;
     }
     
     public String getEmail() {
@@ -63,11 +61,4 @@ public class Staff extends User{
         this.password = password;
     }
     
-    public String getStaffID() {
-        return staffID;
-    }
-
-    public void setStaffID(String staffID) {
-        this.staffID = staffID;
-    }
 }

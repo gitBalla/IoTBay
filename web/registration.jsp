@@ -86,6 +86,20 @@
                             <a href="./tos.html" target="_blank">Read the Terms of Service</a>
                         </td>
                     </tr>
+                        <script type="text/javascript">
+                        function showMe (it, box) {
+                        var vis = (box.checked) ? "" : "none";
+                        document.getElementById(it).style.display = vis;
+                        }
+                        </script>
+                    <tr>
+                        <td><label for="staffCheckBox">Staff Member?:</td>
+                        <td><input type="checkbox" name="staffCheckBox" value="1" onclick="showMe('staffIdRow', this)"></td>
+                    </tr>
+                    <tr id="staffIdRow" style="display:none">
+                        <td><label for="staffID">Staff ID Number:</label></td>
+                        <td><input type="text" id="staffID" name="staffID"></input></td>
+                    </tr>                        
                     <tr>
                         <td></td>
                         <td>

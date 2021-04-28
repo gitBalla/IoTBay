@@ -9,8 +9,9 @@ package isd.iotbay.model;
  *
  * @author johnballa
  */
-public class Customer implements java.io.Serializable{
+public class Customer extends User{
     //declarations
+    
     private String email;
     private String firstName;
     private String lastName;
@@ -116,7 +117,7 @@ public class Customer implements java.io.Serializable{
         return phoneNum;
     }
 
-    public void setPhoneNum(String postCode) {
+    public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
     }
     
