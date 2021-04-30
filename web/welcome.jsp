@@ -76,29 +76,18 @@
                 </tr>
             </table>
         <%
+        session.invalidate(); //invalidates session from top of page if tos not agreed to
             //tos is agreed to
         } else {
         %>
         <h1 class="main_title">Welcome, <%=firstname%> <%=lastname%>!</h1>
-        <div class="landing_body"><p>Your registration details</p></div>
-            <table class="displayTable">
-                <tr>
-                    <td>Email: </td><td><%=email%></td>
-                </tr>
-                <tr>
-                    <td>Address: </td><td><%=addressline1%></td>
-                </tr>
-                <tr>
-                    <td></td><td><%=addressline2%></td>
-                </tr>
-                <tr>
-                    <td></td><td><%=city%>, <%=state%> <%=postcode%></td>
-                </tr>
-            </table></br>
-            <div class="landing_body">
-                <a href="./account.jsp">View Account</a>
-                <a href="./catalogue.jsp">Start Browsing</a>
-            </div>
+        <div class="landing_body">
+            <p>User Options:</p>
+            <a href="./account.jsp">View Account</a>
+            <a href="./editAccount.jsp">Edit Account</a>
+            <a href="./userAccessLogs.jsp">View Logs</a>            
+            <a href="./catalogue.jsp">Start Browsing</a>
+        </div>
         <%
             }
         %>

@@ -40,9 +40,26 @@
     <main>
       <h1 class="main_title">Account details</h1>
       <div class="landing_body">
-        <p>
-          ...
-        </p>
+            <table class="displayTable">
+                <tr>
+                    <td>Name: </td><td>${user.firstName} ${user.lastName}</td>
+                </tr>
+                <tr>
+                    <td>Email: </td><td>${user.email}</td>
+                </tr>
+                <tr>
+                    <td>Phone: </td><td>${user.phoneNum}</td>
+                </tr>
+                <tr>
+                    <td>Address: </td><td>${user.addressLine1}</td>
+                </tr>
+                <tr>
+                    <td></td><td>${user.addressLine2}</td>
+                </tr>
+                <tr>
+                    <td></td><td>${user.city}, ${user.state} ${user.postCode}</td>
+                </tr>
+            </table></br>
         <a href="./editAccount.jsp">Edit Account</a>
         <a href="./userAccessLogs.jsp">View Access Logs</a>
       </div>

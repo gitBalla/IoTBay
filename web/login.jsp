@@ -33,19 +33,10 @@
         </nav>
     </header>
     <body>
-        <form id="loginForm" action="./welcome.jsp" method="post">
+        <form class="user_access_form" action="./welcome.jsp" method="post">
             <fieldset>
                 <legend>IoTBay Account Login</legend>
                 <table>
-                    <tr>
-                        <td><label for="loginType">Login Type:</label></td>
-                        <td>
-                            <select id="loginType" name="loginType">
-                                <option value="user">User</option>
-                                <option value="staff">Staff</option>                             
-                            </select>
-                        </td>
-                    </tr>
                     <tr>
                         <td><label for="email">Email:</label></td>
                         <td><input type="email" id="email" name="email"></input></td>
@@ -62,6 +53,7 @@
                         </td>
                     </tr>
                 </table>
+                <!-- following values to be removed once database is linked -->
                 <input type="hidden" name="firstname" value="John">
                 <input type="hidden" name="lastname" value="Smith">
                 <input type="hidden" name="addressline1" value="12345 Wallaby Lane">

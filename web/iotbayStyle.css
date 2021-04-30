@@ -17,11 +17,6 @@ body {
     margin: 0;
 }
 
-form {
-  width: 500px;
-  margin: 0px auto;
-}
-
 /* classes */
 
 .main_title {
@@ -138,8 +133,17 @@ form {
     background-color: #ddffbc;
 }
 
+.user_access_form {
+  width: 500px;
+  margin: 40px auto;
+}
+
 .displayTable {
   margin: 0px auto;
+}
+
+.displayTable tr {
+    text-align: left;
 }
 
 /* ids */
