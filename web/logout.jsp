@@ -3,7 +3,7 @@
     Created on : 27/03/2021, 4:01:11 PM
     Author     : johnballa
 --%>
-<%@page import="isd.iotbay.model.Customer"%>
+<%@page import="isd.iotbay.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,7 +17,7 @@
             />
     </head>
     <%
-        Customer customer = (Customer)session.getAttribute("customer");
+        User user = (User)session.getAttribute("user");
     %>
     <body>
       <header>
@@ -37,7 +37,7 @@
         </nav>
       </header>
       <h1 class="main_title">You are now logged out.</h1>
-      <div class="landing_body"><p>Thanks for visiting IoTBay, ${customer.firstName}</p>
+      <div class="landing_body"><p>Thanks for visiting IoTBay, ${user.firstName}</p>
         <a href="./login.jsp">Login again</a>
         <a href="./catalogue.jsp">Start Browsing</a>
       </div>

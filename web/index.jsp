@@ -3,7 +3,7 @@
     Created on : 08/04/2021, 2:48:17 PM
     Author     : vince
 --%>
-<%@page import="isd.iotbay.model.Customer"%>
+<%@page import="isd.iotbay.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,7 +18,7 @@
     />
   </head>
   <%
-      Customer customer = (Customer)session.getAttribute("customer");
+      User user = (User)session.getAttribute("user");
   %>
   <body>
     <header>
@@ -26,7 +26,7 @@
         <ul class="menu">
           <li><a href="./index.jsp">Home</a></li>
           <%
-              if (customer != null) {
+              if (user != null) {
           %>
           <li><a href="./account.jsp">Account</a></li>
           <li><a href="./logout.jsp">Logout</a></li>
@@ -55,7 +55,7 @@
           Your first stop for all things IoT. We house a vast array of products that are easy to find and purchase.
         </p>
         <%
-              if (customer != null) {
+              if (user != null) {
         %>
         <a href="./account.jsp">View Account</a>
         <%

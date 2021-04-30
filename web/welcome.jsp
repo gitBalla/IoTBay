@@ -3,7 +3,7 @@
     Created on : 08/04/2021, 3:28:34 PM
     Author     : vince
 --%>
-<%@page import="isd.iotbay.model.Customer"%>
+<%@page import="isd.iotbay.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -31,8 +31,8 @@
         String phoneNum = request.getParameter("phoneNum");
         String tos = request.getParameter("tos");
         
-        Customer customer = new Customer(email, firstname, lastname, password, addressline1, addressline2, city, state, postcode, phoneNum);
-        session.setAttribute("customer", customer);
+        User user = new User(email, firstname, lastname, password, addressline1, addressline2, city, state, postcode, phoneNum);
+        session.setAttribute("user", user);
     %>
     <body>
         <header>

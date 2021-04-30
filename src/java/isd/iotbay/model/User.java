@@ -16,17 +16,33 @@ public class User implements java.io.Serializable{
     private String firstName;
     private String lastName;
     private String password;
+    private String addressLine1;
+    private String addressLine2;
+    private String city;
+    private String state;
+    private String postCode;
+    private String phoneNum;
+    private boolean isStaff;
+    private boolean isAdmin;
     
     //constructors
 
     public User() {
     }
 
-    public User(String email, String firstName, String lastName, String password) {
+    public User(String email, String firstName, String lastName, String password, 
+            String addressLine1, String addressLine2, String city, String state, 
+            String postCode, String phoneNum) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
+        this.addressLine1 = addressLine1;
+        this.addressLine2 = addressLine2;
+        this.city = city;
+        this.state = state;
+        this.postCode = postCode;
+        this.phoneNum = phoneNum;
     }
     
     public String getEmail() {
@@ -60,5 +76,71 @@ public class User implements java.io.Serializable{
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getAddressLine1() {
+        return addressLine1;
+    }
+
+    public void setAddressLine1(String addressLine1) {
+        this.addressLine1 = addressLine1;
+    }
+
+    public String getAddressLine2() {
+        return addressLine2;
+    }
+
+    public void setAddressLine2(String addressLine2) {
+        this.addressLine2 = addressLine2;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getPostCode() {
+        return postCode;
+    }
+
+    public void setPostCode(String postCode) {
+        this.postCode = postCode;
+    }
+    
+    public String getPhoneNum() {
+        return phoneNum;
+    }
+
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
+    }
+
+    public boolean isIsStaff() {
+        return isStaff;
+    }
+
+    public void setIsStaff(boolean isStaff) {
+        this.isStaff = isStaff;
+    }
+
+    public boolean isIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+    
+    
     
 }

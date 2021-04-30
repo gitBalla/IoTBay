@@ -3,7 +3,7 @@
     Created on : 26/04/2021, 1:54:57 AM
     Author     : johnballa
 --%>
-<%@page import="isd.iotbay.model.Customer"%>
+<%@page import="isd.iotbay.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,7 +18,7 @@
     />
   </head>
   <%
-      Customer customer = (Customer)session.getAttribute("customer");
+      User user = (User)session.getAttribute("user");
   %>
   <body>
     <header>
