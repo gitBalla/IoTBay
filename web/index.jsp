@@ -28,7 +28,7 @@
           <%
               if (customer != null) {
           %>
-          <li><a>Account</a></li>
+          <li><a href="./account.jsp">Account</a></li>
           <li><a href="./logout.jsp">Logout</a></li>
           <%
               } else {

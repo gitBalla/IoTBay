@@ -3,17 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/johnballa/Documents/GitHub/IoTBay/web/welcome.jsp</file>
             <file>file:/Users/johnballa/Documents/GitHub/IoTBay/web/logout.jsp</file>
             <file>file:/Users/johnballa/Documents/GitHub/IoTBay/src/java/isd/iotbay/model/Staff.java</file>
+            <file>file:/Users/johnballa/Documents/GitHub/IoTBay/web/iotbayStyle.css</file>
             <file>file:/Users/johnballa/Documents/GitHub/IoTBay/web/registration.jsp</file>
             <file>file:/Users/johnballa/Documents/GitHub/IoTBay/web/account.jsp</file>
-            <file>file:/Users/johnballa/Documents/GitHub/IoTBay/src/java/isd/iotbay/model/Customer.java</file>
-            <file>file:/Users/johnballa/Documents/GitHub/IoTBay/src/java/isd/iotbay/model/User.java</file>
             <file>file:/Users/johnballa/Documents/GitHub/IoTBay/web/editAccount.jsp</file>
             <file>file:/Users/johnballa/Documents/GitHub/IoTBay/web/index.jsp</file>
-            <file>file:/Users/johnballa/Documents/GitHub/IoTBay/web/userAccessLogs.jsp</file>
             <file>file:/Users/johnballa/Documents/GitHub/IoTBay/web/login.jsp</file>
+            <file>file:/Users/johnballa/Documents/GitHub/IoTBay/web/welcome.jsp</file>
+            <file>file:/Users/johnballa/Documents/GitHub/IoTBay/DB/IoTBayTables.sql</file>
+            <file>file:/Users/johnballa/Documents/GitHub/IoTBay/src/java/isd/iotbay/model/Customer.java</file>
+            <file>file:/Users/johnballa/Documents/GitHub/IoTBay/src/java/isd/iotbay/model/User.java</file>
+            <file>file:/Users/johnballa/Documents/GitHub/IoTBay/web/userAccessLogs.jsp</file>
         </group>
     </open-files>
 </project-private>
