@@ -50,13 +50,39 @@
       </nav>
     </header>
     <h1>Select your payment method</h1>
+    <script type="text/javascript">
+        function showMe() {
+            if (document.getElementById('mastercard').checked) {
+                document.getElementById('mastercard-details').style.display = 'block';
+                document.getElementById('bankaccount-details').style.display = 'none';
+                document.getElementById('paypal-details').style.display = 'none';
+            } else if (document.getElementById('bankaccount').checked) {
+                document.getElementById('mastercard-details').style.display = 'none';
+                document.getElementById('bankaccount-details').style.display = 'block';
+                document.getElementById('paypal-details').style.display = 'none';
+            } else if (document.getElementById('paypal').checked) {
+                document.getElementById('mastercard-details').style.display = 'none';
+                document.getElementById('bankaccount-details').style.display = 'none';
+                document.getElementById('paypal-details').style.display = 'block';
+            }
+        }
+    </script>
     <form action="POST">
-        <input type="radio" id="mastercard" name="paymentmethod" value="mastercard">
-        <label for="mastercard">Mastercard</label>
-        <input type="radio" id="bankaccount" name="paymentmethod" value="bankaccount">
+        <input type="radio" onclick="showMe()" id="mastercard" name="paymentmethod" value="mastercard">
+        <label for="mastercard">MasterCard</label>
+        <input type="radio" onclick="showMe()" id="bankaccount" name="paymentmethod" value="bankaccount">
         <label for="bankaccount">Bank Account</label>
-        <input type="radio" id="paypal" name="paymentmethod" value="paypal">
+        <input type="radio" onclick="showMe()" id="paypal" name="paymentmethod" value="paypal">
         <label for="paypal">PayPal</label>
+        <div id="mastercard-details" style="display:none">
+            <h1>placeholder 1</h1>
+        </div>
+        <div id="bankaccount-details" style="display:none">
+            <h1>placeholder 2</h1>
+        </div>
+        <div id="paypal-details" style="display:none">
+            <h1>placeholder 3</h1>
+        </div>
     </form>
   </body>
 </html>
