@@ -15,7 +15,7 @@ CREATE TABLE USER_T (
     ADDRESS2    VARCHAR(50),
     CITY        VARCHAR(15),
     STATELOC    VARCHAR(3),
-    POSTCODE    INTEGER,
+    POSTCODE    VARCHAR(5),
     PHONE       VARCHAR(12),
     IS_STAFF    BOOLEAN     NOT NULL,
     IS_ADMIN    BOOLEAN     NOT NULL,
@@ -23,11 +23,11 @@ CREATE TABLE USER_T (
     );
 
 INSERT INTO USER_T(EMAIL,FIRSTNAME,LASTNAME,PASSWORD,ADDRESS1,CITY,STATELOC,POSTCODE,PHONE,IS_STAFF,IS_ADMIN) 
-    VALUES ('admin@iotbay.com','Admin','Istrator','admin1','123 This Street','This City','NSW',2000,'0455667788',TRUE,TRUE);
+    VALUES ('admin@iotbay.com','Admin','Istrator','admin1','123 This Street','This City','NSW','2000','0455667788',TRUE,TRUE);
 INSERT INTO USER_T(EMAIL,FIRSTNAME,LASTNAME,PASSWORD,ADDRESS1,CITY,STATELOC,POSTCODE,PHONE,IS_STAFF,IS_ADMIN) 
-    VALUES ('staff@iotbay.com','Staff','Worker','staff1','234 This Street','This City','NSW',2000,'0455667799',TRUE,FALSE);
+    VALUES ('staff@iotbay.com','Staff','Worker','staff1','234 This Street','This City','NSW','2000','0455667799',TRUE,FALSE);
 INSERT INTO USER_T(EMAIL,FIRSTNAME,LASTNAME,PASSWORD,ADDRESS1,CITY,STATELOC,POSTCODE,PHONE,IS_STAFF,IS_ADMIN) 
-    VALUES ('1337iotguy@yahoo.com','Bob','Smith','customer1','345 This Street','This City','NSW',2000,'0400000000',FALSE,FALSE);
+    VALUES ('1337iotguy@yahoo.com','Bob','Smith','customer1','345 This Street','This City','NSW','2000','0400000000',FALSE,FALSE);
 
 --create table for product
 CREATE TABLE PRODUCT_T (

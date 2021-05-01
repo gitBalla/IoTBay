@@ -69,7 +69,7 @@
                         <td><input type="text" id="city" name="city" required></input></td>
                     </tr>
                     <tr>
-                        <td><label for="city">Postcode:</label></td>
+                        <td><label for="postCode">Postcode:</label></td>
                         <td><input type="number" id="postcode" name="postcode" minlength="4" maxlength="5" required></input></td>
                     </tr>
                     <tr>

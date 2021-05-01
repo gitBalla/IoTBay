@@ -29,7 +29,7 @@ public class User implements java.io.Serializable{
 
     public User() {
     }
-
+    //"secure" constructor that leaves out isStaff and isAdmin
     public User(String email, String firstName, String lastName, String password, 
             String addressLine1, String addressLine2, String city, String state, 
             String postCode, String phoneNum) {
@@ -43,6 +43,23 @@ public class User implements java.io.Serializable{
         this.state = state;
         this.postCode = postCode;
         this.phoneNum = phoneNum;
+    }
+    //unsecure constructor for initialization, must be used with isStaff=false, isAdmin=false
+    public User(String email, String firstName, String lastName, String password, 
+            String addressLine1, String addressLine2, String city, String state, 
+            String postCode, String phoneNum, boolean isStaff, boolean isAdmin) {
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.addressLine1 = addressLine1;
+        this.addressLine2 = addressLine2;
+        this.city = city;
+        this.state = state;
+        this.postCode = postCode;
+        this.phoneNum = phoneNum;
+        this.isStaff = isStaff;
+        this.isAdmin = isAdmin;
     }
     
     public String getEmail() {
