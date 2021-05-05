@@ -6,6 +6,7 @@ package isd.iotbay.model.dao;
  */
 
 import isd.iotbay.model.User;
+import isd.iotbay.model.CreditCard;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -108,6 +109,33 @@ public boolean CheckUser(String email, String password) throws SQLException{
     }
     return false;   
 }
+
+
+public CreditCard findPayment(String order) throws SQLException {       
+       //setup the select sql query string       
+       String fetch = "SELECT * FROM IOTBAYUSER.PAYMENT_T INNER JOIN WHERE ORDERID = '" + order + "'";
+       //execute this query using the statement field
+       //add the results to a ResultSet   
+       ResultSet rs = st.executeQuery(fetch);
+       //search the ResultSet for a user using the parameters
+
+       while (rs.next()) {
+           String orderID = rs.getString(1);
+           if (orderID.equals(order)) {
+               String paymentMethod = rs.getString(2);
+               int paymentAmount = rs.getInt(3);
+               String paymentDate = rs.getString(4);
+               String ccType = rs.getString(6);
+               int ccNumber = rs.getInt(7);
+               String ccExpiry = rs.getString(8);
+               int ccSecurity = rs.getInt(9);
+               String paymentEmail = rs.getString(10);
+               return new CreditCard(ccType, ccNumber, ccExpiry, ccSecurity, paymentEmail, paymentMethod, paymentAmount, paymentDate);
+           }
+       }
+       return null;   
+    }
+
 
 public void addCreditCard(String method, int amount, String date, String ccType, int ccNumber, String ccExp, int ccSecurity, String payEmail) throws SQLException {                   //code for add-operation       
     st.executeUpdate("INSERT INTO IOTBAYUSER.PAYMENT_T(PAYMETHOD, PAYAMOUNT, PAYDATE) VALUES ('" + method + "', " + amount + ", '" + date + "')");

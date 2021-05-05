@@ -16,8 +16,8 @@ public class CreditCard extends Payment {
     private int ccSecurity;
     private String payEmail;
 
-    public CreditCard(String ccType, int ccNumber, String ccExp, int ccSecurity, String payEmail, String payMethod) {
-        super(payMethod);
+    public CreditCard(String ccType, int ccNumber, String ccExp, int ccSecurity, String payEmail, String payMethod, int payAmount, String payDate) {
+        super(payMethod, payAmount, payDate);
         this.ccType = ccType;
         this.ccNumber = ccNumber;
         this.ccExp = ccExp;
