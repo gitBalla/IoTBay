@@ -109,4 +109,12 @@ public boolean CheckUser(String email, String password) throws SQLException{
     return false;   
 }
 
+public void addCreditCard(String method, int amount, String date, String ccType, int ccNumber, String ccExp, int ccSecurity, String payEmail) throws SQLException {                   //code for add-operation       
+    st.executeUpdate("INSERT INTO IOTBAYUSER.PAYMENT_T(PAYMETHOD, PAYAMOUNT, PAYDATE) VALUES ('" + method + "', " + amount + ", '" + date + "')");
+    ResultSet rs = st.executeQuery("SELECT MAX(PAYID) AS id FROM PAYMENT_T");
+    rs.next();
+    int lastid = rs.getInt("id");
+    st.executeUpdate("INSERT INTO IOTBAYUSER.CREDIT_CARD_T(PAYID, CCTYPE, CCNUMBER, CCEXP, CCSECURITY, PAYEMAIL) VALUES (" + lastid + ", '" + ccType + "', " + ccNumber + ", '" + ccExp + "', " + ccSecurity + ", '" + payEmail + "')");
+}
+
 }
