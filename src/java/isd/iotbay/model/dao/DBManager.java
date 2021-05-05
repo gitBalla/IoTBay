@@ -70,7 +70,7 @@ public void deleteUser(String email) throws SQLException{
     st.executeUpdate("DELETE FROM IOTBAYUSER.USER_T WHERE EMAIL='" + email + "'");
 }
 
-public ArrayList<User> fecthUsers() throws SQLException{
+public ArrayList<User> fetchUsers() throws SQLException{
     String fetch = "SELECT * FROM IOTBAYUSER.USER_T";
     ResultSet rs = st.executeQuery(fetch);
     ArrayList<User> temp = new ArrayList();
