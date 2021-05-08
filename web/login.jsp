@@ -59,14 +59,6 @@
                         </td>
                     </tr>
                 </table>
-<!--            following values to be removed once database is linked 
-                <input type="hidden" name="firstname" value="John">
-                <input type="hidden" name="lastname" value="Smith">
-                <input type="hidden" name="addressline1" value="12345 Wallaby Lane">
-                <input type="hidden" name="addressline2" value="">
-                <input type="hidden" name="city" value="Ultimo">
-                <input type="hidden" name="state" value="NSW">
-                <input type="hidden" name="postcode" value="2000">-->
                 <input type="hidden" name="tos" value="yes">
             </fieldset>
         </form>

@@ -18,21 +18,7 @@
     </head>
     <%
         User user = (User)session.getAttribute("user");
-//        //parameter variable declarations and requests (only the ones that are currently required/being used)
-//        String firstname = request.getParameter("firstname");
-//        String lastname = request.getParameter("lastname");
-//        String email = request.getParameter("email");
-//        String password = request.getParameter("password");
-//        String addressline1 = request.getParameter("addressline1");
-//        String addressline2 = request.getParameter("addressline2");
-//        String city = request.getParameter("city");
-//        String postcode = request.getParameter("postcode");
-//        String state = request.getParameter("state");
-//        String phoneNum = request.getParameter("phoneNum");
-        String tos = request.getParameter("tos");
-        
-//        User user = new User(email, firstname, lastname, password, addressline1, addressline2, city, state, postcode, phoneNum);
-//        session.setAttribute("user", user);
+        String tos = request.getParameter("tos");        
     %>
     <body>
         <header>
@@ -47,8 +33,8 @@
               <%
                   } else {
               %>
-              <li><a href="./account.jsp">Account</a></li>
-              <li><a href="./logout.jsp">Logout</a></li>
+              <li><a href="./account.jsp">${user.firstName}'s Account</a></li>
+              <li><a href="LogoutServlet">Logout</a></li>
               <%
                   }
               %>
@@ -83,10 +69,10 @@
         <h1 class="main_title">Welcome, <%=user.getFirstName()%> <%=user.getLastName()%>!</h1>
         <div class="landing_body">
             <p>User Options:</p>
-            <a href="./account.jsp">View Account</a>
-            <a href="./editAccount.jsp">Edit Account</a>
-            <a href="./userAccessLogs.jsp">View Logs</a>            
-            <a href="./catalogue.jsp">Start Browsing</a>
+            <a class='formButton' href="./account.jsp">View Account</a>
+            <a class='formButton' href="EditServlet?email='<%= user.getEmail()%>'&password='<%=user.getPassword()%>'">Edit Account</a>
+            <a class='formButton' href="./userAccessLogs.jsp">View Logs</a>            
+            <a class='formButton' href="./catalogue.jsp">Start Browsing</a>
         </div>
         <%
             }

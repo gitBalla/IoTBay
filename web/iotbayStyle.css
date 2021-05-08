@@ -35,22 +35,6 @@ body {
     font-size: 20px;
 }
 
-.landing_body a {
-    background-color: green;
-    color: white;
-    padding: 1em 1.5em;
-    text-decoration: none;
-    text-transform: uppercase;
-    position: relative;
-    top: 20px;
-    margin: 0 20px;
-}
-
-.landing_body a:hover {
-    background-color: grey;
-    cursor: pointer;
-}
-
 .formButton{
     background-color: green;
     color: white;
@@ -59,7 +43,7 @@ body {
     text-transform: uppercase;
     position: relative;
     top: 20px;
-    margin: 0 20px;
+    margin: 0 0 20px 2px;
 }
 
 .formButton:hover {

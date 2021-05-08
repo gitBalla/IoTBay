@@ -27,8 +27,8 @@
       <nav>
         <ul class="menu">
           <li><a href="./index.jsp">Home</a></li>
-          <li><a href="./account.jsp">Account</a></li>
-          <li><a href="./logout.jsp">Logout</a></li>
+          <li><a href="./account.jsp">${user.firstName}'s Account</a></li>
+          <li><a href="LogoutServlet">Logout</a></li>
           <li><a href="catalogue.jsp">Browse Catalogue</a></li>
           <div class="search-container">
             <form action="">
@@ -41,7 +41,7 @@
     </header>
     <main>
       <h1 class="main_title">Edit Account Details</h1>
-      <div class="landing_body"><span class="message"> <%= (updated != null ? updated : "" )%> </span>
+      <div class="landing_body"><span class="message"> <%= (updated != null ? updated : "" )%></span>
         <form class="user_access_form" action="UpdateServlet" method="post">
             <fieldset>
                 <legend>My Account Details:</legend>
@@ -56,11 +56,11 @@
                     </tr>                    
                     <tr>
                         <td><label for="email">Email*:</label></td>
-                        <td><input type="email" id="email" name="email" value="${user.email}" required></input></td>
+                        <td><input type="email" id="email" name="email" value="${user.email}" pattern='([a-zA-Z0-9]+)(([._-])([a-zA-Z0-9]+))*(@)([a-z]+)(.)([a-z]{3})((([.])[a-z]{0,2})*)' title='Please use a valid email address' required></input></td>
                     </tr>
                     <tr>
                         <td><label for="password">Password*:</label></td>
-                        <td><input type="password" id="password" name="password" value="${user.password}" required></input></td>
+                        <td><input type="password" id="password" name="password" value="${user.password}" pattern='^(?=.*[A-Za-z])(?=.*[0-9]).{5,}$' title='Minimum length 5 characters, including one letter and one number' required></input></td>
                     </tr>
                     <tr>
                         <td><label for="addressLine1">Address Line 1:</label></td>

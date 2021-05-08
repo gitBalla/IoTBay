@@ -25,8 +25,8 @@
       <nav>
         <ul class="menu">
           <li><a href="./index.jsp">Home</a></li>
-          <li><a href="./account.jsp">Account</a></li>
-          <li><a href="./logout.jsp">Logout</a></li>
+          <li><a href="./account.jsp">${user.firstName}'s Account</a></li>
+          <li><a href="LogoutServlet">Logout</a></li>
           <li><a>Browse Catalogue</a></li>
           <div class="search-container">
             <form action="">
@@ -43,8 +43,8 @@
         <p>
           ...
         </p>
-        <a href="./account.jsp">View Account</a>
-        <a href="./logout.jsp">Logout</a>
+        <a class='formButton' href="./account.jsp">View Account</a>
+        <a class='formButton' href="LogoutServlet">Logout</a>
       </div>
     </main>
   </body>

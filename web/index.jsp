@@ -28,8 +28,8 @@
           <%
               if (user != null) {
           %>
-          <li><a href="./account.jsp">Account</a></li>
-          <li><a href="./logout.jsp">Logout</a></li>
+          <li><a href="./account.jsp">${user.firstName}'s Account</a></li>
+          <li><a href="LogoutServlet">Logout</a></li>
           <%
               } else {
           %>
@@ -57,15 +57,15 @@
         <%
               if (user != null) {
         %>
-        <a href="./account.jsp">View Account</a>
+        <a class='formButton' href="./account.jsp">View Account</a>
         <%
               } else {
         %>
-        <a href="./registration.jsp">Create an account</a>
+        <a class='formButton' href="./registration.jsp">Create an account</a>
         <%
               }
         %>
-        <a href="./catalogue.jsp">Start Browsing</a>
+        <a class='formButton' href="./catalogue.jsp">Start Browsing</a>
       </div>
     </main>
         <jsp:include page="/ConnServlet" flush="true"/>

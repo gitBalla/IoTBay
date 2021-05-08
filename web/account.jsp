@@ -25,8 +25,8 @@
       <nav>
         <ul class="menu">
           <li><a href="./index.jsp">Home</a></li>
-          <li><a href="./account.jsp">Account</a></li>
-          <li><a href="./logout.jsp">Logout</a></li>
+          <li><a href="./account.jsp">${user.firstName}'s Account</a></li>
+          <li><a href="LogoutServlet">Logout</a></li>
           <li><a href="./catalogue.jsp">Browse Catalogue</a></li>
           <div class="search-container">
             <form action="">
@@ -60,8 +60,8 @@
                     <td></td><td>${user.city}, ${user.state} ${user.postCode}</td>
                 </tr>
             </table></br>
-        <a href="./editAccount.jsp">Edit Account</a>
-        <a href="./userAccessLogs.jsp">View Access Logs</a>
+        <a class='formButton' href="EditServlet?email='<%= user.getEmail()%>'&password='<%=user.getPassword()%>'">Edit Account</a>
+        <a class='formButton' href="./userAccessLogs.jsp">View Access Logs</a>
       </div>
     </main>
   </body>
