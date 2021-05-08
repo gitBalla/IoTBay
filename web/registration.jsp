@@ -41,12 +41,12 @@
                         <td>Required Fields*</td>
                     </tr>
                     <tr>
-                        <td><label for="firstname">First Name*:</label></td>
-                        <td><input type="text" id="firstname" name="firstname" required></input></td>
+                        <td><label for="firstName">First Name*:</label></td>
+                        <td><input type="text" id="firstName" name="firstName" required></input></td>
                     </tr>
                     <tr>
-                        <td><label for="lastname">Last Name*:</label></td>
-                        <td><input type="text" id="lastname" name="lastname" required></input></td>
+                        <td><label for="lastName">Last Name*:</label></td>
+                        <td><input type="text" id="lastName" name="lastName" required></input></td>
                     </tr>                    
                     <tr>
                         <td><label for="email">Email*:</label></td>
@@ -57,12 +57,12 @@
                         <td><input type="password" id="password" name="password" required></input></td>
                     </tr>
                     <tr>
-                        <td><label for="addressline1">Address Line 1:</label></td>
-                        <td><input type="text" id="addressline1" name="addressline1" required></input></td>
+                        <td><label for="addressLine1">Address Line 1:</label></td>
+                        <td><input type="text" id="addressLine1" name="addressLine1" required></input></td>
                     </tr>
                     <tr>
-                        <td><label for="addressline2">Address Line 2:</label></td>
-                        <td><input type="text" id="addressline2" name="addressline2"></input></td>
+                        <td><label for="addressLine2">Address Line 2:</label></td>
+                        <td><input type="text" id="addressLine2" name="addressLine2"></input></td>
                     </tr>
                     <tr>
                         <td><label for="city">City:</label></td>
@@ -70,7 +70,7 @@
                     </tr>
                     <tr>
                         <td><label for="postCode">Postcode:</label></td>
-                        <td><input type="number" id="postcode" name="postcode" minlength="4" maxlength="5" required></input></td>
+                        <td><input type="number" id="postCode" name="postCode" minlength="4" maxlength="5" required></input></td>
                     </tr>
                     <tr>
                         <td><label for="state">State/Territory:</label></td>

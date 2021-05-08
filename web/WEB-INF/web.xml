@@ -25,6 +25,26 @@
       <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
     
+    <servlet>
+      <servlet-name>EditServlet</servlet-name>
+      <servlet-class>isd.iotbay.controller.EditServlet</servlet-class>
+      <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>EditServlet</servlet-name>
+      <url-pattern>/EditServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+      <servlet-name>UpdateServlet</servlet-name>
+      <servlet-class>isd.iotbay.controller.UpdateServlet</servlet-class>
+      <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>UpdateServlet</servlet-name>
+      <url-pattern>/UpdateServlet</url-pattern>
+    </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30

@@ -76,7 +76,7 @@ CREATE TABLE COLLECTION_T (
 --create table for order
 CREATE TABLE ORDER_T (
     ORDERID INTEGER NOT NULL,
-    PRIMARY KEY (ORDER_T)
+    PRIMARY KEY (ORDERID)
 );
 
 --create table for payment

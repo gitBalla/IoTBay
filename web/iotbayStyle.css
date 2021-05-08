@@ -146,6 +146,11 @@ body {
     text-align: left;
 }
 
+.message {
+    color: orangered;
+    font-size: 30px;
+}
+
 /* ids */
 
 #searchbar {

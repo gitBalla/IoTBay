@@ -62,7 +62,7 @@ public void addUser(String email, String firstName, String lastName, String pass
 //update a user details in the database   
 public void updateUser( String email, String firstName, String lastName, String password, String addressLine1, String addressLine2, String city, String state, String postCode, String phoneNum) throws SQLException {       
     //code for update-operation   
-    st.executeUpdate("UPDATE IOTBAYUSER.USER_T SET EMAIL='" + email + "', FIRSTNAME='" + firstName + "', LASTNAME='" + lastName + "', PASSWORD='" + password + "', ADDRESS1='" + addressLine1 + "', ADDRESS2='" + addressLine2 + "', CITY='" + city + "', STATELOC='" + state + "', POSTCODE='" + postCode + "', PHONE='" + phoneNum + "'");
+    st.executeUpdate("UPDATE IOTBAYUSER.USER_T SET EMAIL='" + email + "', FIRSTNAME='" + firstName + "', LASTNAME='" + lastName + "', PASSWORD='" + password + "', ADDRESS1='" + addressLine1 + "', ADDRESS2='" + addressLine2 + "', CITY='" + city + "', STATELOC='" + state + "', POSTCODE='" + postCode + "', PHONE='" + phoneNum + "' WHERE EMAIL='" + email + "'");
 }
 
 //delete a user from the database   
@@ -96,13 +96,13 @@ public ArrayList<User> fetchUsers() throws SQLException{
     return temp; 
 }
 
-public boolean CheckUser(String email, String password) throws SQLException{
+public boolean checkUser(String email, String password) throws SQLException{
     String fetch = "SELECT * FROM IOTBAYUSER.USER_T WHERE EMAIL = '" + email + "' AND PASSWORD= '" + password + "'";
     ResultSet rs = st.executeQuery(fetch);
     
     while(rs.next()) {
-        String userEmail = rs.getString(1);
-        String userPass = rs.getString(3);
+        String userEmail = rs.getString(2);
+        String userPass = rs.getString(5);
         if(userEmail.equals(email) && userPass.equals(password)) {
             return true;
         }
