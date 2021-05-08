@@ -3,7 +3,7 @@
     Created on : 27/03/2021, 3:55:59 PM
     Author     : johnballa
 --%>
-
+<%@page import="isd.iotbay.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -33,17 +33,23 @@
         </nav>
     </header>
     <body>
-        <form class="user_access_form" action="./welcome.jsp" method="post">
+        <%
+            String existErr = (String) session.getAttribute("existErr");
+            String emailErr = (String) session.getAttribute("emailErr");
+            String passErr = (String) session.getAttribute("passErr");            
+        %>
+        <h1><span class="message"> <%=(existErr != null ? existErr : "")%> </span></h1><!-- error messages -->
+        <form class="user_access_form" action="LoginServlet" method="post">
             <fieldset>
                 <legend>IoTBay Account Login</legend>
                 <table>
                     <tr>
                         <td><label for="email">Email:</label></td>
-                        <td><input type="email" id="email" name="email"></input></td>
+                        <td><input type="email" placeholder="<%=(emailErr != null ? emailErr : "Enter email")%>" required id="email" name="email"></input></td>
                     </tr>
                     <tr>
                         <td><label for="password">Password:</label></td>
-                        <td><input type="password" id="password" name="password"></input></td>
+                        <td><input type="password" placeholder="<%=(passErr != null ? passErr : "Enter password")%>" required id="password" name="password"></input></td>
                     </tr>
                     <tr>
                         <td></td>
@@ -53,14 +59,14 @@
                         </td>
                     </tr>
                 </table>
-                <!-- following values to be removed once database is linked -->
+<!--            following values to be removed once database is linked 
                 <input type="hidden" name="firstname" value="John">
                 <input type="hidden" name="lastname" value="Smith">
                 <input type="hidden" name="addressline1" value="12345 Wallaby Lane">
                 <input type="hidden" name="addressline2" value="">
                 <input type="hidden" name="city" value="Ultimo">
                 <input type="hidden" name="state" value="NSW">
-                <input type="hidden" name="postcode" value="2000">
+                <input type="hidden" name="postcode" value="2000">-->
                 <input type="hidden" name="tos" value="yes">
             </fieldset>
         </form>

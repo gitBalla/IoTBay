@@ -3,7 +3,7 @@
     Created on : 08/04/2021, 2:48:17 PM
     Author     : vince
 --%>
-<%@page import="isd.iotbay.model.User"%>
+<%@page import="isd.iotbay.model.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -68,5 +68,6 @@
         <a href="./catalogue.jsp">Start Browsing</a>
       </div>
     </main>
+        <jsp:include page="/ConnServlet" flush="true"/>
   </body>
 </html>

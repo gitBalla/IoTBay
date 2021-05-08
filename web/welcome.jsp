@@ -16,23 +16,23 @@
             rel="stylesheet"
             />
     </head>
-    <!-- initialize parameters and if statement for welcome page, followed by else statement for registration form -->
     <%
-        //parameter variable declarations and requests (only the ones that are currently required/being used)
-        String firstname = request.getParameter("firstname");
-        String lastname = request.getParameter("lastname");
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        String addressline1 = request.getParameter("addressline1");
-        String addressline2 = request.getParameter("addressline2");
-        String city = request.getParameter("city");
-        String postcode = request.getParameter("postcode");
-        String state = request.getParameter("state");
-        String phoneNum = request.getParameter("phoneNum");
+        User user = (User)session.getAttribute("user");
+//        //parameter variable declarations and requests (only the ones that are currently required/being used)
+//        String firstname = request.getParameter("firstname");
+//        String lastname = request.getParameter("lastname");
+//        String email = request.getParameter("email");
+//        String password = request.getParameter("password");
+//        String addressline1 = request.getParameter("addressline1");
+//        String addressline2 = request.getParameter("addressline2");
+//        String city = request.getParameter("city");
+//        String postcode = request.getParameter("postcode");
+//        String state = request.getParameter("state");
+//        String phoneNum = request.getParameter("phoneNum");
         String tos = request.getParameter("tos");
         
-        User user = new User(email, firstname, lastname, password, addressline1, addressline2, city, state, postcode, phoneNum);
-        session.setAttribute("user", user);
+//        User user = new User(email, firstname, lastname, password, addressline1, addressline2, city, state, postcode, phoneNum);
+//        session.setAttribute("user", user);
     %>
     <body>
         <header>
@@ -80,7 +80,7 @@
             //tos is agreed to
         } else {
         %>
-        <h1 class="main_title">Welcome, <%=firstname%> <%=lastname%>!</h1>
+        <h1 class="main_title">Welcome, <%=user.getFirstName()%> <%=user.getLastName()%>!</h1>
         <div class="landing_body">
             <p>User Options:</p>
             <a href="./account.jsp">View Account</a>
