@@ -1,70 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-	 version="3.1">
-    
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-      <servlet-name>ConnServlet</servlet-name>
-      <servlet-class>isd.iotbay.controller.ConnServlet</servlet-class>
-      <load-on-startup>0</load-on-startup>
+        <servlet-name>ConnServlet</servlet-name>
+        <servlet-class>isd.iotbay.controller.ConnServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet-mapping>
-      <servlet-name>ConnServlet</servlet-name>
-      <url-pattern>/ConnServlet</url-pattern>
+        <servlet-name>ConnServlet</servlet-name>
+        <url-pattern>/ConnServlet</url-pattern>
     </servlet-mapping>
-    
     <servlet>
-      <servlet-name>LoginServlet</servlet-name>
-      <servlet-class>isd.iotbay.controller.LoginServlet</servlet-class>
-      <load-on-startup>0</load-on-startup>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>isd.iotbay.controller.LoginServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet-mapping>
-      <servlet-name>LoginServlet</servlet-name>
-      <url-pattern>/LoginServlet</url-pattern>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
-    
     <servlet>
-      <servlet-name>EditServlet</servlet-name>
-      <servlet-class>isd.iotbay.controller.EditServlet</servlet-class>
-      <load-on-startup>0</load-on-startup>
+        <servlet-name>EditAccountServlet</servlet-name>
+        <servlet-class>isd.iotbay.controller.EditAccountServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet-mapping>
-      <servlet-name>EditServlet</servlet-name>
-      <url-pattern>/EditServlet</url-pattern>
+        <servlet-name>EditAccountServlet</servlet-name>
+        <url-pattern>/EditAccountServlet</url-pattern>
     </servlet-mapping>
-    
     <servlet>
-      <servlet-name>UpdateServlet</servlet-name>
-      <servlet-class>isd.iotbay.controller.UpdateServlet</servlet-class>
-      <load-on-startup>0</load-on-startup>
+        <servlet-name>UpdateAccountServlet</servlet-name>
+        <servlet-class>isd.iotbay.controller.UpdateAccountServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet-mapping>
-      <servlet-name>UpdateServlet</servlet-name>
-      <url-pattern>/UpdateServlet</url-pattern>
+        <servlet-name>UpdateAccountServlet</servlet-name>
+        <url-pattern>/UpdateAccountServlet</url-pattern>
     </servlet-mapping>
-    
     <servlet>
-      <servlet-name>LogoutServlet</servlet-name>
-      <servlet-class>isd.iotbay.controller.LogoutServlet</servlet-class>
-      <load-on-startup>0</load-on-startup>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>isd.iotbay.controller.LogoutServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet-mapping>
-      <servlet-name>LogoutServlet</servlet-name>
-      <url-pattern>/LogoutServlet</url-pattern>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/LogoutServlet</url-pattern>
     </servlet-mapping>
-    
     <servlet>
-      <servlet-name>RegistrationServlet</servlet-name>
-      <servlet-class>isd.iotbay.controller.RegistrationServlet</servlet-class>
-      <load-on-startup>0</load-on-startup>
+        <servlet-name>RegistrationServlet</servlet-name>
+        <servlet-class>isd.iotbay.controller.RegistrationServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet-mapping>
-      <servlet-name>RegistrationServlet</servlet-name>
-      <url-pattern>/RegistrationServlet</url-pattern>
+        <servlet-name>RegistrationServlet</servlet-name>
+        <url-pattern>/RegistrationServlet</url-pattern>
     </servlet-mapping>
-        
+    <servlet>
+        <servlet-name>ViewLogsServlet</servlet-name>
+        <servlet-class>isd.iotbay.controller.ViewLogsServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewLogsServlet</servlet-name>
+        <url-pattern>/ViewLogsServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

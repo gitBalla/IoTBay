@@ -17,7 +17,7 @@ import isd.iotbay.model.dao.DBManager;
  * @author johnballa
  */
 
-public class UpdateServlet extends HttpServlet {
+public class UpdateAccountServlet extends HttpServlet {
     @Override   
     protected void doPost(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException {       
         //1- retrieve the current session

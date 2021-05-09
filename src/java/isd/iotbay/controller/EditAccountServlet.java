@@ -17,7 +17,7 @@ import isd.iotbay.model.dao.DBManager;
  * @author johnballa
  */
 
-public class EditServlet extends HttpServlet {
+public class EditAccountServlet extends HttpServlet {
 
     @Override   
     protected void doGet(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException {       

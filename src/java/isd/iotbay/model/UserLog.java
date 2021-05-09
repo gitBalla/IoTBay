@@ -8,29 +8,43 @@ package isd.iotbay.model;
 public class UserLog implements java.io.Serializable{
     //declarations
 
+    private String currentDate;
+    private String currentTime;
     private String logEvent;
-    private long currentTimeStamp;
 
-    //constructor
 
-    public UserLog(String logEvent, long currentTimeStamp) {
-        this.logEvent = logEvent;
-        this.currentTimeStamp = currentTimeStamp;
+    //constructors
+    
+    public UserLog() {
     }
 
+    public UserLog(String currentDate, String currentTime, String logEvent) {
+        this.currentDate = currentDate;
+        this.currentTime = currentTime;
+        this.logEvent = logEvent;
+    }
+
+    public String getCurrentDate() {
+        return currentDate;
+    }
+
+    public void setCurrentDate(String currentDate) {
+        this.currentDate = currentDate;
+    }
+
+    public String getCurrentTime() {
+        return currentTime;
+    }
+
+    public void setCurrentTime(String currentTime) {
+        this.currentTime = currentTime;
+    }    
+    
     public String getLogEvent() {
         return logEvent;
     }
 
     public void setLogEvent(String logEvent) {
         this.logEvent = logEvent;
-    }
-
-    public long getCurrentTimeStamp() {
-        return currentTimeStamp;
-    }
-
-    public void setCurrentTimeStamp(long currentTimeStamp) {
-        this.currentTimeStamp = currentTimeStamp;
     }
 }

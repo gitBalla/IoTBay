@@ -116,15 +116,16 @@ public void addUserLog(Integer userID, String logEvent) throws SQLException {
             + "VALUES ('" + userID + "', '" + logEvent + "')");
 }
 
-public ArrayList<UserLog> fetchUserLogs(Integer userID) throws SQLException{
-    String fetch = "SELECT * FROM IOTBAYUSER.USER_LOG_T WHERE USERID='" + userID + "'";
+public ArrayList<UserLog> fetchUserLogs() throws SQLException{ //int userID
+    String fetch = "SELECT * FROM IOTBAYUSER.USER_LOG_T"; // WHERE USERID='" + userID + "'
     ResultSet rs = st.executeQuery(fetch);
     ArrayList<UserLog> temp = new ArrayList();
     
     while(rs.next()) {
-        String currentTimeStamp = rs.getString(3);
-        long logEvent = rs.getLong(4);
-        temp.add(new UserLog(currentTimeStamp,logEvent));
+        String currentDate = rs.getString(3);
+        String currentTime = rs.getString(4);
+        String logEvent = rs.getString(5);
+        temp.add(new UserLog(currentDate,currentTime,logEvent));
         }
     return temp; 
 }

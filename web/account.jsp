@@ -72,8 +72,8 @@
                     <td></td><td>${user.city}, ${user.state} ${user.postCode}</td>
                 </tr>
             </table></br>
-        <a class='formButton' href="EditServlet?email='<%= user.getEmail()%>'&password='<%=user.getPassword()%>'">Edit My Account</a>
-        <a class='formButton' href="./userAccessLogs.jsp">View My Access Logs</a>
+        <a class='formButton' href="EditAccountServlet?email='<%= user.getEmail()%>'&password='<%=user.getPassword()%>'">Edit My Account</a>
+        <a class='formButton' href="ViewLogsServlet">View My Access Logs</a>
         <a class='formButton' href="">View My Orders</a>
         <a class='formButton' href="">Delete My Account</a>
       </div>

@@ -54,7 +54,7 @@
     <main>
       <h1 class="main_title">Edit Account Details</h1>
       <div class="landing_body"><span class="message"> <%= (updated != null ? updated : "" )%></span>
-        <form class="user_access_form" action="UpdateServlet" method="post">
+        <form class="user_access_form" action="UpdateAccountServlet" method="post">
             <fieldset>
                 <legend>My Account Details:</legend>
                 <table>

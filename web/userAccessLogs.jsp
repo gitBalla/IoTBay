@@ -3,7 +3,10 @@
     Created on : 26/04/2021, 1:56:57 AM
     Author     : johnballa
 --%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="isd.iotbay.model.User"%>
+<%@page import="isd.iotbay.model.UserLog"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -51,15 +54,13 @@
     </header>
     <main>
       <h1 class="main_title">Access Logs</h1>
+      <div class="landing_body">
       <div>
-        <label>Search Log Entries: 
-          <input class="formInput" type="text" placeholder="Search by Date" name="logSearchBar"></input>
+        <label class="user_access_form">Search Log Entries: 
+           <input class="formInput" type="date" name="logSearchBar"></input>
         </label>
       </div>
-      <div class="landing_body">
-        <p>
-          ...
-        </p>
+        <jsp:include page="./userLogTable.jsp" flush="true"/>
         <a class='formButton' href="./account.jsp">View Account</a>
         <a class='formButton' href="LogoutServlet">Logout</a>
       </div>

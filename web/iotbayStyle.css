@@ -129,11 +129,30 @@ body {
 }
 
 .displayTable {
-  margin: 0px auto;
+  margin: 20px auto;
+  width: 30%;
+}
+
+.displayTable td, .displayTable th {
+    border: 1px solid #eee;
+    padding: 2px;
 }
 
 .displayTable tr {
     text-align: left;
+}
+
+.displayTable tr:nth-child(even) {
+    background-color: #f0f0f0;
+}
+
+.displayTable tr:hover {
+    background-color: #ddffbc;
+}
+
+.displayTable th {
+    background-color: green;
+    color: white;
 }
 
 .message {
