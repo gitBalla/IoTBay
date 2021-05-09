@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="isd.iotbay.model.Customer"%>
+<%@page import="isd.iotbay.model.User"%>
 
 <!DOCTYPE html>
 <html>
@@ -19,7 +19,7 @@
         <title>IoT Bay Catalogue</title>
     </head>
     <%
-      Customer customer = (Customer)session.getAttribute("customer");
+      User user = (User)session.getAttribute("user");
     %>
     <body>
         <header>
@@ -27,9 +27,9 @@
               <ul class="menu">
                 <li><a href="./index.jsp">Home</a></li>
                 <%
-                    if (customer != null) {
+                    if (user != null) {
                 %>
-                <li><a>Account</a></li>
+                <li><a href="./account.jsp">${user.firstName}'s Account</a></li>
                 <li><a href="./logout.jsp">Logout</a></li>
                 <%
                     } else {
@@ -40,6 +40,18 @@
                     }
                 %>
                 <li><a href="catalogue.jsp">Browse Catalogue</a></li>
+                <%
+                if(user.isStaff()) {
+                %>
+                <li><a href="./staff.jsp"> Staff Menu</a></li>
+                <%
+                }
+                if(user.isAdmin()) {
+                %>
+                <li><a href="./admin.jsp"> Admin Menu</a></li>
+                <%
+                }
+                %>
                 <div class="search-container">
                   <form action="">
                     <button type="submit">Submit</button>

@@ -5,8 +5,7 @@ package isd.iotbay.model.dao;
  * @author johnballa
  */
 
-import isd.iotbay.model.User;
-import isd.iotbay.model.CreditCard;
+import isd.iotbay.model.*;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -110,6 +109,25 @@ public boolean checkUser(String email, String password) throws SQLException{
     return false;   
 }
 
+//Add a user log entry into the database   
+public void addUserLog(Integer userID, String logEvent) throws SQLException {                   
+    //code for add-operation       
+    st.executeUpdate("INSERT INTO IOTBAYUSER.USER_LOG_T(USERID,LOGEVENT) "
+            + "VALUES ('" + userID + "', '" + logEvent + "')");
+}
+
+public ArrayList<UserLog> fetchUserLogs(Integer userID) throws SQLException{
+    String fetch = "SELECT * FROM IOTBAYUSER.USER_LOG_T WHERE USERID='" + userID + "'";
+    ResultSet rs = st.executeQuery(fetch);
+    ArrayList<UserLog> temp = new ArrayList();
+    
+    while(rs.next()) {
+        String currentTimeStamp = rs.getString(3);
+        long logEvent = rs.getLong(4);
+        temp.add(new UserLog(currentTimeStamp,logEvent));
+        }
+    return temp; 
+}
 
 public CreditCard findPayment(String order) throws SQLException {       
        //setup the select sql query string       

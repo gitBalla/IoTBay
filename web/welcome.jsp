@@ -68,14 +68,23 @@
         %>
         <h1 class="main_title">Welcome, <%=user.getFirstName()%> <%=user.getLastName()%>!</h1>
         <div class="landing_body">
-            <p>User Options:</p>
-            <a class='formButton' href="./account.jsp">View Account</a>
-            <a class='formButton' href="EditServlet?email='<%= user.getEmail()%>'&password='<%=user.getPassword()%>'">Edit Account</a>
-            <a class='formButton' href="./userAccessLogs.jsp">View Logs</a>            
-            <a class='formButton' href="./catalogue.jsp">Start Browsing</a>
+            <a class='formButton' href="./account.jsp">View User Account</a>
+            <%
+            if(user.isStaff()) {
+            %>
+            <a class='formButton' href="./staff.jsp"> View Staff Menu</a>
+            <%
+            }
+            if(user.isAdmin()) {
+            %>
+            <a class='formButton' href="./admin.jsp"> View Admin Menu</a>
+            <%
+            }
+            %>
+            <a class='formButton' href="LogoutServlet">Logout</a>
         </div>
         <%
-            }
+        }
         %>
     </body>
 </html>

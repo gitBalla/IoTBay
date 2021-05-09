@@ -28,6 +28,18 @@
           <li><a href="./account.jsp">${user.firstName}'s Account</a></li>
           <li><a href="LogoutServlet">Logout</a></li>
           <li><a href="./catalogue.jsp">Browse Catalogue</a></li>
+            <%
+            if(user.isStaff()) {
+            %>
+            <li><a href="./staff.jsp"> Staff Menu</a></li>
+            <%
+            }
+            if(user.isAdmin()) {
+            %>
+            <li><a href="./admin.jsp"> Admin Menu</a></li>
+            <%
+            }
+            %>
           <div class="search-container">
             <form action="">
               <button type="submit">Submit</button>
@@ -60,8 +72,10 @@
                     <td></td><td>${user.city}, ${user.state} ${user.postCode}</td>
                 </tr>
             </table></br>
-        <a class='formButton' href="EditServlet?email='<%= user.getEmail()%>'&password='<%=user.getPassword()%>'">Edit Account</a>
-        <a class='formButton' href="./userAccessLogs.jsp">View Access Logs</a>
+        <a class='formButton' href="EditServlet?email='<%= user.getEmail()%>'&password='<%=user.getPassword()%>'">Edit My Account</a>
+        <a class='formButton' href="./userAccessLogs.jsp">View My Access Logs</a>
+        <a class='formButton' href="">View My Orders</a>
+        <a class='formButton' href="">Delete My Account</a>
       </div>
     </main>
   </body>

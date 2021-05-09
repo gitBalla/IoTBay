@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package isd.iotbay.model;
 
 /**
  *
  * @author johnballa
  */
+
 public class User implements java.io.Serializable{
     //declarations
     
@@ -142,7 +138,7 @@ public class User implements java.io.Serializable{
         this.phoneNum = phoneNum;
     }
 
-    public boolean isIsStaff() {
+    public boolean isStaff() {
         return isStaff;
     }
 
@@ -150,7 +146,7 @@ public class User implements java.io.Serializable{
         this.isStaff = isStaff;
     }
 
-    public boolean isIsAdmin() {
+    public boolean isAdmin() {
         return isAdmin;
     }
 

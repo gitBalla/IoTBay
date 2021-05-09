@@ -32,10 +32,11 @@ body {
 }
 
 .landing_body p {
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .formButton{
+    font-size: 16px;
     background-color: green;
     color: white;
     padding: 1em 1.5em;
@@ -120,6 +121,11 @@ body {
 .user_access_form {
   width: 500px;
   margin: 40px auto;
+  font-size: 20px;
+}
+
+.formInput {
+  font-size: 20px;
 }
 
 .displayTable {

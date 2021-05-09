@@ -20,8 +20,8 @@ public class BankAccount extends Payment {
         this.bsbNumber = bsbNumber;
     }
 
-    public BankAccount(int bsbNumber, String payMethod) {
-        super(payMethod);
+    public BankAccount(int bsbNumber, String payMethod, int payAmount, String payDate) {
+        super(payMethod, payAmount, payDate);
         this.bsbNumber = bsbNumber;
     }
 }

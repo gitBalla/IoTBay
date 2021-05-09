@@ -37,12 +37,10 @@
         </nav>
       </header>
       <h1 class="main_title">You are now logged out.</h1>
-      <div class="landing_body"><p>Thanks for visiting IoTBay, ${user.firstName}</p>
+      <div class="landing_body"><p>Thanks for visiting IoTBay!</p>
         <a class='formButton' href="./login.jsp">Login again</a>
         <a class='formButton' href="./catalogue.jsp">Start Browsing</a>
       </div>
     </body>
-    <%
-        session.invalidate();
-    %>
+    <jsp:include page="/ConnServlet" flush="true"/>
 </html>

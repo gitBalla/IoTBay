@@ -39,6 +39,18 @@
               }
           %>
           <li><a href="./catalogue.jsp">Browse Catalogue</a></li>
+            <%
+            if(user.isStaff()) {
+            %>
+            <li><a href="./staff.jsp"> Staff Menu</a></li>
+            <%
+            }
+            if(user.isAdmin()) {
+            %>
+            <li><a href="./admin.jsp"> Admin Menu</a></li>
+            <%
+            }
+            %>
           <div class="search-container">
             <form action="">
               <button type="submit">Submit</button>
