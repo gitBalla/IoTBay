@@ -29,12 +29,12 @@
           <li><a href="LogoutServlet">Logout</a></li>
           <li><a href="./catalogue.jsp">Browse Catalogue</a></li>
             <%
-            if(user.isStaff()) {
+            if(user != null && user.isStaff()) {
             %>
             <li><a href="./staff.jsp"> Staff Menu</a></li>
             <%
             }
-            if(user.isAdmin()) {
+            if(user != null && user.isAdmin()) {
             %>
             <li><a href="./admin.jsp"> Admin Menu</a></li>
             <%

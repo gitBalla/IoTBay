@@ -4,7 +4,7 @@
     Author     : vince
 --%>
 
-<%@page import="isd.iotbay.model.Customer"%>
+<%@page import="isd.iotbay.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,7 +19,7 @@
     />
   </head>
   <%
-      Customer customer = (Customer)session.getAttribute("customer");
+      User user = (User)session.getAttribute("user");
   %>
   <body>
     <header>
@@ -27,7 +27,7 @@
         <ul class="menu">
           <li><a href="./index.jsp">Home</a></li>
           <%
-              if (customer != null) {
+              if (user != null) {
           %>
           <li><a>Account</a></li>
           <li><a href="./logout.jsp">Logout</a></li>
@@ -40,6 +40,18 @@
               }
           %>
           <li><a href="./catalogue.jsp">Browse Catalogue</a></li>
+            <%
+            if(user != null && user.isStaff()) {
+            %>
+            <li><a href="./staff.jsp"> Staff Menu</a></li>
+            <%
+            }
+            if(user != null && user.isAdmin()) {
+            %>
+            <li><a href="./admin.jsp"> Admin Menu</a></li>
+            <%
+            }
+            %>
           <div class="search-container">
             <form action="">
               <button type="submit">Submit</button>

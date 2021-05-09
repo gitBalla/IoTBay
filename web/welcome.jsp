@@ -39,6 +39,18 @@
                   }
               %>
               <li><a>Browse Catalogue</a></li>
+                <%
+                if(user != null && user.isStaff()) {
+                %>
+                <li><a href="./staff.jsp"> Staff Menu</a></li>
+                <%
+                }
+                if(user != null && user.isAdmin()) {
+                %>
+                <li><a href="./admin.jsp"> Admin Menu</a></li>
+                <%
+                }
+                %>
               <div class="search-container">
                 <form action="">
                   <button type="submit">Submit</button>
@@ -70,12 +82,12 @@
         <div class="landing_body">
             <a class='formButton' href="./account.jsp">View User Account</a>
             <%
-            if(user.isStaff()) {
+            if(user != null && user.isStaff()) {
             %>
             <a class='formButton' href="./staff.jsp"> View Staff Menu</a>
             <%
             }
-            if(user.isAdmin()) {
+            if(user != null && user.isAdmin()) {
             %>
             <a class='formButton' href="./admin.jsp"> View Admin Menu</a>
             <%

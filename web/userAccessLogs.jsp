@@ -28,6 +28,18 @@
           <li><a href="./account.jsp">${user.firstName}'s Account</a></li>
           <li><a href="LogoutServlet">Logout</a></li>
           <li><a>Browse Catalogue</a></li>
+            <%
+            if(user != null && user.isStaff()) {
+            %>
+            <li><a href="./staff.jsp"> Staff Menu</a></li>
+            <%
+            }
+            if(user != null && user.isAdmin()) {
+            %>
+            <li><a href="./admin.jsp"> Admin Menu</a></li>
+            <%
+            }
+            %>
           <div class="search-container">
             <form action="">
               <button type="submit">Submit</button>
@@ -39,6 +51,11 @@
     </header>
     <main>
       <h1 class="main_title">Access Logs</h1>
+      <div>
+        <label>Search Log Entries: 
+          <input class="formInput" type="text" placeholder="Search by Date" name="logSearchBar"></input>
+        </label>
+      </div>
       <div class="landing_body">
         <p>
           ...
