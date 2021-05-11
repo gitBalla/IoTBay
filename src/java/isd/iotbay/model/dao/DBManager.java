@@ -134,7 +134,7 @@ public ArrayList<UserLog> fetchUserLogs(int userID) throws SQLException{
 
 public Payment findPayment(int order) throws SQLException {       
        //setup the select sql query string       
-       String fetch = "SELECT * FROM IOTBAYUSER.PAYMENT_T INNER JOIN WHERE ORDERID = '" + order + "'";
+       String fetch = "SELECT * FROM IOTBAYUSER.PAYMENT_T WHERE ORDERID = " + order + "";
        //execute this query using the statement field
        //add the results to a ResultSet   
        ResultSet rs = st.executeQuery(fetch);
@@ -144,12 +144,12 @@ public Payment findPayment(int order) throws SQLException {
            int orderID = rs.getInt(1);
            if (orderID == order) {
                String paymentMethod = rs.getString(2);
-               int ccNumber = rs.getInt(7);
-               String ccExpiry = rs.getString(8);
-               int ccSecurity = rs.getInt(9);
-               String paymentEmail = rs.getString(10);
-               int paymentAmount = rs.getInt(3);
-               String paymentDate = rs.getString(4);
+               int ccNumber = rs.getInt(3);
+               String ccExpiry = rs.getString(4);
+               int ccSecurity = rs.getInt(5);
+               String paymentEmail = rs.getString(6);
+               int paymentAmount = rs.getInt(7);
+               String paymentDate = rs.getString(8);
                return new Payment(paymentMethod, ccNumber, ccExpiry, ccSecurity, paymentEmail, paymentAmount, paymentDate, orderID);
            }
        }
