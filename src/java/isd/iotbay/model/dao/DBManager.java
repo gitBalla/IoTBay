@@ -164,4 +164,24 @@ public void addCreditCard(String method, int amount, String date, String ccType,
     st.executeUpdate("INSERT INTO IOTBAYUSER.CREDIT_CARD_T(PAYID, CCTYPE, CCNUMBER, CCEXP, CCSECURITY, PAYEMAIL) VALUES (" + lastid + ", '" + ccType + "', " + ccNumber + ", '" + ccExp + "', " + ccSecurity + ", '" + payEmail + "')");
 }
 
+//Add a product-data into the database   
+public void addProduct(int productID, String name, String description, float price, int stock) throws SQLException {                   
+    //code for add-operation       
+    st.executeUpdate("INSERT INTO IOTBAYUSER.PRODUCT_T(PRODUCTID,NAME,DESCRIPTION,PRICE,STOCK) " 
+            + "VALUES (" + productID + ", '" + name + "', '" + description + "', " + price + ", " + stock + ")");   
+
+}
+
+//update a product details in the database   
+public void updateProduct(int productID, String name, String description, float price, int stock) throws SQLException {       
+    //code for update-operation   
+    st.executeUpdate("UPDATE IOTBAYUSER.PRODUCT_T SET PRODUCTID=" + productID + ", NAME='" + name + "', DESCRIPTION='" + description + "', PRICE=" + price + ", STOCK=" + stock + "");
+}
+
+//delete a product from the database   
+public void deleteProduct(int productID) throws SQLException{       
+    //code for delete-operation
+    st.executeUpdate("DELETE FROM IOTBAYUSER.PRODUCT_T WHERE PRODUCTID=" + productID + "");
+}
+
 }
