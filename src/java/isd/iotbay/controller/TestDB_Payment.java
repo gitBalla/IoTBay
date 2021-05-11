@@ -10,9 +10,6 @@ import java.util.logging.*;
 
 
 import isd.iotbay.model.Payment;
-import isd.iotbay.model.CreditCard;
-import isd.iotbay.model.BankAccount;
-import isd.iotbay.model.PayPal;
 
 import isd.iotbay.model.dao.*;
 
@@ -44,10 +41,6 @@ public class TestDB_Payment {
 
             String payDate = in.nextLine();
             
-            System.out.print("CreditCard Type: ");
-
-            String ccType = in.nextLine();
-            
             System.out.print("CreditCard Number: ");
 
             int ccNumber = Integer.parseInt(in.nextLine());
@@ -63,10 +56,14 @@ public class TestDB_Payment {
             System.out.print("Payment Email: ");
 
             String payEmail = in.nextLine();
+            
+            System.out.print("Order ID: ");
 
-            db.addCreditCard( method, amount, payDate, ccType, ccNumber, ccExp, ccSecurity, payEmail);
+            int orderID = Integer.parseInt(in.nextLine());
 
-            System.out.println("Credit Card is added to the database.");
+            db.addPayment( method, ccNumber, ccExp, ccSecurity, payEmail, amount, payDate, orderID );
+
+            System.out.println("Payment is added to the database.");
             
             connector.closeConnection();
 

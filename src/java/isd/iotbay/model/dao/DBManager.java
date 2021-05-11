@@ -132,7 +132,7 @@ public ArrayList<UserLog> fetchUserLogs(int userID) throws SQLException{
     return temp; 
 }
 
-public CreditCard findPayment(String order) throws SQLException {       
+public Payment findPayment(int order) throws SQLException {       
        //setup the select sql query string       
        String fetch = "SELECT * FROM IOTBAYUSER.PAYMENT_T INNER JOIN WHERE ORDERID = '" + order + "'";
        //execute this query using the statement field
@@ -141,29 +141,33 @@ public CreditCard findPayment(String order) throws SQLException {
        //search the ResultSet for a user using the parameters
 
        while (rs.next()) {
-           String orderID = rs.getString(1);
-           if (orderID.equals(order)) {
+           int orderID = rs.getInt(1);
+           if (orderID == order) {
                String paymentMethod = rs.getString(2);
-               int paymentAmount = rs.getInt(3);
-               String paymentDate = rs.getString(4);
-               String ccType = rs.getString(6);
                int ccNumber = rs.getInt(7);
                String ccExpiry = rs.getString(8);
                int ccSecurity = rs.getInt(9);
                String paymentEmail = rs.getString(10);
-               return new CreditCard(ccType, ccNumber, ccExpiry, ccSecurity, paymentEmail, paymentMethod, paymentAmount, paymentDate);
+               int paymentAmount = rs.getInt(3);
+               String paymentDate = rs.getString(4);
+               return new Payment(paymentMethod, ccNumber, ccExpiry, ccSecurity, paymentEmail, paymentAmount, paymentDate, orderID);
            }
        }
        return null;   
     }
 
 
-public void addCreditCard(String method, int amount, String date, String ccType, int ccNumber, String ccExp, int ccSecurity, String payEmail) throws SQLException {                   //code for add-operation       
-    st.executeUpdate("INSERT INTO IOTBAYUSER.PAYMENT_T(PAYMETHOD, PAYAMOUNT, PAYDATE) VALUES ('" + method + "', " + amount + ", '" + date + "')");
-    ResultSet rs = st.executeQuery("SELECT MAX(PAYID) AS id FROM PAYMENT_T");
-    rs.next();
-    int lastid = rs.getInt("id");
-    st.executeUpdate("INSERT INTO IOTBAYUSER.CREDIT_CARD_T(PAYID, CCTYPE, CCNUMBER, CCEXP, CCSECURITY, PAYEMAIL) VALUES (" + lastid + ", '" + ccType + "', " + ccNumber + ", '" + ccExp + "', " + ccSecurity + ", '" + payEmail + "')");
+public void addPayment(String method, int ccNumber, String ccExp, int ccSecurity, String payEmail, int amount, String date, int orderID) throws SQLException {                   //code for add-operation       
+    st.executeUpdate("INSERT INTO IOTBAYUSER.PAYMENT_T(PAYMETHOD, CCNUMBER, CCEXP, CCSECURITY, PAYEMAIL, PAYAMOUNT, PAYDATE, ORDERID) " 
+            + "VALUES ('" + method + "', " + ccNumber + ", '" + ccExp + "', " + ccSecurity + ", '" + payEmail + "', " + amount + ", '" + date + "', " + orderID + ")");
+}
+
+public void updatePayment(String method, int ccNumber, String ccExp, int ccSecurity, String payEmail, int amount, String date, int orderID) throws SQLException {       
+    st.executeUpdate("UPDATE IOTBAYUSER.PAYMENT_T SET PAYMETHOD='" + method + "', CCNUMBER=" + ccNumber + ", CCEXP='" + ccExp + "', CCSECURITY=" + ccSecurity + ", PAYEMAIL='" + payEmail + "', PAYAMOUNT=" + amount + ", PAYDATE='" + date + "', ORDERID=" + orderID + "");
+}
+
+public void deletePayment(int orderID) throws SQLException{       
+    st.executeUpdate("DELETE FROM IOTBAYUSER.PAYMENT_T WHERE ORDERID=" + orderID + "");
 }
 
 //Add a product-data into the database   
