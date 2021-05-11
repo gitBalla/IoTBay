@@ -96,17 +96,14 @@
                                     <a href="./tos.html" target="popup" onclick="window.open('./tos.html','popup','width=600,height=400'); return false;">Read the TOS</a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td></td>
-                                <td>
-                                    <input type="submit" id="register" class="submit" name="register" value="Register"></input>
-                                    <a class="submit" href="./index.jsp">Cancel</a>
-                                </td>
-                            </tr>
                         </table>
                     </fieldset>
+                        <h3>Note: fields marked with * are mandatory</h3>
+                    <table class="buttonTable">
+                        <input type="submit" id="register" class="submit" name="register" value="Register"></input>
+                        <a class="submit" href="./index.jsp">Cancel</a>
+                    </table>
                 </form>
-                <h3>Note: fields marked with * are mandatory</h3>
             </div>
         </main>
     </body>

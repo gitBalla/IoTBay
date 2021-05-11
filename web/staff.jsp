@@ -47,13 +47,25 @@
           </nav>
         </header>    
         <main>
+            <%
+            if(user.isStaff()) {
+            %>
             <h1 class="main_title">Staff Menu</h1>
             <div class="landing_body">
-                <a class='formButton' href="">Add New Product</a>
-                <a class='formButton' href="">List Product Records</a>
-                <a class='formButton' href="">Edit Product Records</a>            
-                <a class='formButton' href="">Delete Product Record</a>
+                <table class="buttonTable">
+                    <a class='formButton' href="">Add New Product</a>
+                    <a class='formButton' href="">List Product Records</a>
+                    <a class='formButton' href="">Edit Product Records</a>            
+                    <a class='formButton' href="">Delete Product Record</a>
+                </table>
             </div>
+            <%
+            } else {
+            %>
+            <h1 class="main_title">UNAUTHORIZED ACCESS</h1>
+            <%
+            }
+            %>
         </main>
     </body>
 </html>

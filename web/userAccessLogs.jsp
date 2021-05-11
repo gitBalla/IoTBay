@@ -61,8 +61,10 @@
         </label>
       </div>
         <jsp:include page="./userLogTable.jsp" flush="true"/>
-        <a class='formButton' href="./account.jsp">View Account</a>
-        <a class='formButton' href="LogoutServlet">Logout</a>
+        <table class="buttonTable">
+          <a class='formButton' href="./account.jsp">View Account</a>
+          <a class='formButton' href="LogoutServlet">Logout</a>
+        </table>
       </div>
     </main>
   </body>

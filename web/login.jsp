@@ -53,16 +53,13 @@
                             <td><label for="password">Password:</label></td>
                             <td><input class="formInput" type="password" placeholder="<%=(passErr != null ? passErr : "Enter password")%>" required id="password" name="password"></input></td>
                         </tr>
-                        <tr>
-                            <td></td>
-                            <td>
-                                <input type="submit" id="login" class="submit" name="login" value="Login"></input>
-                                <a class="submit" href="./index.jsp">Cancel</a>
-                            </td>
-                        </tr>
                     </table>
                     <input type="hidden" name="tos" value="yes">
                 </fieldset>
+                    <table class="buttonTable">
+                        <input type="submit" id="login" class="submit" name="login" value="Login"></input>
+                        <a class="submit" href="./index.jsp">Cancel</a>
+                    </table>
             </form>
             </div>
         </main>

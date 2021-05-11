@@ -39,12 +39,15 @@ body {
     font-size: 16px;
     background-color: green;
     color: white;
-    padding: 1em 1.5em;
+    padding: 1em;
     text-decoration: none;
     text-transform: uppercase;
     position: relative;
     top: 20px;
-    margin: 0 0 20px 2px;
+    margin: 0 5px 10px;
+    display: inline-flex;
+    width: 40%;
+    justify-content: center;
 }
 
 .formButton:hover {
@@ -52,8 +55,8 @@ body {
     cursor: pointer;
 }
 
-.buttonForm {
-    text-align: center;
+.buttonTable td{
+    padding: 1px;
 }
 
 .submit { /*a submit button mimic of the a type above so submit form buttons have the same style*/
@@ -61,12 +64,15 @@ body {
     background-color: green;
     border: none;
     color: white;
-    padding: 1em 1.5em;
+    padding: 1em;
     text-decoration: none;
     text-transform: uppercase;
     position: relative;
     top: 20px;
-    margin: 0 0 20px 2px;
+    margin: 0 5px 10px;
+    display: inline-flex ;
+    width: 40%;
+    justify-content: center;
 }
 
 .submit:hover {

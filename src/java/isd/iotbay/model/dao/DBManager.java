@@ -32,6 +32,7 @@ public User findUser(String email, String password) throws SQLException {
         String userEmail = rs.getString(2);//number is the order of the field in the database
         String userPass = rs.getString(5);//so password is the 5th field
         if(userEmail.equals(email) && userPass.equals(password)) {
+            int userID = rs.getInt(1);
             String userFirstName = rs.getString(3);
             String userLastName = rs.getString(4);
             String userAddressLine1 = rs.getString(6);
@@ -42,7 +43,7 @@ public User findUser(String email, String password) throws SQLException {
             String userPhoneNum = rs.getString(11);
             boolean userIsStaff = rs.getBoolean(12);
             boolean userIsAdmin = rs.getBoolean(13);
-            return new User(userEmail, userFirstName, userLastName, userPass, 
+            return new User(userID, userEmail, userFirstName, userLastName, userPass, 
                     userAddressLine1, userAddressLine2, userCity, userState, 
                     userPostCode, userPhoneNum, userIsStaff, userIsAdmin);
         }
@@ -59,7 +60,7 @@ public void addUser(String email, String firstName, String lastName, String pass
 }
 
 //update a user details in the database   
-public void updateUser( String email, String firstName, String lastName, String password, String addressLine1, String addressLine2, String city, String state, String postCode, String phoneNum) throws SQLException {       
+public void updateUser(String email, String firstName, String lastName, String password, String addressLine1, String addressLine2, String city, String state, String postCode, String phoneNum) throws SQLException {       
     //code for update-operation   
     st.executeUpdate("UPDATE IOTBAYUSER.USER_T SET EMAIL='" + email + "', FIRSTNAME='" + firstName + "', LASTNAME='" + lastName + "', PASSWORD='" + password + "', ADDRESS1='" + addressLine1 + "', ADDRESS2='" + addressLine2 + "', CITY='" + city + "', STATELOC='" + state + "', POSTCODE='" + postCode + "', PHONE='" + phoneNum + "' WHERE EMAIL='" + email + "'");
 }
@@ -76,6 +77,7 @@ public ArrayList<User> fetchUsers() throws SQLException{
     ArrayList<User> temp = new ArrayList();
     
     while(rs.next()) {
+        int userID = rs.getInt(1);
         String userEmail = rs.getString(2);
         String userPass = rs.getString(5);
         String userFirstName = rs.getString(3);
@@ -88,7 +90,7 @@ public ArrayList<User> fetchUsers() throws SQLException{
         String userPhoneNum = rs.getString(11);
         boolean userIsStaff = rs.getBoolean(12);
         boolean userIsAdmin = rs.getBoolean(13);
-        temp.add(new User(userEmail, userFirstName, userLastName, userPass, 
+        temp.add(new User(userID, userEmail, userFirstName, userLastName, userPass, 
                     userAddressLine1, userAddressLine2, userCity, userState, 
                     userPostCode, userPhoneNum, userIsStaff, userIsAdmin));
         }
@@ -116,8 +118,8 @@ public void addUserLog(Integer userID, String logEvent) throws SQLException {
             + "VALUES ('" + userID + "', '" + logEvent + "')");
 }
 
-public ArrayList<UserLog> fetchUserLogs() throws SQLException{ //int userID
-    String fetch = "SELECT * FROM IOTBAYUSER.USER_LOG_T"; // WHERE USERID='" + userID + "'
+public ArrayList<UserLog> fetchUserLogs(int userID) throws SQLException{
+    String fetch = "SELECT * FROM IOTBAYUSER.USER_LOG_T WHERE USERID=" + userID;
     ResultSet rs = st.executeQuery(fetch);
     ArrayList<UserLog> temp = new ArrayList();
     
