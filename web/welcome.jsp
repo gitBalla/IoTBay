@@ -80,20 +80,22 @@
         %>
         <h1 class="main_title">Welcome, <%=user.getFirstName()%> <%=user.getLastName()%>!</h1>
         <div class="landing_body">
-            <a class='formButton' href="./account.jsp">View User Account</a>
-            <%
-            if(user != null && user.isStaff()) {
-            %>
-            <a class='formButton' href="./staff.jsp"> View Staff Menu</a>
-            <%
-            }
-            if(user != null && user.isAdmin()) {
-            %>
-            <a class='formButton' href="./admin.jsp"> View Admin Menu</a>
-            <%
-            }
-            %>
-            <a class='formButton' href="LogoutServlet">Logout</a>
+            <table class="buttonTable">
+                <a class='formButton' href="./account.jsp">View User Account</a>
+                <%
+                if(user != null && user.isStaff()) {
+                %>
+                <a class='formButton' href="./staff.jsp"> View Staff Menu</a>
+                <%
+                }
+                if(user != null && user.isAdmin()) {
+                %>
+                <a class='formButton' href="./admin.jsp"> View Admin Menu</a>
+                <%
+                }
+                %>
+                <a class='formButton' href="LogoutServlet">Logout</a>
+            </table>
         </div>
         <%
         }

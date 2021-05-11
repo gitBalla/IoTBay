@@ -66,18 +66,20 @@
         <p>
           Your first stop for all things IoT. We house a vast array of products that are easy to find and purchase.
         </p>
-        <%
-              if (user != null) {
-        %>
-        <a class='formButton' href="./account.jsp">View Account</a>
-        <%
-              } else {
-        %>
-        <a class='formButton' href="./registration.jsp">Create an account</a>
-        <%
-              }
-        %>
-        <a class='formButton' href="./catalogue.jsp">Start Browsing</a>
+        <table class="buttonTable">
+            <%
+                  if (user != null) {
+            %>
+            <a class='formButton' href="./account.jsp">View Account</a>
+            <%
+                  } else {
+            %>
+            <a class='formButton' href="./registration.jsp">Create an account</a>
+            <%
+                  }
+            %>
+            <a class='formButton' href="./catalogue.jsp">Start Browsing</a>
+        </table>
       </div>
     </main>
         <jsp:include page="/ConnServlet" flush="true"/>

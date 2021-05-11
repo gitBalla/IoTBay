@@ -8,6 +8,7 @@ package isd.iotbay.model;
 public class User implements java.io.Serializable{
     //declarations
     
+    private int userID;
     private String email;
     private String firstName;
     private String lastName;
@@ -25,7 +26,7 @@ public class User implements java.io.Serializable{
 
     public User() {
     }
-    //"secure" constructor that leaves out isStaff and isAdmin
+    //constructor that leaves out userID, isStaff and isAdmin, for creating new users
     public User(String email, String firstName, String lastName, String password, 
             String addressLine1, String addressLine2, String city, String state, 
             String postCode, String phoneNum) {
@@ -40,10 +41,11 @@ public class User implements java.io.Serializable{
         this.postCode = postCode;
         this.phoneNum = phoneNum;
     }
-    //unsecure constructor for initialization, must be used with isStaff=false, isAdmin=false
-    public User(String email, String firstName, String lastName, String password, 
+    //unsecure constructor for initialization and finding, must be used with isStaff=false, isAdmin=false
+    public User(int userID, String email, String firstName, String lastName, String password, 
             String addressLine1, String addressLine2, String city, String state, 
             String postCode, String phoneNum, boolean isStaff, boolean isAdmin) {
+        this.userID = userID;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -56,6 +58,14 @@ public class User implements java.io.Serializable{
         this.phoneNum = phoneNum;
         this.isStaff = isStaff;
         this.isAdmin = isAdmin;
+    }
+    
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
     
     public String getEmail() {

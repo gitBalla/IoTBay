@@ -21,15 +21,17 @@ import java.util.ArrayList;
 public class ViewLogsServlet extends HttpServlet {
 
     @Override   
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException {       
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException {       
         //1- retrieve the current session
         HttpSession session = request.getSession();
+        //3- capture the posted userID      
+        int userID = Integer.parseInt(request.getParameter("userID"));
         //5- retrieve the manager instance from session      
         DBManager manager= (DBManager) session.getAttribute("manager");
         ArrayList<UserLog> userLogs = null;
 
         try {   
-            userLogs = manager.fetchUserLogs();
+            userLogs = manager.fetchUserLogs(userID);
             if(userLogs != null) {
                 //13-save the object to the session           
                 session.setAttribute("userLogs",userLogs);

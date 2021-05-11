@@ -42,13 +42,24 @@
           </nav>
         </header>    
         <main>
-            <h1 class="main_title">Admin Menu</h1>
+            <%
+            if(user.isAdmin()) {
+            %>            <h1 class="main_title">Admin Menu</h1>
             <div class="landing_body">
-                <a class='formButton' href="">Add New User</a>
-                <a class='formButton' href="">List User Records</a>
-                <a class='formButton' href="">Edit User Record</a>            
-                <a class='formButton' href="">Delete User</a>
+                <table class="buttonTable">
+                    <a class='formButton' href="">Add New User</a>
+                    <a class='formButton' href="">List User Records</a>
+                    <a class='formButton' href="">Edit User Record</a>            
+                    <a class='formButton' href="">Delete User</a>
+                </table>
             </div>
+            <%
+            } else {
+            %>
+            <h1 class="main_title">UNAUTHORIZED ACCESS</h1>
+            <%
+            }
+            %>
         </main>
     </body>
 </html>

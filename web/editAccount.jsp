@@ -98,15 +98,12 @@
                         <td><label for="phoneNum">Phone Number:</label></td>
                         <td><input type="text" id="phoneNum" name="phoneNum" value="${user.phoneNum}" minlength="7" maxlength="15"></input></td>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td>
-                            <a class="submit" href="./account.jsp?email='<%= user.getEmail()%>'&password='<%=user.getPassword()%>'">Go Back</a>
-                            <input type="submit" id="update" class="submit" name="update" value="Update"></input></a>
-                        </td>
-                    </tr>
                 </table>
             </fieldset>
+            <table class="buttonTable">
+                <input type="submit" id="update" class="submit" name="update" value="Update"></input></a>
+                <a class="submit" href="./account.jsp?email='<%= user.getEmail()%>'&password='<%=user.getPassword()%>'">Go Back</a>
+            </table>
         </form>
       </div>
     </main>

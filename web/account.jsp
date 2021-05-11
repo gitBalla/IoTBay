@@ -72,10 +72,19 @@
                     <td></td><td>${user.city}, ${user.state} ${user.postCode}</td>
                 </tr>
             </table></br>
-        <a class='formButton' href="EditAccountServlet?email='<%= user.getEmail()%>'&password='<%=user.getPassword()%>'">Edit My Account</a>
-        <a class='formButton' href="ViewLogsServlet">View My Access Logs</a>
-        <a class='formButton' href="">View My Orders</a>
-        <a class='formButton' href="">Delete My Account</a>
+            <table class="buttonTable">
+                <form action="EditAccountServlet" method="post" name="editAccount">
+                    <input name="email" type="hidden" value="${user.email}"> 
+                    <input name="password" type="hidden" value="${user.password}">
+                    <input class="submit" type="submit" value="Edit My Account Test" />
+                </form>
+                <form action="ViewLogsServlet" method="post" name="viewLogs">
+                    <input name="userID" type="hidden" value="${user.userID}">
+                    <input class="submit" type="submit" value="View My Access Logs Test" />
+                </form>
+                <a class="formButton" href="">View My Orders</a>
+                <a class="formButton" href="">Delete My Account</a>
+            </table>
       </div>
     </main>
   </body>

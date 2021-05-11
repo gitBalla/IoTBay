@@ -4,7 +4,6 @@
     Author     : johnballa
 --%>
 
-<%@page import="java.util.ArrayList"%>
 <%@page import="isd.iotbay.model.UserLog"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -20,9 +19,6 @@
           rel="stylesheet"
         />
     </head>
-    <%
-      ArrayList<UserLog> userLogs = (ArrayList)session.getAttribute("userLog");
-    %>
     <body>
         <table class="displayTable">
             <thead>
