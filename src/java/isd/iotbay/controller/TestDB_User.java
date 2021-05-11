@@ -31,7 +31,8 @@ public class TestDB_User {
 //        db.addUser(email, firstName, lastName, password, addressLine1, addressLine2, city, state, postCode, phoneNum);
 //        System.out.println("User is added to the database.");
 //        User user = db.findUser(email, password);
-        if(db.checkUser(email,password)) {
+        User user = db.findUser(email,password);
+        if(user != null) {
             System.out.println("User found.");
             System.out.println("Enter new details: ");
             System.out.print("User email: ");
@@ -54,7 +55,7 @@ public class TestDB_User {
             String postCode = in.nextLine();
             System.out.print("User phone number: ");
             String phoneNum = in.nextLine();
-            db.updateUser(email, firstName, lastName, password, addressLine1, addressLine2, city, state, postCode, phoneNum);
+            db.updateUser(email, firstName, lastName, password, addressLine1, addressLine2, city, state, postCode, phoneNum, user.isStaff(), user.isAdmin());
             System.out.println("User is updated in the database.");
         } else {
             System.out.println("User does not exist");

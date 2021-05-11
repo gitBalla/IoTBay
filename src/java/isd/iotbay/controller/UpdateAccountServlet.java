@@ -34,16 +34,23 @@ public class UpdateAccountServlet extends HttpServlet {
         String postCode = request.getParameter("postCode");
         String phoneNum = request.getParameter("phoneNum");
         //3- make a student object
-        User user = new User(email, firstName, lastName, password, addressLine1, addressLine2, city, state, postCode, phoneNum);      
+        User updatedUser = new User(email, firstName, lastName, password, addressLine1, addressLine2, city, state, postCode, phoneNum);      
         //4- retrieve the manager instance from session      
         DBManager manager= (DBManager) session.getAttribute("manager");
+        //get the old email and password from the session to use later in case they were updated
+        String currentEmail = request.getParameter("currentEmail");
+        String currentPassword = request.getParameter("currentPassword");
 
         try {   
-            if (user != null) {
+            if (updatedUser != null) {
+                //use the old email/pass to find the user
+                User currentUser = manager.findUser(currentEmail,currentPassword);
                 //5- save the logged in user object to the session           
-                session.setAttribute("user",user);
-                //6- update with updateStudent method
-                manager.updateUser(email, firstName, lastName, password, addressLine1, addressLine2, city, state, postCode, phoneNum);
+                session.setAttribute("user",updatedUser);
+                //6- update with updateUser method
+                manager.updateUser(email, firstName, lastName, password, addressLine1, addressLine2, city, state, postCode, phoneNum, currentUser.isStaff(), currentUser.isAdmin());
+                //update the userlog that there has been an update
+                manager.addUserLog(currentUser.getUserID(), "UPDATE");
                 session.setAttribute("updated", " Update was successful.");
                 //7- redirect user back to edit.jsp     
                 request.getRequestDispatcher("editAccount.jsp").include(request, response);

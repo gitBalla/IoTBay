@@ -53,6 +53,8 @@ public class LoginServlet extends HttpServlet {
                 if (user != null) {                     
                     //13-save the logged in user object to the session           
                     session.setAttribute("user",user);
+                    //update the userlog that there has been an login
+                    manager.addUserLog(user.getUserID(), "LOGIN");
                     //14- redirect user to the main.jsp     
                     request.getRequestDispatcher("welcome.jsp").include(request, response);
                 } else {                       

@@ -64,7 +64,10 @@ public class RegistrationServlet extends HttpServlet {
                     } else {                    
                         //create a new student
                         manager.addUser(email, firstName, lastName, password, addressLine1, addressLine2, city, state, postCode, phoneNum);
-                        user = new User(email, firstName, lastName, password, addressLine1, addressLine2, city, state, postCode, phoneNum);
+                        //get actual user that was just created in DB
+                        user = manager.findUser(email, password);
+                        //update the userlog that there has been a registration
+                        manager.addUserLog(user.getUserID(), "REGISTER");
                         //13-save the logged in user object to the session           
                         session.setAttribute("user",user);
                         //14- redirect user to the main.jsp     

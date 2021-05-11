@@ -102,6 +102,8 @@
             </fieldset>
             <table class="buttonTable">
                 <input type="submit" id="update" class="submit" name="update" value="Update"></input></a>
+                <input name="currentEmail" type="hidden" value="${user.email}"> 
+                <input name="currentPassword" type="hidden" value="${user.password}">
                 <a class="submit" href="./account.jsp?email='<%= user.getEmail()%>'&password='<%=user.getPassword()%>'">Go Back</a>
             </table>
         </form>

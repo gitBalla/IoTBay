@@ -38,8 +38,10 @@
       </header>
       <h1 class="main_title">You are now logged out.</h1>
       <div class="landing_body"><p>Thanks for visiting IoTBay!</p>
-        <a class='formButton' href="./login.jsp">Login again</a>
-        <a class='formButton' href="./catalogue.jsp">Start Browsing</a>
+            <table class="buttonTable">
+                <a class='formButton' href="./login.jsp">Login again</a>
+                <a class='formButton' href="./catalogue.jsp">Start Browsing</a>
+            </table>
       </div>
     </body>
     <jsp:include page="/ConnServlet" flush="true"/>
