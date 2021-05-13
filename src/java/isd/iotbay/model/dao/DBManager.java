@@ -190,4 +190,19 @@ public void deleteProduct(int productID) throws SQLException{
     st.executeUpdate("DELETE FROM IOTBAYUSER.PRODUCT_T WHERE PRODUCTID=" + productID + "");
 }
 
+public ArrayList<Product> fetchProducts() throws SQLException{
+    String fetch = "SELECT * FROM IOTBAYUSER.PRODUCT_T";
+    ResultSet rs = st.executeQuery(fetch);
+    ArrayList<Product> temp = new ArrayList();
+    
+    while(rs.next()) {
+        String name = rs.getString("name");
+        String description = rs.getString("description");
+        float price = rs.getFloat("price");
+        int stock = rs.getInt("stock");
+        temp.add(new Product(name, description, price, stock));
+    }
+    return temp; 
+}
+
 }

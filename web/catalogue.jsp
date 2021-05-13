@@ -1,11 +1,12 @@
 <%-- 
     Document   : catalogue
     Created on : 27/04/2021, 4:49:12 PM
-    Author     : hamartillano test commit
+    Author     : hamartillano
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="isd.iotbay.model.User"%>
+<%@page import="isd.iotbay.model.Product"%>
 
 <!DOCTYPE html>
 <html>
@@ -61,18 +62,18 @@
               </ul>
             </nav>
         </header>
-        <main class="container">
-            <div class="row">
-                <div class="col">
-                    <h1>Catalogue</h1>
-                    <div style="display: flex">
-                        <div><a href="p1.jsp"></a><p>Airpods Max</p></div>
-                        <div><a href="p2.jsp"></a><p>iPhone 12 pro</p></div>
-                        <div><a href="p3.jsp"></a><p>Microsoft Surface pro 7</p></div>
-                        <div><a href="p4.jsp"></a><p>Bose Home Speaker 500</p></div>
-                        <div><a href="p5.jsp"></a><p>Playstation 5</p></div>
-                    </div>
-                </div>
+        <main class="displayTable">
+            <div>
+                <table>
+                    <c:forEach var="item" items="${products}">
+                        <tr>
+                            <td><c:out value="${item.name}" /></td>
+                            <td><c:out value="${item.description}" /></td>
+                            <td><c:out value="${item.price}" /></td>
+                            <td><c:out value="${item.stock}" /></td>
+                        </tr>
+                    </c:forEach>
+                </table>
             </div>
         </main>
     </body>

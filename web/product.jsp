@@ -1,6 +1,6 @@
 <%-- 
-    Document   : product4
-    Created on : 27/04/2021, 4:54:59 PM
+    Document   : product1
+    Created on : 27/04/2021, 4:54:38 PM
     Author     : hamartillano
 --%>
 
@@ -16,11 +16,12 @@
             <div class="row">
                 <div class="col product">
                     <form action="cart" method="post">
-                        <h2>Bose Home Speaker 500</h2>
-                        <h3>Price: $599</h3>
+                        <h2>Airpods Max</h2>
+                        <h3>Price: $899</h3>
+                        <h3>Stock: 1234</h3>
                         <h3>Description</h3>
                             <p>
-                                The Widest Sound of Any Smart Speaker. It’s powerfully simple. Fill any room with wall-to-wall stereo sound, while Alexa puts millions of songs at the tip of your tongue.
+                                AirPods Max reimagine over-ear headphones. An Apple-designed dynamic driver provides immersive high-fidelity audio. Every detail, from canopy to cushions, has been designed for an exceptional fit. Industry-leading Active Noise Cancellation blocks outside noise, while Transparency mode lets it in. And spatial audio with dynamic head tracking provides theater-like sound that surrounds you.
                             </p>
                         <button type="submit" name="action" value="atc">Add to Cart</button>
                     </form>
