@@ -48,7 +48,7 @@ public class UpdateAccountServlet extends HttpServlet {
                 //5- save the logged in user object to the session           
                 session.setAttribute("user",updatedUser);
                 //6- update with updateUser method
-                manager.updateUser(email, firstName, lastName, password, addressLine1, addressLine2, city, state, postCode, phoneNum, currentUser.isStaff(), currentUser.isAdmin());
+                manager.updateUser(email, firstName, lastName, password, addressLine1, addressLine2, city, state, postCode, phoneNum, currentUser.isStaff(), currentUser.isAdmin(), currentEmail);
                 //update the userlog that there has been an update
                 manager.addUserLog(currentUser.getUserID(), "UPDATE");
                 session.setAttribute("updated", " Update was successful.");

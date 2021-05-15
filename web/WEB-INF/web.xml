@@ -63,6 +63,15 @@
         <servlet-name>ViewLogsServlet</servlet-name>
         <url-pattern>/ViewLogsServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>CatalogueServlet</servlet-name>
+        <servlet-class>isd.iotbay.controller.CatalogueServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CatalogueServlet</servlet-name>
+        <url-pattern>/CatalogueServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

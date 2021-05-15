@@ -38,7 +38,7 @@
               <%
                   }
               %>
-              <li><a href="./catalogue.jsp">Browse Catalogue</a></li>
+              <li><a href="CatalogueServlet">Browse Catalogue</a></li>
                 <%
                 if(user != null && user.isStaff()) {
                 %>

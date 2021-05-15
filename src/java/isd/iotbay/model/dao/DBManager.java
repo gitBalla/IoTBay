@@ -60,9 +60,9 @@ public void addUser(String email, String firstName, String lastName, String pass
 }
 
 //update a user details in the database   
-public void updateUser(String email, String firstName, String lastName, String password, String addressLine1, String addressLine2, String city, String state, String postCode, String phoneNum, boolean isStaff, boolean isAdmin) throws SQLException {       
+public void updateUser(String email, String firstName, String lastName, String password, String addressLine1, String addressLine2, String city, String state, String postCode, String phoneNum, boolean isStaff, boolean isAdmin, String currentEmail) throws SQLException {       
     //code for update-operation   
-    st.executeUpdate("UPDATE IOTBAYUSER.USER_T SET EMAIL='" + email + "', FIRSTNAME='" + firstName + "', LASTNAME='" + lastName + "', PASSWORD='" + password + "', ADDRESS1='" + addressLine1 + "', ADDRESS2='" + addressLine2 + "', CITY='" + city + "', STATELOC='" + state + "', POSTCODE='" + postCode + "', PHONE='" + phoneNum + "', IS_STAFF='" + isStaff + "', IS_ADMIN='" + isAdmin + "' WHERE EMAIL='" + email + "'");
+    st.executeUpdate("UPDATE IOTBAYUSER.USER_T SET EMAIL='" + email + "', FIRSTNAME='" + firstName + "', LASTNAME='" + lastName + "', PASSWORD='" + password + "', ADDRESS1='" + addressLine1 + "', ADDRESS2='" + addressLine2 + "', CITY='" + city + "', STATELOC='" + state + "', POSTCODE='" + postCode + "', PHONE='" + phoneNum + "', IS_STAFF='" + isStaff + "', IS_ADMIN='" + isAdmin + "' WHERE EMAIL='" + currentEmail + "'");
 }
 
 //delete a user from the database   

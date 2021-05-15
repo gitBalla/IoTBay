@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class CatalogueServlet extends HttpServlet {
 
     @Override   
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException {       
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException {       
         //1- retrieve the current session
         HttpSession session = request.getSession();
         //5- retrieve the manager instance from session      

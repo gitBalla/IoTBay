@@ -38,7 +38,7 @@
           <%
               }
           %>
-          <li><a href="./catalogue.jsp">Browse Catalogue</a></li>
+          <li><a href="CatalogueServlet">Browse Catalogue</a></li>
             <%
             if(user != null && user.isStaff()) {
             %>
@@ -78,7 +78,7 @@
             <%
                   }
             %>
-            <a class='formButton' href="./catalogue.jsp">Start Browsing</a>
+            <a class='formButton' href="CatalogueServlet">Start Browsing</a>
         </table>
       </div>
     </main>

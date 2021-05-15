@@ -26,7 +26,7 @@
             <li><a href="./index.jsp">Home</a></li>
             <li><a href="./registration.jsp">Register</a></li>
             <li><a href="./login.jsp">Login</a></li>
-            <li><a href="./catalogue.jsp">Browse Catalogue</a></li>
+            <li><a href="CatalogueServlet">Browse Catalogue</a></li>
             <div class="search-container">
               <form action="">
                 <button type="submit">Submit</button>
@@ -40,7 +40,7 @@
       <div class="landing_body"><p>Thanks for visiting IoTBay!</p>
             <table class="buttonTable">
                 <a class='formButton' href="./login.jsp">Login again</a>
-                <a class='formButton' href="./catalogue.jsp">Start Browsing</a>
+                <a class='formButton' href="CatalogueServlet">Start Browsing</a>
             </table>
       </div>
     </body>

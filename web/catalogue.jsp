@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="isd.iotbay.model.User"%>
 <%@page import="isd.iotbay.model.Product"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -21,6 +22,7 @@
     </head>
     <%
       User user = (User)session.getAttribute("user");
+      String existErr = (String) session.getAttribute("existErr");
     %>
     <body>
         <header>
@@ -40,7 +42,7 @@
                 <%
                     }
                 %>
-                <li><a href="catalogue.jsp">Browse Catalogue</a></li>
+                <li><a href="CatalogueServlet">Browse Catalogue</a></li>
                 <%
                 if(user != null && user.isStaff()) {
                 %>
@@ -62,9 +64,9 @@
               </ul>
             </nav>
         </header>
-        <main class="displayTable">
+        <main><span class="message"> <%= (existErr != null ? existErr : "")%></span>
             <div>
-                <table>
+                <table class="displayTable">
                     <c:forEach var="item" items="${products}">
                         <tr>
                             <td><c:out value="${item.name}" /></td>

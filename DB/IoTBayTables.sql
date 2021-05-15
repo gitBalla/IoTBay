@@ -75,6 +75,12 @@ CREATE TABLE PRODUCT_T (
     STOCK       INTEGER     NOT NULL
     );
 
+INSERT INTO PRODUCT_T VALUES (1,'DHT11','Humidity and Temperature Sensor',4.00,293);
+INSERT INTO PRODUCT_T VALUES (2,'DS18B20','1-wire bus Sensor, Raspberry Pi Sensor',2.00,142);
+INSERT INTO PRODUCT_T VALUES (3,'BMP180','Barometer Sensor, Raspberry Pi Sensor',6.25,0);
+INSERT INTO PRODUCT_T VALUES (4,'RFID-RC522','Inductive RFID Card Reader',5.50,10);
+INSERT INTO PRODUCT_T VALUES (5,'Raspberry Pi 7 in. Touchscreen','800x480 pixel, 10 point capacitive touchscreen',75.00,50);
+
 --create table for collection
 CREATE TABLE COLLECTION_T (
     COLLECTID   INTEGER     NOT NULL PRIMARY KEY,

@@ -29,7 +29,7 @@
           <li><a href="./index.jsp">Home</a></li>
           <li><a href="./account.jsp">${user.firstName}'s Account</a></li>
           <li><a href="LogoutServlet">Logout</a></li>
-          <li><a href="catalogue.jsp">Browse Catalogue</a></li>
+          <li><a href="CatalogueServlet">Browse Catalogue</a></li>
             <%
             if(user != null && user.isStaff()) {
             %>

@@ -22,6 +22,7 @@
   </head>
   <%
       User user = (User)session.getAttribute("user");
+      String existErr = (String) session.getAttribute("existErr");
   %>
   <body>
     <header>
@@ -54,7 +55,7 @@
     </header>
     <main>
       <h1 class="main_title">Access Logs</h1>
-      <div class="landing_body">
+      <div class="landing_body"><span class="message"> <%= (existErr != null ? existErr : "")%></span>
       <div>
         <label class="user_access_form">Search Log Entries: 
            <input class="formInput" type="date" name="logSearchBar"></input>

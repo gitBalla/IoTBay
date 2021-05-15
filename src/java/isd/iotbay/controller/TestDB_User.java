@@ -55,7 +55,8 @@ public class TestDB_User {
             String postCode = in.nextLine();
             System.out.print("User phone number: ");
             String phoneNum = in.nextLine();
-            db.updateUser(email, firstName, lastName, password, addressLine1, addressLine2, city, state, postCode, phoneNum, user.isStaff(), user.isAdmin());
+            String currentEmail = email; //fix later
+            db.updateUser(email, firstName, lastName, password, addressLine1, addressLine2, city, state, postCode, phoneNum, user.isStaff(), user.isAdmin(), currentEmail);
             System.out.println("User is updated in the database.");
         } else {
             System.out.println("User does not exist");
