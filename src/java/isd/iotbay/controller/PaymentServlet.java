@@ -12,6 +12,8 @@ import javax.servlet.http.HttpSession;
 import isd.iotbay.model.Payment;
 import isd.iotbay.model.dao.DBManager;
 
+import java.time.LocalDate;    
+
 public class PaymentServlet extends HttpServlet {
     
     @Override
@@ -27,7 +29,7 @@ public class PaymentServlet extends HttpServlet {
         int ccSecurity = Integer.parseInt(request.getParameter("ccSecurity"));
         String paymentEmail = request.getParameter("paymentEmail");
         int paymentAmount = Integer.parseInt(request.getParameter("paymentAmount"));
-        String paymentDate = request.getParameter("paymentDate");
+        String paymentDate = LocalDate.now().toString();
         int orderID = Integer.parseInt(request.getParameter("orderID"));
         //4- retrieve the manager instance from session      
         DBManager manager= (DBManager) session.getAttribute("manager");
