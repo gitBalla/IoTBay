@@ -7,7 +7,11 @@ package isd.iotbay.model.dao;
 
 import isd.iotbay.model.*;
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /* 
 * DBManager is the primary DAO class to interact with the database. 
@@ -127,9 +131,16 @@ public ArrayList<UserLog> fetchUserLogs(int userID) throws SQLException{
     String fetch = "SELECT * FROM IOTBAYUSER.USER_LOG_T WHERE USERID=" + userID;
     ResultSet rs = st.executeQuery(fetch);
     ArrayList<UserLog> temp = new ArrayList();
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); //date converter in
+    SimpleDateFormat newFormatter = new SimpleDateFormat("dd MMM yyyy"); //date converter out
     
     while(rs.next()) {
         String currentDate = rs.getString(3);
+        try { //try date conversion on currentDate
+            currentDate = newFormatter.format(formatter.parse(currentDate));
+        } catch (ParseException ex) {
+            Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
         String currentTime = rs.getString(4);
         String logEvent = rs.getString(5);
         temp.add(new UserLog(currentDate,currentTime,logEvent));

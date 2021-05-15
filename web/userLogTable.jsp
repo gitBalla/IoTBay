@@ -19,8 +19,8 @@
           rel="stylesheet"
         />
     </head>
-    <body>
-        <table class="displayTable">
+    <body onload="resetSearchTable()">
+        <table class="displayTable" id="userLogTable">
             <thead>
                 <tr>
                     <th>Event</th>

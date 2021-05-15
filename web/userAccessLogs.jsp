@@ -19,12 +19,13 @@
       href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap"
       rel="stylesheet"
     />
+    <script type="text/javascript" src="./javascript/IoTBayJS.js"></script>
   </head>
   <%
       User user = (User)session.getAttribute("user");
       String existErr = (String) session.getAttribute("existErr");
   %>
-  <body>
+  <body onload="resetSearchTable()">
     <header>
       <nav>
         <ul class="menu">
@@ -56,11 +57,8 @@
     <main>
       <h1 class="main_title">Access Logs</h1>
       <div class="landing_body"><span class="message"> <%= (existErr != null ? existErr : "")%></span>
-      <div>
-        <label class="user_access_form">Search Log Entries: 
-           <input class="formInput" type="date" name="logSearchBar"></input>
-        </label>
-      </div>
+        <label class="user_access_form">Search Log Entries:</label>
+        <input class="formInput" type="text" name="logSearchInput" id="logSearchInput" onkeyup="searchLogTable()" placeholder="Enter date"></input>
         <jsp:include page="./userLogTable.jsp" flush="true"/>
         <table class="buttonTable">
           <a class='formButton' href="./account.jsp">View Account</a>
