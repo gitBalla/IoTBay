@@ -71,8 +71,7 @@
                         <tr>
                             <td><c:out value="${item.name}" /></td>
                             <td><c:out value="${item.description}" /></td>
-                            <td><c:out value="${item.price}" /></td>
-                            <td><c:out value="${item.stock}" /></td>
+                            <td><c:out value="$${item.price}" /></td>
                         </tr>
                     </c:forEach>
                 </table>
