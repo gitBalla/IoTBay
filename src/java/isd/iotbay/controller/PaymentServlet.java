@@ -12,6 +12,8 @@ import javax.servlet.http.HttpSession;
 import isd.iotbay.model.Payment;
 import isd.iotbay.model.dao.DBManager;
 
+import java.time.LocalDate;    
+
 public class PaymentServlet extends HttpServlet {
     
     @Override
@@ -27,7 +29,7 @@ public class PaymentServlet extends HttpServlet {
         int ccSecurity = Integer.parseInt(request.getParameter("ccSecurity"));
         String paymentEmail = request.getParameter("paymentEmail");
         int paymentAmount = Integer.parseInt(request.getParameter("paymentAmount"));
-        String paymentDate = request.getParameter("paymentDate");
+        String paymentDate = LocalDate.now().toString();
         int orderID = Integer.parseInt(request.getParameter("orderID"));
         //4- retrieve the manager instance from session      
         DBManager manager= (DBManager) session.getAttribute("manager");
@@ -41,7 +43,7 @@ public class PaymentServlet extends HttpServlet {
             Payment payment = manager.findPayment(orderID);    
             if (payment != null) {
                 //15-set user already exist error to the session           
-                session.setAttribute("existErr","Payment already exists in our database.");
+                //session.setAttribute("existErr","Payment already exists in our database.");
                 //16- redirect user back to the login.jsp       
                 request.getRequestDispatcher("payment.jsp").include(request, response);
             } else {                    
