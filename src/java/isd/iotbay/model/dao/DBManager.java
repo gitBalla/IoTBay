@@ -97,14 +97,13 @@ public ArrayList<User> fetchUsers() throws SQLException{
     return temp; 
 }
 
-public boolean checkUser(String email, String password) throws SQLException{
-    String fetch = "SELECT * FROM IOTBAYUSER.USER_T WHERE EMAIL = '" + email + "' AND PASSWORD= '" + password + "'";
+public boolean checkUser(String email) throws SQLException{
+    String fetch = "SELECT * FROM IOTBAYUSER.USER_T WHERE EMAIL = '" + email + "'";
     ResultSet rs = st.executeQuery(fetch);
     
     while(rs.next()) {
         String userEmail = rs.getString(2);
-        String userPass = rs.getString(5);
-        if(userEmail.equals(email) && userPass.equals(password)) {
+        if(userEmail.equals(email)) {
             return true;
         }
     }

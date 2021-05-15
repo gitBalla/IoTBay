@@ -41,6 +41,8 @@ public class RegistrationServlet extends HttpServlet {
 
         //5- clear validator
         validator.clear(session);
+        
+        User user = null;
 
         if (!validator.validateEmail(email)) { /*7-   validate email  */
             //8-set incorrect email error to the session           
@@ -56,13 +58,11 @@ public class RegistrationServlet extends HttpServlet {
             request.getSession().removeAttribute("passwordErr");
         } else {
             try {   
-                //6- find user by email and password
-                User user = manager.findUser(email, password);      
-                if (user != null) {
+                if (manager.checkUser(email)) { //if user exists in database
                     //15-set user already exist error to the session           
                     session.setAttribute("existErr","User already exists in our database.");
                     //16- redirect user back to the login.jsp       
-                    request.getRequestDispatcher("register.jsp").include(request, response);
+                    request.getRequestDispatcher("registration.jsp").include(request, response);
                     request.getSession().removeAttribute("existErr");
                 } else {                    
                     //create a new student
