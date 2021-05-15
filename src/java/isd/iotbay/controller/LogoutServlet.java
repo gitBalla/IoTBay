@@ -31,21 +31,19 @@ public class LogoutServlet extends HttpServlet {
             if(session != null) {
                 //get user from session
                 user = (User) session.getAttribute("user");
+                
                 if(user != null) {
                     //update the userlog that there has been an logout
                     manager.addUserLog(user.getUserID(), "LOGOUT");
                     //16- invalidate session and redirect to logout.jsp       
                     session.invalidate();
-                    request.getRequestDispatcher("logout.jsp").include(request,response);
                 } else {
-                //16- invalidate session anyway and redirect to logout.jsp       
+                //16- invalidate session anyway       
                 session.invalidate();
-                request.getRequestDispatcher("logout.jsp").include(request,response);
                 }
-            } else {
-                //16- redirect to logout.jsp since no session   
-                request.getRequestDispatcher("logout.jsp").include(request,response);
             }
+            //16- redirect to logout.jsp since either way   
+            request.getRequestDispatcher("logout.jsp").include(request,response);
         } catch (SQLException ex) {           
               Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);       
         }        

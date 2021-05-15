@@ -33,22 +33,17 @@ public class UpdateAccountServlet extends HttpServlet {
         String state = request.getParameter("state");
         String postCode = request.getParameter("postCode");
         String phoneNum = request.getParameter("phoneNum");
-        //3- make a student object
-        User updatedUser = new User(email, firstName, lastName, password, addressLine1, addressLine2, city, state, postCode, phoneNum);      
+        //use the old email/pass to find the user
+        User currentUser = (User) session.getAttribute("user");
         //4- retrieve the manager instance from session      
         DBManager manager= (DBManager) session.getAttribute("manager");
-        //get the old email and password from the session to use later in case they were updated
-        String currentEmail = request.getParameter("currentEmail");
-        String currentPassword = request.getParameter("currentPassword");
 
         try {   
-            if (updatedUser != null) {
-                //use the old email/pass to find the user
-                User currentUser = manager.findUser(currentEmail,currentPassword);
-                //5- save the logged in user object to the session           
-                session.setAttribute("user",updatedUser);
-                //6- update with updateUser method
-                manager.updateUser(email, firstName, lastName, password, addressLine1, addressLine2, city, state, postCode, phoneNum, currentUser.isStaff(), currentUser.isAdmin(), currentEmail);
+            if (currentUser != null) {
+                //update with updateUser method
+                manager.updateUser(email, firstName, lastName, password, addressLine1, addressLine2, city, state, postCode, phoneNum, currentUser.isStaff(), currentUser.isAdmin(), currentUser.getEmail());
+                //save the logged in user object to the session           
+                session.setAttribute("user",currentUser);
                 //update the userlog that there has been an update
                 manager.addUserLog(currentUser.getUserID(), "UPDATE");
                 session.setAttribute("updated", " Update was successful.");
@@ -63,6 +58,5 @@ public class UpdateAccountServlet extends HttpServlet {
         } catch (SQLException ex) {           
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);       
         }
-        response.sendRedirect("editAccount.jsp");
     }
 }
