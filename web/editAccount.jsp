@@ -102,7 +102,7 @@
             </fieldset>
             <table class="buttonTable">
                 <input type="submit" id="update" class="submit" name="update" value="Update"></input></a>
-                <a class="submit" href="./account.jsp?email='<%= user.getEmail()%>'&password='<%=user.getPassword()%>'">Go Back</a>
+                <a class="submit" href="./account.jsp">Go Back</a>
             </table>
         </form>
       </div>

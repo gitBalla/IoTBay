@@ -66,9 +66,9 @@ public void updateUser(String email, String firstName, String lastName, String p
 }
 
 //delete a user from the database   
-public void deleteUser(String email) throws SQLException{       
+public void deleteUser(int userID) throws SQLException{       
     //code for delete-operation
-    st.executeUpdate("DELETE FROM IOTBAYUSER.USER_T WHERE EMAIL='" + email + "'");
+    st.executeUpdate("DELETE FROM IOTBAYUSER.USER_T WHERE USERID=" + userID);
 }
 
 public ArrayList<User> fetchUsers() throws SQLException{
@@ -116,6 +116,12 @@ public void addUserLog(Integer userID, String logEvent) throws SQLException {
     //code for add-operation       
     st.executeUpdate("INSERT INTO IOTBAYUSER.USER_LOG_T(USERID,LOGEVENT) "
             + "VALUES (" + userID + ", '" + logEvent + "')");
+}
+
+//delete a user from the database   
+public void deleteUserLog(int userID) throws SQLException{       
+    //code for delete-operation
+    st.executeUpdate("DELETE FROM IOTBAYUSER.USER_LOG_T WHERE USERID=" + userID);
 }
 
 public ArrayList<UserLog> fetchUserLogs(int userID) throws SQLException{

@@ -76,7 +76,7 @@
                 <a class="formButton" href="EditAccountServlet">Edit My Account</a>
                 <a class="formButton" href="ViewLogsServlet">View My Access Logs</a>
                 <a class="formButton" href="">View My Orders</a>
-                <a class="formButton" href="">Delete My Account</a>
+                <a class="formButton" href="./deleteAccount.jsp">Delete My Account</a>
             </table>
       </div>
     </main>

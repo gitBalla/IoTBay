@@ -72,6 +72,15 @@
         <servlet-name>CatalogueServlet</servlet-name>
         <url-pattern>/CatalogueServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>DeleteAccountServlet</servlet-name>
+        <servlet-class>isd.iotbay.controller.DeleteAccountServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteAccountServlet</servlet-name>
+        <url-pattern>/DeleteAccountServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
