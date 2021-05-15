@@ -100,6 +100,16 @@
         <url-pattern>/PaymentServlet</url-pattern>
     </servlet-mapping>
     
+    <servlet>
+        <servlet-name>PaymentHistoryServlet</servlet-name>
+        <servlet-class>isd.iotbay.controller.PaymentHistoryServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PaymentHistoryServlet</servlet-name>
+        <url-pattern>/PaymentHistoryServlet</url-pattern>
+    </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30

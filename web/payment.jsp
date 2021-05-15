@@ -78,6 +78,7 @@
         }
     </script>
     <h1 class="main_title">Select your payment method</h1>
+    <div class="landing_body"><span class="message"> <%= (existErr != null ? existErr : "")%></span></div>
     <div class="landing_body">
         <input type="radio" onclick="showMe()" id="creditcardButton" name="paymentmethod" value="creditcardButton">
         <label for="creditcardButton">Credit Card</label>

@@ -186,6 +186,28 @@ public void deletePayment(int orderID) throws SQLException{
     st.executeUpdate("DELETE FROM IOTBAYUSER.PAYMENT_T WHERE ORDERID=" + orderID + "");
 }
 
+public ArrayList<Payment> fetchPayments(int userid) throws SQLException{
+    String fetch = "SELECT * FROM PAYMENT_T " +
+                   "LEFT JOIN ORDER_T ON PAYMENT_T.ORDERID=ORDER_T.ORDERID " +
+                   "LEFT JOIN USER_T ON ORDER_T.USERID=USER_T.USERID " +
+                   "WHERE ORDER_T.USERID = " + userid + "";
+    ResultSet rs = st.executeQuery(fetch);
+    ArrayList<Payment> temp = new ArrayList();
+    
+    while(rs.next()) {
+        String paymentMethod = rs.getString(2);
+        int ccNumber = rs.getInt(3);
+        String ccExpiry = rs.getString(4);
+        int ccSecurity = rs.getInt(5);
+        String paymentEmail = rs.getString(6);
+        int paymentAmount = rs.getInt(7);
+        String paymentDate = rs.getString(8);
+        int orderID = rs.getInt(9);
+        temp.add(new Payment(paymentMethod, ccNumber, ccExpiry, ccSecurity, paymentEmail, paymentAmount, paymentDate, orderID));
+    }
+    return temp; 
+}
+
 //Add a product-data into the database   
 public void addProduct(int productID, String name, String description, float price, int stock) throws SQLException {                   
     //code for add-operation       

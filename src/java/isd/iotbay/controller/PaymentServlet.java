@@ -43,9 +43,10 @@ public class PaymentServlet extends HttpServlet {
             Payment payment = manager.findPayment(orderID);    
             if (payment != null) {
                 //15-set user already exist error to the session           
-                //session.setAttribute("existErr","Payment already exists in our database.");
+                session.setAttribute("existErr","Payment already exists in our database.");
                 //16- redirect user back to the login.jsp       
                 request.getRequestDispatcher("payment.jsp").include(request, response);
+                request.getSession().removeAttribute("existErr");
             } else {                    
                 //create a new student
                 manager.addPayment(paymentMethod, ccNumber, ccExpiry, ccSecurity, paymentEmail, paymentAmount, paymentDate, orderID);
