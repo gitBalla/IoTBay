@@ -141,7 +141,7 @@ public Payment findPayment(int order) throws SQLException {
        //search the ResultSet for a user using the parameters
 
        while (rs.next()) {
-           int orderID = rs.getInt(1);
+           int orderID = rs.getInt(9);
            if (orderID == order) {
                String paymentMethod = rs.getString(2);
                int ccNumber = rs.getInt(3);
@@ -163,7 +163,7 @@ public void addPayment(String method, int ccNumber, String ccExp, int ccSecurity
 }
 
 public void updatePayment(String method, int ccNumber, String ccExp, int ccSecurity, String payEmail, int amount, String date, int orderID) throws SQLException {       
-    st.executeUpdate("UPDATE IOTBAYUSER.PAYMENT_T SET PAYMETHOD='" + method + "', CCNUMBER=" + ccNumber + ", CCEXP='" + ccExp + "', CCSECURITY=" + ccSecurity + ", PAYEMAIL='" + payEmail + "', PAYAMOUNT=" + amount + ", PAYDATE='" + date + "', ORDERID=" + orderID + "");
+    st.executeUpdate("UPDATE IOTBAYUSER.PAYMENT_T SET PAYMETHOD='" + method + "', CCNUMBER=" + ccNumber + ", CCEXP='" + ccExp + "', CCSECURITY=" + ccSecurity + ", PAYEMAIL='" + payEmail + "', PAYAMOUNT=" + amount + ", PAYDATE='" + date + "', ORDERID=" + orderID + " WHERE ORDERID=" + orderID + "");
 }
 
 public void deletePayment(int orderID) throws SQLException{       
