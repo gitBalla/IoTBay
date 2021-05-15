@@ -1,5 +1,6 @@
 package isd.iotbay.controller;
 
+import isd.iotbay.model.User;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -21,24 +22,23 @@ import java.util.ArrayList;
 public class ViewLogsServlet extends HttpServlet {
 
     @Override   
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException {       
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException {       
         //1- retrieve the current session
         HttpSession session = request.getSession();
-        //3- capture the posted userID      
-        int userID = Integer.parseInt(request.getParameter("userID"));
         //5- retrieve the manager instance from session      
         DBManager manager= (DBManager) session.getAttribute("manager");
+        User user = (User) session.getAttribute("user");
         ArrayList<UserLog> userLogs = null;
 
         try {   
-            userLogs = manager.fetchUserLogs(userID);
+            userLogs = manager.fetchUserLogs(user.getUserID());
             if(userLogs != null) {
                 //13-save the object to the session           
                 session.setAttribute("userLogs",userLogs);
                 //14- send table to jsp     
                 request.getRequestDispatcher("userAccessLogs.jsp").include(request, response);
             } else {
-                session.setAttribute("existErr", "Does not exist");
+                session.setAttribute("existErr", "Error retrieving logs: May not exist");
                 request.getRequestDispatcher("userAccessLogs.jsp").include(request, response);
             }
         } catch (SQLException ex) {           

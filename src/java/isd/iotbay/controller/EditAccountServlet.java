@@ -20,35 +20,28 @@ import isd.iotbay.model.dao.DBManager;
 public class EditAccountServlet extends HttpServlet {
 
     @Override   
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException {       
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException {       
         //1- retrieve the current session
-        HttpSession session = request.getSession();
-        //3- capture the posted email      
-        String email = request.getParameter("email");
-        //4- capture the posted password    
-        String password = request.getParameter("password");
+        HttpSession session = request.getSession(false);
         //5- retrieve the manager instance from session      
         DBManager manager= (DBManager) session.getAttribute("manager");
 
         User user = null;       
 
-        try {       
-            //6- find user by email and password
-            user = manager.findUser(email, password);
-        } catch (SQLException ex) {           
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);       
-        }
+        if(session != null) {
+            //get user from session
+            user = (User) session.getAttribute("user");
 
-        if (user != null) {                     
-            //13-save the logged in user object to the session           
-            session.setAttribute("user",user);
-            //14- redirect user back to the edit.jsp     
-            request.getRequestDispatcher("editAccount.jsp").include(request, response);
-        } else {                       
-            //15-set user does not exist error to the session           
-            session.setAttribute("existErr","User does not exist in our database.");
-            //16- redirect user back to the edit.jsp       
-            request.getRequestDispatcher("editAccount.jsp").include(request, response);
-        }   
+            if (user != null) {                     
+                //14- redirect user back to the edit.jsp     
+                request.getRequestDispatcher("editAccount.jsp").include(request, response);
+            } else {                       
+                //16- redirect user back to the index.jsp       
+                request.getRequestDispatcher("index.jsp").include(request, response);
+            }   
+        } else {
+            //16- redirect user back to the index.jsp       
+            request.getRequestDispatcher("index.jsp").include(request, response);
+        }
     }
 }
