@@ -43,39 +43,42 @@ public class RegistrationServlet extends HttpServlet {
         validator.clear(session);
 
         if (!validator.validateEmail(email)) { /*7-   validate email  */
-                 //8-set incorrect email error to the session           
-                 session.setAttribute("emailErr","Error: Email format incorrect");
-                 //9- redirect user back to the registration.jsp
-                 request.getRequestDispatcher("registration.jsp").include(request, response);
+            //8-set incorrect email error to the session           
+            session.setAttribute("emailErr","Error: Email format incorrect");
+            //9- redirect user back to the registration.jsp
+            request.getRequestDispatcher("registration.jsp").include(request, response);
+            request.getSession().removeAttribute("emailErr");
         } else if (!validator.validatePassword(password)) { /*10-   validate password  */
-                 //11-set incorrect password error to the session           
-                 session.setAttribute("passErr","Error: Password format incorrect");
-                 //12- redirect user back to the registration.jsp          
-                 request.getRequestDispatcher("registration.jsp").include(request, response);
+            //11-set incorrect password error to the session           
+            session.setAttribute("passErr","Error: Password format incorrect");
+            //12- redirect user back to the registration.jsp          
+            request.getRequestDispatcher("registration.jsp").include(request, response);
+            request.getSession().removeAttribute("passwordErr");
         } else {
-                try {   
-                    //6- find user by email and password
-                    User user = manager.findUser(email, password);      
-                    if (user != null) {
-                        //15-set user already exist error to the session           
-                        session.setAttribute("existErr","User already exists in our database.");
-                        //16- redirect user back to the login.jsp       
-                        request.getRequestDispatcher("register.jsp").include(request, response);
-                    } else {                    
-                        //create a new student
-                        manager.addUser(email, firstName, lastName, password, addressLine1, addressLine2, city, state, postCode, phoneNum);
-                        //get actual user that was just created in DB
-                        user = manager.findUser(email, password);
-                        //update the userlog that there has been a registration
-                        manager.addUserLog(user.getUserID(), "REGISTER");
-                        //13-save the logged in user object to the session           
-                        session.setAttribute("user",user);
-                        //14- redirect user to the main.jsp     
-                        request.getRequestDispatcher("welcome.jsp").include(request, response);
-                    }   
-                } catch (SQLException ex) {           
-                    Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);       
-                }
+            try {   
+                //6- find user by email and password
+                User user = manager.findUser(email, password);      
+                if (user != null) {
+                    //15-set user already exist error to the session           
+                    session.setAttribute("existErr","User already exists in our database.");
+                    //16- redirect user back to the login.jsp       
+                    request.getRequestDispatcher("register.jsp").include(request, response);
+                    request.getSession().removeAttribute("existErr");
+                } else {                    
+                    //create a new student
+                    manager.addUser(email, firstName, lastName, password, addressLine1, addressLine2, city, state, postCode, phoneNum);
+                    //get actual user that was just created in DB
+                    user = manager.findUser(email, password);
+                    //update the userlog that there has been a registration
+                    manager.addUserLog(user.getUserID(), "REGISTER");
+                    //13-save the logged in user object to the session           
+                    session.setAttribute("user",user);
+                    //14- redirect user to the main.jsp     
+                    request.getRequestDispatcher("welcome.jsp").include(request, response);
+                }   
+            } catch (SQLException ex) {           
+                Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);       
+            }
         }
     }
 }

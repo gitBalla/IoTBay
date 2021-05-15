@@ -44,10 +44,12 @@ public class DeleteAccountServlet extends HttpServlet {
                     RequestDispatcher requestdispatcher = getServletContext().getRequestDispatcher("/deleteAccount.jsp?deleted="+deleted);
                     requestdispatcher.forward(request, response);
                 } else {
-                //16- return with user not valid error
-                session.setAttribute("deleted",false);
-                session.setAttribute("existErr","Error: User does not exist, try logging in again.");
-                request.getRequestDispatcher("deleteAccount.jsp").include(request,response);
+                    //16- return with user not valid error
+                    session.setAttribute("deleted",false);
+                    session.setAttribute("existErr","Error: User does not exist, try logging in again.");
+                    request.getRequestDispatcher("deleteAccount.jsp").include(request,response);
+                    request.getSession().removeAttribute("deleted");
+                    request.getSession().removeAttribute("existErr");
                 }
             } else {
             //16- redirect to index if session is not valid 
@@ -55,6 +57,6 @@ public class DeleteAccountServlet extends HttpServlet {
             }
         } catch (SQLException ex) {           
               Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);       
-        }        
+        }   
     }
 }

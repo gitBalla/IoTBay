@@ -49,11 +49,13 @@ public class UpdateAccountServlet extends HttpServlet {
                 session.setAttribute("updated", " Update was successful.");
                 //7- redirect user back to edit.jsp     
                 request.getRequestDispatcher("editAccount.jsp").include(request, response);
+                request.getSession().removeAttribute("updated");
             } else {
                 //8-send update failure message           
                 session.setAttribute("updated"," Update was not successful.");
                 //9- redirect user back to the edit.jsp       
                 request.getRequestDispatcher("editAccount.jsp").include(request, response);
+                request.getSession().removeAttribute("updated");
             }   
         } catch (SQLException ex) {           
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);       

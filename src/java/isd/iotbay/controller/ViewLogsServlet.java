@@ -40,6 +40,7 @@ public class ViewLogsServlet extends HttpServlet {
             } else {
                 session.setAttribute("existErr", "Error retrieving logs: May not exist");
                 request.getRequestDispatcher("userAccessLogs.jsp").include(request, response);
+                request.getSession().removeAttribute("existErr");
             }
         } catch (SQLException ex) {           
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);       
