@@ -65,6 +65,8 @@ public class TestDB_Payment {
 
             System.out.println("Payment is added to the database.");
             
+            System.out.println(db.findPayment(orderID).getPayMethod());
+            
             connector.closeConnection();
 
         }  catch (ClassNotFoundException | SQLException ex) {

@@ -9,6 +9,7 @@
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
     </servlet-mapping>
+    
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>isd.iotbay.controller.LoginServlet</servlet-class>
@@ -18,6 +19,7 @@
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
+    
     <servlet>
         <servlet-name>EditAccountServlet</servlet-name>
         <servlet-class>isd.iotbay.controller.EditAccountServlet</servlet-class>
@@ -27,6 +29,7 @@
         <servlet-name>EditAccountServlet</servlet-name>
         <url-pattern>/EditAccountServlet</url-pattern>
     </servlet-mapping>
+    
     <servlet>
         <servlet-name>UpdateAccountServlet</servlet-name>
         <servlet-class>isd.iotbay.controller.UpdateAccountServlet</servlet-class>
@@ -36,6 +39,7 @@
         <servlet-name>UpdateAccountServlet</servlet-name>
         <url-pattern>/UpdateAccountServlet</url-pattern>
     </servlet-mapping>
+    
     <servlet>
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>isd.iotbay.controller.LogoutServlet</servlet-class>
@@ -45,6 +49,7 @@
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
     </servlet-mapping>
+    
     <servlet>
         <servlet-name>RegistrationServlet</servlet-name>
         <servlet-class>isd.iotbay.controller.RegistrationServlet</servlet-class>
@@ -54,6 +59,7 @@
         <servlet-name>RegistrationServlet</servlet-name>
         <url-pattern>/RegistrationServlet</url-pattern>
     </servlet-mapping>
+    
     <servlet>
         <servlet-name>ViewLogsServlet</servlet-name>
         <servlet-class>isd.iotbay.controller.ViewLogsServlet</servlet-class>
@@ -63,6 +69,7 @@
         <servlet-name>ViewLogsServlet</servlet-name>
         <url-pattern>/ViewLogsServlet</url-pattern>
     </servlet-mapping>
+    
     <servlet>
         <servlet-name>CatalogueServlet</servlet-name>
         <servlet-class>isd.iotbay.controller.CatalogueServlet</servlet-class>
@@ -72,6 +79,7 @@
         <servlet-name>CatalogueServlet</servlet-name>
         <url-pattern>/CatalogueServlet</url-pattern>
     </servlet-mapping>
+    
     <servlet>
         <servlet-name>DeleteAccountServlet</servlet-name>
         <servlet-class>isd.iotbay.controller.DeleteAccountServlet</servlet-class>
@@ -81,6 +89,17 @@
         <servlet-name>DeleteAccountServlet</servlet-name>
         <url-pattern>/DeleteAccountServlet</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>PaymentServlet</servlet-name>
+        <servlet-class>isd.iotbay.controller.PaymentServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PaymentServlet</servlet-name>
+        <url-pattern>/PaymentServlet</url-pattern>
+    </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30
