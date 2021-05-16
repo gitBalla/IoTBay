@@ -14,6 +14,7 @@
           href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap"
           rel="stylesheet"
         />
+        <script type="text/javascript" src="./javascript/IoTBayJS.js"></script>
     </head>
     <%
         User user = (User)session.getAttribute("user");
@@ -63,24 +64,8 @@
         </header>
         <h1 class="main_title">Payment History</h1>
         <div class="landing_body"><span class="message"> <%= (existErr != null ? existErr : "")%></span>
-            <table class="displayTable">
-                <thead>
-                    <tr>
-                        <th>Event</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <c:forEach var="item" items="${paymentHistory}">
-                    <tr>
-                        <td><c:out value="${item.payMethod}" /></td>
-                        <td><c:out value="${item.payDate}" /></td>
-                        <td><c:out value="$${item.payAmount}" /></td>
-                    </tr>
-                </c:forEach>
-                </tbody>
-            </table>
+            <input class="formInput" type="text" name="logSearchInput" id="logSearchInput" onkeyup="searchLogTable()" placeholder="Enter date"></input>
+            <jsp:include page="./paymentHistoryTable.jsp" flush="true"/>
             <table class="buttonTable">
               <a class='formButton' href="./account.jsp">View Account</a>
               <a class='formButton' href="LogoutServlet">Logout</a>

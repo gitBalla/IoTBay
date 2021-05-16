@@ -82,6 +82,7 @@
             <table class="buttonTable">
                 <a class="formButton" href="editPayment">Edit my Payment Details</a>
                 <a class="formButton" href="deletePayment">Delete my Payment Details</a>
+                <a class="formButton" href="submitPayment">Submit Payment</a>
             </table>
         </div>
     </body>

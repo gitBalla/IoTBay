@@ -161,6 +161,10 @@ body {
     color: white;
 }
 
+.displayTable.long {
+    width: auto;
+}
+
 .message {
     color: orangered;
     font-size: 30px;
