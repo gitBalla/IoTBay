@@ -39,6 +39,7 @@
               }
           %>
           <li><a href="CatalogueServlet">Browse Catalogue</a></li>
+          <li><a href="CheckoutServlet">Checkout</a></li>
             <%
             if(user != null && user.isStaff()) {
             %>

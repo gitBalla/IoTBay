@@ -110,6 +110,16 @@
         <url-pattern>/PaymentHistoryServlet</url-pattern>
     </servlet-mapping>
     
+    <servlet>
+        <servlet-name>CheckoutServlet</servlet-name>
+        <servlet-class>isd.iotbay.controller.CheckoutServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CheckoutServlet</servlet-name>
+        <url-pattern>/CheckoutServlet</url-pattern>
+    </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30

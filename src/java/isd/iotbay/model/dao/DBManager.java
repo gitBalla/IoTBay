@@ -149,28 +149,28 @@ public ArrayList<UserLog> fetchUserLogs(int userID) throws SQLException{
 }
 
 public Payment findPayment(int order) throws SQLException {       
-       //setup the select sql query string       
-       String fetch = "SELECT * FROM IOTBAYUSER.PAYMENT_T WHERE ORDERID = " + order + "";
-       //execute this query using the statement field
-       //add the results to a ResultSet   
-       ResultSet rs = st.executeQuery(fetch);
-       //search the ResultSet for a user using the parameters
+    //setup the select sql query string       
+    String fetch = "SELECT * FROM IOTBAYUSER.PAYMENT_T WHERE ORDERID = " + order + "";
+    //execute this query using the statement field
+    //add the results to a ResultSet   
+    ResultSet rs = st.executeQuery(fetch);
+    //search the ResultSet for a user using the parameters
 
-       while (rs.next()) {
-           int orderID = rs.getInt(9);
-           if (orderID == order) {
-               String paymentMethod = rs.getString(2);
-               int ccNumber = rs.getInt(3);
-               String ccExpiry = rs.getString(4);
-               int ccSecurity = rs.getInt(5);
-               String paymentEmail = rs.getString(6);
-               int paymentAmount = rs.getInt(7);
-               String paymentDate = rs.getString(8);
-               return new Payment(paymentMethod, ccNumber, ccExpiry, ccSecurity, paymentEmail, paymentAmount, paymentDate, orderID);
-           }
-       }
-       return null;   
+    while (rs.next()) {
+        int orderID = rs.getInt(9);
+        if (orderID == order) {
+            String paymentMethod = rs.getString(2);
+            int ccNumber = rs.getInt(3);
+            String ccExpiry = rs.getString(4);
+            int ccSecurity = rs.getInt(5);
+            String paymentEmail = rs.getString(6);
+            int paymentAmount = rs.getInt(7);
+            String paymentDate = rs.getString(8);
+            return new Payment(paymentMethod, ccNumber, ccExpiry, ccSecurity, paymentEmail, paymentAmount, paymentDate, orderID);
+        }
     }
+    return null;   
+}
 
 
 public void addPayment(String method, int ccNumber, String ccExp, int ccSecurity, String payEmail, int amount, String date, int orderID) throws SQLException {                   //code for add-operation       
@@ -207,6 +207,30 @@ public ArrayList<Payment> fetchPayments(int userid) throws SQLException{
     }
     return temp; 
 }
+
+public Order latestOrder() throws SQLException {       
+    //setup the select sql query string       
+    String fetch = "SELECT MAX(ORDERID) FROM ORDER_T";
+    //execute this query using the statement field
+    //add the results to a ResultSet   
+    ResultSet rs = st.executeQuery(fetch);
+    //search the ResultSet for a user using the parameters
+
+    if(rs.next()) {
+        int orderID = rs.getInt(1);
+        return new Order(orderID); 
+    }
+    return null;
+}
+
+public void addOrder() throws SQLException {
+    st.executeUpdate("INSERT INTO ORDER_T(USERID) VALUES (NULL)");
+}
+
+public void addOrder(int userID) throws SQLException {
+    st.executeUpdate("INSERT INTO ORDER_T(USERID) VALUES (" + userID + ")");
+}
+
 
 //Add a product-data into the database   
 public void addProduct(int productID, String name, String description, float price, int stock) throws SQLException {                   

@@ -28,7 +28,7 @@
                 <%
                     if (user != null) {
                 %>
-                <li><a>Account</a></li>
+                <li><a href="./account.jsp">${user.firstName}'s Account</a></li>
                 <li><a href="./logout.jsp">Logout</a></li>
                 <%
                     } else {
@@ -39,18 +39,18 @@
                     }
                 %>
                 <li><a href="CatalogueServlet">Browse Catalogue</a></li>
-                  <%
-                  if(user != null && user.isStaff()) {
-                  %>
-                  <li><a href="./staff.jsp"> Staff Menu</a></li>
-                  <%
-                  }
-                  if(user != null && user.isAdmin()) {
-                  %>
-                  <li><a href="./admin.jsp"> Admin Menu</a></li>
-                  <%
-                  }
-                  %>
+                <%
+                if(user != null && user.isStaff()) {
+                %>
+                <li><a href="./staff.jsp"> Staff Menu</a></li>
+                <%
+                }
+                if(user != null && user.isAdmin()) {
+                %>
+                <li><a href="./admin.jsp"> Admin Menu</a></li>
+                <%
+                }
+                %>
                 <div class="search-container">
                   <form action="">
                     <button type="submit">Submit</button>
@@ -61,28 +61,29 @@
             </nav>
         </header>
         <h1 class="main_title">Payment History</h1>
-        <div class="landing_body"><span class="message"> <%= (existErr != null ? existErr : "")%></span></div>
-        <table class="displayTable">
-            <thead>
-                <tr>
-                    <th>Event</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                </tr>
-            </thead>
-            <tbody>
-            <c:forEach var="item" items="${paymentHistory}">
-                <tr>
-                    <td><c:out value="${item.payMethod}" /></td>
-                    <td><c:out value="${item.payDate}" /></td>
-                    <td><c:out value="${item.payAmount}" /></td>
-                </tr>
-            </c:forEach>
-            </tbody>
-        </table>
-        <table class="buttonTable">
-          <a class='formButton' href="./account.jsp">View Account</a>
-          <a class='formButton' href="LogoutServlet">Logout</a>
-        </table>
+        <div class="landing_body"><span class="message"> <%= (existErr != null ? existErr : "")%></span>
+            <table class="displayTable">
+                <thead>
+                    <tr>
+                        <th>Event</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="item" items="${paymentHistory}">
+                    <tr>
+                        <td><c:out value="${item.payMethod}" /></td>
+                        <td><c:out value="${item.payDate}" /></td>
+                        <td><c:out value="$${item.payAmount}" /></td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+            <table class="buttonTable">
+              <a class='formButton' href="./account.jsp">View Account</a>
+              <a class='formButton' href="LogoutServlet">Logout</a>
+            </table>
+        </div>
     </body>
 </html>

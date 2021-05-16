@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import isd.iotbay.model.Payment;
+import isd.iotbay.model.Order;
 import isd.iotbay.model.dao.DBManager;
 
 import java.time.LocalDate;    
@@ -20,6 +21,7 @@ public class PaymentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException {       
         //1- retrieve the current session
         HttpSession session = request.getSession();
+        Order order = (Order)session.getAttribute("order");
         //2- create an instance of the Validator class    
         //Validator validator = new Validator();
         //3- capture the posted email, firstName, lastName, password, addressLine1, addressLine2, city, state, postCode, phoneNum      
@@ -30,7 +32,7 @@ public class PaymentServlet extends HttpServlet {
         String paymentEmail = request.getParameter("paymentEmail");
         int paymentAmount = Integer.parseInt(request.getParameter("paymentAmount"));
         String paymentDate = LocalDate.now().toString();
-        int orderID = Integer.parseInt(request.getParameter("orderID"));
+        int orderID = order.getOrderID();
         //4- retrieve the manager instance from session      
         DBManager manager= (DBManager) session.getAttribute("manager");
 
@@ -58,7 +60,7 @@ public class PaymentServlet extends HttpServlet {
                 request.getRequestDispatcher("payment_test.jsp").include(request, response);
             }   
         } catch (SQLException ex) {           
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);       
+            Logger.getLogger(PaymentServlet.class.getName()).log(Level.SEVERE, null, ex);       
         }
     }
 }

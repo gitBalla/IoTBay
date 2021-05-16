@@ -22,44 +22,44 @@
   %>
   <body>
     <header>
-      <nav>
-        <ul class="menu">
-          <li><a href="./index.jsp">Home</a></li>
-          <%
-              if (user != null) {
-          %>
-          <li><a>Account</a></li>
-          <li><a href="./logout.jsp">Logout</a></li>
-          <%
-              } else {
-          %>
-          <li><a href="./registration.jsp">Register</a></li>
-          <li><a href="./login.jsp">Login</a></li>
-          <%
-              }
-          %>
-          <li><a href="CatalogueServlet">Browse Catalogue</a></li>
-            <%
-            if(user != null && user.isStaff()) {
-            %>
-            <li><a href="./staff.jsp"> Staff Menu</a></li>
-            <%
-            }
-            if(user != null && user.isAdmin()) {
-            %>
-            <li><a href="./admin.jsp"> Admin Menu</a></li>
-            <%
-            }
-            %>
-          <div class="search-container">
-            <form action="">
-              <button type="submit">Submit</button>
-              <input id="searchbar" type="text" placeholder="Search.." />
-            </form>
-          </div>
-        </ul>
-      </nav>
-    </header>
+            <nav>
+              <ul class="menu">
+                <li><a href="./index.jsp">Home</a></li>
+                <%
+                    if (user != null) {
+                %>
+                <li><a href="./account.jsp">${user.firstName}'s Account</a></li>
+                <li><a href="./logout.jsp">Logout</a></li>
+                <%
+                    } else {
+                %>
+                <li><a href="./registration.jsp">Register</a></li>
+                <li><a href="./login.jsp">Login</a></li>
+                <%
+                    }
+                %>
+                <li><a href="CatalogueServlet">Browse Catalogue</a></li>
+                <%
+                if(user != null && user.isStaff()) {
+                %>
+                <li><a href="./staff.jsp"> Staff Menu</a></li>
+                <%
+                }
+                if(user != null && user.isAdmin()) {
+                %>
+                <li><a href="./admin.jsp"> Admin Menu</a></li>
+                <%
+                }
+                %>
+                <div class="search-container">
+                  <form action="">
+                    <button type="submit">Submit</button>
+                    <input id="searchbar" type="text" placeholder="Search.." />
+                  </form>
+                </div>
+              </ul>
+            </nav>
+        </header>
     <script type="text/javascript">
         function showMe() {
             if (document.getElementById('creditcardButton').checked) {
@@ -109,10 +109,6 @@
                 <tr>
                     <td><label for="paymentAmount">Placeholder Amount*:</label></td>
                     <td><input class="formInput" type="text" id="paymentAmount" name="paymentAmount" placeholder="Enter Amount" required></input></td>
-                </tr>
-                <tr>
-                    <td><label for="orderID">Placeholder Order ID* (21-25):</label></td>
-                    <td><input class="formInput" type="text" id="orderID" name="orderID" placeholder="Enter orderID" required></input></td>
                 </tr>
             </table>
         </fieldset>
