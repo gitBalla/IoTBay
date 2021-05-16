@@ -10,6 +10,7 @@ package isd.iotbay.model;
  * @author johnballa
  */
 public class Product {
+    private int id;
     private String name;
     private String description;
     private Float price;
@@ -17,11 +18,20 @@ public class Product {
     
     public Product() {}
     
-    public Product (String name, String description, Float price, int stock) {
+    public Product (int id, String name, String description, Float price, int stock) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
         this.stock = stock;
+    }
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(String name) {
+        this.id = id;
     }
 
     public String getName() {

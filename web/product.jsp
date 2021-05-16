@@ -9,19 +9,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>IoT Bay Product</title>
+        <title>IoT Bay ${item.name}</title>
     </head>
     <body>
         <div class="container">
             <div class="row">
-                <div class="col product">
+                <div class="collection product">
                     <form action="cart" method="post">
-                        <h2>Airpods Max</h2>
-                        <h3>Price: $899</h3>
-                        <h3>Stock: 1234</h3>
-                        <h3>Description</h3>
+                        <h2>Name: ${item.name}</h2>
+                        <h3>Price: ${item.price}</h3>
+                        <h3>Stock: ${item.stock}</h3>
+                        <h3>Description:</h3>
                             <p>
-                                AirPods Max reimagine over-ear headphones. An Apple-designed dynamic driver provides immersive high-fidelity audio. Every detail, from canopy to cushions, has been designed for an exceptional fit. Industry-leading Active Noise Cancellation blocks outside noise, while Transparency mode lets it in. And spatial audio with dynamic head tracking provides theater-like sound that surrounds you.
+                                ${item.description}
                             </p>
                         <button type="submit" name="action" value="atc">Add to Cart</button>
                     </form>
