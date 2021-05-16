@@ -23,14 +23,14 @@ public class PaymentServlet extends HttpServlet {
         HttpSession session = request.getSession();
         Order order = (Order)session.getAttribute("order");
         //2- create an instance of the Validator class    
-        //Validator validator = new Validator();
+        Validator validator = new Validator();
         //3- capture the posted email, firstName, lastName, password, addressLine1, addressLine2, city, state, postCode, phoneNum      
         String paymentMethod = request.getParameter("paymentMethod");
-        int ccNumber = Integer.parseInt(request.getParameter("ccNumber"));
+        String ccNumber = request.getParameter("ccNumber");
         String ccExpiry = request.getParameter("ccExpiry");
-        int ccSecurity = Integer.parseInt(request.getParameter("ccSecurity"));
+        String ccSecurity = request.getParameter("ccSecurity");
         String paymentEmail = request.getParameter("paymentEmail");
-        int paymentAmount = Integer.parseInt(request.getParameter("paymentAmount"));
+        String paymentAmount = request.getParameter("paymentAmount");
         String paymentDate = LocalDate.now().toString();
         int orderID = order.getOrderID();
         //4- retrieve the manager instance from session      
@@ -39,28 +39,57 @@ public class PaymentServlet extends HttpServlet {
         //5- clear validator
         //validator.clear(session);
         
-
-        try {   
-            //6- find user by email and password
-            Payment payment = manager.findPayment(orderID);    
-            if (payment != null) {
-                //15-set user already exist error to the session           
-                session.setAttribute("existErr","Payment already exists in our database.");
-                //16- redirect user back to the login.jsp       
-                request.getRequestDispatcher("payment.jsp").include(request, response);
-                request.getSession().removeAttribute("existErr");
-            } else {                    
-                //create a new student
-                manager.addPayment(paymentMethod, ccNumber, ccExpiry, ccSecurity, paymentEmail, paymentAmount, paymentDate, orderID);
-                //get actual user that was just created in DB
-                payment = manager.findPayment(orderID);
-                //13-save the logged in user object to the session           
-                session.setAttribute("payment", payment);
-                //14- redirect user to the main.jsp     
-                request.getRequestDispatcher("paymentDetails.jsp").include(request, response);
-            }   
-        } catch (SQLException ex) {           
-            Logger.getLogger(PaymentServlet.class.getName()).log(Level.SEVERE, null, ex);       
+        if (!validator.validateEmail(paymentEmail)) { /*7-   validate email  */
+            //8-set incorrect email error to the session           
+            session.setAttribute("emailErr","Error: Email format incorrect");
+            //9- redirect user back to the registration.jsp
+            request.getRequestDispatcher("payment.jsp").include(request, response);
+            request.getSession().removeAttribute("emailErr");
+            request.getSession().removeAttribute("intErr");
+        } else if (!validator.validateInteger(ccNumber)) { /*10-   validate password  */
+            //11-set incorrect password error to the session           
+            session.setAttribute("intErr","Error: Card Number format incorrect");
+            //12- redirect user back to the registration.jsp          
+            request.getRequestDispatcher("payment.jsp").include(request, response);
+            request.getSession().removeAttribute("emailErr");
+            request.getSession().removeAttribute("intErr");
+        } else if (!validator.validateInteger(ccSecurity)) { /*10-   validate password  */
+            //11-set incorrect password error to the session           
+            session.setAttribute("intErr","Error: Security format incorrect");
+            //12- redirect user back to the registration.jsp          
+            request.getRequestDispatcher("payment.jsp").include(request, response);
+            request.getSession().removeAttribute("emailErr");
+            request.getSession().removeAttribute("intErr");
+        } else if (!validator.validateInteger(paymentAmount)) { /*10-   validate password  */
+            //11-set incorrect password error to the session           
+            session.setAttribute("intErr","Error: Amount format incorrect");
+            //12- redirect user back to the registration.jsp          
+            request.getRequestDispatcher("payment.jsp").include(request, response);
+            request.getSession().removeAttribute("emailErr");
+            request.getSession().removeAttribute("intErr");
+        } else {
+            try {   
+                //6- find user by email and password
+                Payment payment = manager.findPayment(orderID);    
+                if (payment != null) {
+                    //15-set user already exist error to the session           
+                    session.setAttribute("existErr","Payment already exists in our database.");
+                    //16- redirect user back to the login.jsp       
+                    request.getRequestDispatcher("payment.jsp").include(request, response);
+                    request.getSession().removeAttribute("existErr");
+                } else {                    
+                    //create a new student
+                    manager.addPayment(paymentMethod, Integer.parseInt(ccNumber), ccExpiry, Integer.parseInt(ccSecurity), paymentEmail, Float.parseFloat(paymentAmount), paymentDate, orderID);
+                    //get actual user that was just created in DB
+                    payment = manager.findPayment(orderID);
+                    //13-save the logged in user object to the session           
+                    session.setAttribute("payment", payment);
+                    //14- redirect user to the main.jsp     
+                    request.getRequestDispatcher("paymentDetails.jsp").include(request, response);
+                }   
+            } catch (SQLException ex) {           
+                Logger.getLogger(PaymentServlet.class.getName()).log(Level.SEVERE, null, ex);       
+            }
         }
     }
 }

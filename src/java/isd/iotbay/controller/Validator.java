@@ -14,6 +14,7 @@ public class Validator implements Serializable{
 
     private String emailPattern = "([a-zA-Z0-9]+)(([._-])([a-zA-Z0-9]+))*(@)([a-z]+)(.)([a-z]{3})((([.])[a-z]{0,2})*)";      
     private String passwordPattern = "^(?=.*[A-Za-z])(?=.*[0-9]).{5,}$";
+    private String integerPattern = "^[0-9]{1,10}$";
 
     public Validator(){    }       
 
@@ -35,10 +36,15 @@ public class Validator implements Serializable{
        return validate(passwordPattern,password); 
     }          
     
+    public boolean validateInteger(String integer){
+       return validate(integerPattern,integer); 
+    }         
+    
     public void clear(HttpSession session) {
         session.setAttribute("emailErr", "Enter email");
         session.setAttribute("passErr", "Enter password");
         session.setAttribute("existErr", "");
         session.setAttribute("nameErr", "Enter name");
+        session.setAttribute("intErr", "Enter number");
     }
 }

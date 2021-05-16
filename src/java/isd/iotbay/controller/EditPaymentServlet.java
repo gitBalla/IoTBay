@@ -20,30 +20,62 @@ public class EditPaymentServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException {       
         HttpSession session = request.getSession();
+        Validator validator = new Validator();
         Payment payment = (Payment)session.getAttribute("payment");
         Order order = (Order)session.getAttribute("order");
         String paymentMethod = request.getParameter("paymentMethod");
-        int ccNumber = Integer.parseInt(request.getParameter("ccNumber"));
+        String ccNumber = request.getParameter("ccNumber");
         String ccExpiry = request.getParameter("ccExpiry");
-        int ccSecurity = Integer.parseInt(request.getParameter("ccSecurity"));
+        String ccSecurity = request.getParameter("ccSecurity");
         String paymentEmail = request.getParameter("paymentEmail");
-        float paymentAmount = payment.getPayAmount();
+        String paymentAmount = request.getParameter("paymentAmount");
         String paymentDate = payment.getPayDate();
         int orderID = order.getOrderID();
+        
+        //validator.clear(session);
 
         DBManager manager= (DBManager) session.getAttribute("manager");
-
-        try {   
-            if (payment != null) {
-                manager.updatePayment(paymentMethod, ccNumber,  ccExpiry,  ccSecurity, paymentEmail, paymentAmount, paymentDate, orderID);
-                payment = manager.findPayment(orderID);
-                session.setAttribute("payment", payment);
-                request.getRequestDispatcher("paymentDetails.jsp").include(request, response);
-            } else {                    
-                request.getRequestDispatcher("paymentDetails.jsp").include(request, response);
-            }   
-        } catch (SQLException ex) {           
-            Logger.getLogger(PaymentServlet.class.getName()).log(Level.SEVERE, null, ex);       
+        if (!validator.validateEmail(paymentEmail)) { /*7-   validate email  */
+            //8-set incorrect email error to the session           
+            session.setAttribute("emailErr","Error: Email format incorrect");
+            //9- redirect user back to the registration.jsp
+            request.getRequestDispatcher("editPayment.jsp").include(request, response);
+            request.getSession().removeAttribute("emailErr");
+            request.getSession().removeAttribute("intErr");
+        } else if (!validator.validateInteger(ccNumber)) { /*10-   validate password  */
+            //11-set incorrect password error to the session           
+            session.setAttribute("intErr","Error: Card Number format incorrect");
+            //12- redirect user back to the registration.jsp          
+            request.getRequestDispatcher("editPayment.jsp").include(request, response);
+            request.getSession().removeAttribute("emailErr");
+            request.getSession().removeAttribute("intErr");
+        } else if (!validator.validateInteger(ccSecurity)) { /*10-   validate password  */
+            //11-set incorrect password error to the session           
+            session.setAttribute("intErr","Error: Security format incorrect");
+            //12- redirect user back to the registration.jsp          
+            request.getRequestDispatcher("editPayment.jsp").include(request, response);
+            request.getSession().removeAttribute("emailErr");
+            request.getSession().removeAttribute("intErr");
+        } else if (!validator.validateInteger(paymentAmount)) { /*10-   validate password  */
+            //11-set incorrect password error to the session           
+            session.setAttribute("intErr","Error: Amount format incorrect");
+            //12- redirect user back to the registration.jsp          
+            request.getRequestDispatcher("editPayment.jsp").include(request, response);
+            request.getSession().removeAttribute("emailErr");
+            request.getSession().removeAttribute("intErr");
+        } else {
+            try {   
+                if (payment != null) {
+                    manager.updatePayment(paymentMethod, Integer.parseInt(ccNumber), ccExpiry, Integer.parseInt(ccSecurity), paymentEmail, Float.parseFloat(paymentAmount), paymentDate, orderID);
+                    payment = manager.findPayment(orderID);
+                    session.setAttribute("payment", payment);
+                    request.getRequestDispatcher("paymentDetails.jsp").include(request, response);
+                } else {                    
+                    request.getRequestDispatcher("paymentDetails.jsp").include(request, response);
+                }   
+            } catch (SQLException ex) {           
+                Logger.getLogger(PaymentServlet.class.getName()).log(Level.SEVERE, null, ex);       
+            }
         }
     }
 }
