@@ -19,37 +19,11 @@
     />
   </head>
   <%
-      User user = (User)session.getAttribute("user");
       String updated = (String)session.getAttribute("updated");
   %>
   <body>
     <header>
-      <nav>
-        <ul class="menu">
-          <li><a href="./index.jsp">Home</a></li>
-          <li><a href="./account.jsp">${user.firstName}'s Account</a></li>
-          <li><a href="LogoutServlet">Logout</a></li>
-          <li><a href="CatalogueServlet">Browse Catalogue</a></li>
-            <%
-            if(user != null && user.isStaff()) {
-            %>
-            <li><a href="./staff.jsp"> Staff Menu</a></li>
-            <%
-            }
-            if(user != null && user.isAdmin()) {
-            %>
-            <li><a href="./admin.jsp"> Admin Menu</a></li>
-            <%
-            }
-            %>
-          <div class="search-container">
-            <form action="">
-              <button type="submit">Submit</button>
-              <input id="searchbar" type="text" placeholder="Search.." />
-            </form>
-          </div>
-        </ul>
-      </nav>
+    <jsp:include page="./navBar.jsp" flush="true"/>
     </header>
     <main>
       <h1 class="main_title">Edit Account Details</h1>
