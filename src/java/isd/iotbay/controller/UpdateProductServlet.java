@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import isd.iotbay.model.User;
 import isd.iotbay.model.dao.DBManager;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,20 +22,31 @@ public class UpdateProductServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {       
         HttpSession session = request.getSession();
         
-        String oldname = request.getParameter("oldname");
-        String newname = request.getParameter("newname");
-        String olddescription = request.getParameter("olddescription");
-        String newdescription = request.getParameter("newdescription");
-        Float oldprice = Float.parseFloat(request.getParameter("oldprice"));
-        Float newprice = Float.parseFloat(request.getParameter("newprice"));
-        Integer oldstock = Integer.parseInt(request.getParameter("oldstock"));
-        Integer newstock = Integer.parseInt(request.getParameter("newstock"));
+        Integer productid = Integer.parseInt(request.getParameter("productid"));
+        String name = request.getParameter("name");
+        String description = request.getParameter("description");
+        Float price = Float.parseFloat(request.getParameter("price"));
+        Integer stock = Integer.parseInt(request.getParameter("stock"));
         
         
-        //use the old email/pass to find the user
-        User currentUser = (User) session.getAttribute("user");
         //4- retrieve the manager instance from session      
-        DBManager manager= (DBManager) session.getAttribute("manager");
+        DBManager manager = (DBManager) session.getAttribute("manager");
+        
+        try {   
+            if (productid != 0) {
+                //update with updateUser method
+                manager.updateProduct(productid, name, description, price, stock);
+                session.setAttribute("updated", "Item has been updated");
+                request.getRequestDispatcher("staffUpdateProduct.jsp").include(request, response);
+            } else {
+                //8-send update failure message           
+                session.setAttribute("updated"," Update was not successful.");
+                //9- redirect user back to the edit.jsp       
+                request.getRequestDispatcher("staffUpdateProduct.jsp").include(request, response);
+            }   
+        } catch (SQLException ex) {           
+            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);       
+        }
         
         /*
         try{

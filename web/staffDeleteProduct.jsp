@@ -66,45 +66,16 @@
             </nav>
         </header>
         <main>
-            <h1 class="main_title">All Current Products</h1>
             <div>
-                <table class="displayTable">
-                    <tr>
-                        <th>
-                            <b>Product ID</b>
-                        </th>
-                        <th>
-                            <b>Product Name</b>
-                        </th>
-                        <th>
-                            <b>Product Description</b>
-                        </th>
-                        <th>
-                            <b>Price</b>
-                        </th>
-                        <th>
-                            <b>Stock</b>
-                        </th>
-                    </tr>
-                    <c:forEach var="item" items="${products}">
-                        <tr>
-                            <td><c:out value="${item.id}" /></td>
-                            <td><c:out value="${item.name}" /></td>
-                            <td><c:out value="${item.description}" /></td>
-                            <td><c:out value="$${item.price}" /></td>
-                            <td><c:out value="${item.stock}" /></td>
-                        </tr>
-                    </c:forEach>
-                </table>
                 <h1 class="main_title">Delete Inventory Item</h1>
                 <form class="user_access_form" action="DeleteProductServlet" method="post">
                     <fieldset>
                         <legend>Item to delete:</legend>
-                        <label for name="productid">Product ID: </label>
-                        <input type="text" id="productid" name="productid" required>
+                        <label for="productid">Product ID: </label>
+                        <input class="formInput" type="text" id="productid" name="productid" required>
                         <p>Are you sure you want to delete this item?</p>
                     </fieldset>
-                        <table class="buttonTable">
+                    <table class="buttonTable">
                         <input type="submit" id="delete" class="submit" name="delete" value="delete"></input></a>
                         <a class="submit" href="./staff.jsp">Go Back</a>
                     </table>

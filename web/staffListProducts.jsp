@@ -30,7 +30,7 @@
         <main>
             <span class="message"> <%= (existErr != null ? existErr : "")%></span>
             <div>
-                <h1>All Current Products</h1>
+                <h1 class="main_title">All Current Products</h1>
                 <table class="displayTable">
                     <tr>
                         <th>

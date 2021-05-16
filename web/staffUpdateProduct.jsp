@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Edit Product</title>
+        <title>Update Product</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./iotbayStyle.css" />
@@ -28,16 +28,12 @@
         <jsp:include page="./navBar.jsp" flush="true"/>
         </header>
         <main>
-            <h1 class="main_title">Edit Product Details</h1>
+            <h1 class="main_title">Update Product Details</h1>
             <div class="landing_body"><span class="message"> <%= (updated != null ? updated : "" )%></span>
-              <form class="staff_edit_product_form" action="UpdateProductServlet" method="post">
+              <form class="user_access_form" action="UpdateProductServlet" method="post">
                   <fieldset>
                     <legend>Current Product Details:</legend>
                     <table>
-                        <tr>
-                            <td><label for="oldName">Current Product Name:</label></td>
-                            <td><input id="oldName" name="oldName" value="${product.getName()}"></td>
-                        </tr>
                         <tr>
                             <td><label for="id">Product ID:</label></td>
                             <td><input type="text" id="id" name="id" value="${product.id}" required></input></td>

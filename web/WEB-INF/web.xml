@@ -91,6 +91,26 @@
     </servlet-mapping>
     
     <servlet>
+        <servlet-name>DeleteProductServlet</servlet-name>
+        <servlet-class>isd.iotbay.controller.DeleteProductServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteProductServlet</servlet-name>
+        <url-pattern>/DeleteProductServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>UpdateProductServlet</servlet-name>
+        <servlet-class>isd.iotbay.controller.UpdateProductServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateProductServlet</servlet-name>
+        <url-pattern>/UpdateProductServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
         <servlet-name>ListProductsServlet</servlet-name>
         <servlet-class>isd.iotbay.controller.ListProductsServlet</servlet-class>
         <load-on-startup>0</load-on-startup>

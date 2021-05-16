@@ -10,13 +10,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="iotbayStyle.css" />
+        <title>Add Product</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./iotbayStyle.css" />
         <link
-            href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap"
-            rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap"
+          rel="stylesheet"
         />
-        <title>Add Product to Catalogue</title>
     </head>
     <%
         String existErr = (String) session.getAttribute("existErr");
@@ -27,56 +28,60 @@
         <jsp:include page="./navBar.jsp" flush="true"/>
         </header>
         <main>
-            <span class="message"> <%= (existErr != null ? existErr : "")%>
+            <h1 class="main_title">Add new Product</h1>
+            <span class="message"> <%= (existErr != null ? existErr : "")%></span>
             <span class="message"> <%= (added != null ? added : "")%></span>
-            <form action="AddProductServlet" method="post">
-                <table>
-                    <tr>
-                        <td>
-                            <label for name="productid">Product ID: </label>
-                        </td>
-                        <td>
-                            <input type="text" id="productid" name="productid" required><br>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for name="productname">Product Name: </label>
-                        </td>
-                        <td>
-                            <input type="text" id="productname" name="productname" required><br>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for name="description">Description: </label>
-                        </td>
-                        <td>
-                            <input type="text" id="description" name="description" required><br>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for name="price">Product Price: </label>
-                        </td>
-                        <td>
-                            <input type="text" id="price" name="price" required><br>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for name="stock">Available Stock: </label>
-                        </td>
-                        <td>
-                            <input type="text" id="stock" name="stock" required><br>
-                        </td>
-                    </tr>
+            <form class="user_access_form" action="AddProductServlet" method="post">
+                <fieldset>
+                    <legend>Add new Product:</legend>
+                    <table>
+                        <tr>
+                            <td>
+                                <label for="productid">Product ID: </label>
+                            </td>
+                            <td>
+                                <input type="text" id="productid" name="productid" required><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="productname">Product Name: </label>
+                            </td>
+                            <td>
+                                <input type="text" id="productname" name="productname" required><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="description">Description: </label>
+                            </td>
+                            <td>
+                                <input type="text" id="description" name="description" required><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="price">Product Price: </label>
+                            </td>
+                            <td>
+                                <input type="text" id="price" name="price" required><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="stock">Available Stock: </label>
+                            </td>
+                            <td>
+                                <input type="text" id="stock" name="stock" required><br>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <table class="buttonTable">
+                    <input type="submit" id="add" class="submit" name="add" value="Add"></input></a>
+                    <a class="submit" href="./staff.jsp">Go Back</a>
                 </table>
-                <input type="submit" value="Add New Product">
             </form>
-            <br>
-                <a href="./staff.jsp">Back to Staff Menu</a>
-            <br>
         </main>
     </body>
 </html>
