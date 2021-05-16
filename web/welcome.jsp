@@ -42,8 +42,5 @@
                 <a class='formButton' href="LogoutServlet">Logout</a>
             </table>
         </div>
-        <%
-        }
-        %>
     </body>
 </html>
