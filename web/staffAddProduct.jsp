@@ -21,6 +21,7 @@
     <%
         User user = (User)session.getAttribute("user");
         String existErr = (String) session.getAttribute("existErr");
+        String added = (String) session.getAttribute("added");
     %>
     <body>
         <header>
@@ -47,7 +48,9 @@
             </ul>
           </nav>
         </header>
-        <main><span class="message"> <%= (existErr != null ? existErr : "")%></span>
+        <main>
+            <span class="message"> <%= (existErr != null ? existErr : "")%>
+            <span class="message"> <%= (added != null ? added : "")%></span>
             <form action="AddProductServlet" method="post">
                 <table>
                     <tr>

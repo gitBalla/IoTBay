@@ -54,7 +54,7 @@
             <div class="landing_body">
                 <table class="buttonTable">
                     <a class='formButton' href="./staffAddProduct.jsp">Add New Product</a>
-                    <a class='formButton' href="">List Product</a>
+                    <a class='formButton' href="./staffListProducts.jsp">List Product</a>
                     <a class='formButton' href="./staffUpdateProduct.jsp">Edit Product</a>            
                     <a class='formButton' href="">Delete Product</a>
                 </table>

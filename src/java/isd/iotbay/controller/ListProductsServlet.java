@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * @author homer martillano
  */
 
-public class CatalogueServlet extends HttpServlet {
+public class ListProductsServlet extends HttpServlet {
 
     @Override   
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {       
@@ -34,10 +34,10 @@ public class CatalogueServlet extends HttpServlet {
                 //13-save the object to the session           
                 session.setAttribute("products",products);
                 //14- send table to jsp     
-                request.getRequestDispatcher("catalogue.jsp").include(request, response);
+                request.getRequestDispatcher("staffListProducts.jsp").include(request, response);
             } else {
                 session.setAttribute("existErr", "Does not exist");
-                request.getRequestDispatcher("catalogue.jsp").include(request, response);
+                request.getRequestDispatcher("staffListProducts.jsp").include(request, response);
             }
         } catch (SQLException ex) {           
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);       

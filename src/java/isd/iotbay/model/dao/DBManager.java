@@ -258,12 +258,12 @@ public ArrayList<Product> fetchProducts() throws SQLException{
     ArrayList<Product> temp = new ArrayList();
     
     while(rs.next()) {
-        int id = rs.getInt("id");
+        int productid = rs.getInt("productid");
         String name = rs.getString("name");
         String description = rs.getString("description");
         float price = rs.getFloat("price");
         int stock = rs.getInt("stock");
-        temp.add(new Product(id, name, description, price, stock));
+        temp.add(new Product(productid, name, description, price, stock));
     }
     return temp; 
 }
