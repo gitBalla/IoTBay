@@ -161,6 +161,16 @@
     </servlet-mapping>
     
     <servlet>
+        <servlet-name>DeleteOrderServlet</servlet-name>
+        <servlet-class>isd.iotbay.controller.DeleteOrderServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteOrderServlet</servlet-name>
+        <url-pattern>/DeleteOrderServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
         <servlet-name>CheckoutServlet</servlet-name>
         <servlet-class>isd.iotbay.controller.CheckoutServlet</servlet-class>
         <load-on-startup>0</load-on-startup>

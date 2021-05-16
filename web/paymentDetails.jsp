@@ -22,13 +22,6 @@
     <%
         User user = (User)session.getAttribute("user");
         Payment payment = (Payment)session.getAttribute("payment");
-        String paymentMethod = request.getParameter("paymentMethod");
-        String ccNumber = request.getParameter("ccNumber");
-        String ccExpiry = request.getParameter("ccExpiry");
-        String ccSecurity = request.getParameter("ccSecurity");
-        String paymentEmail = request.getParameter("paymentEmail");
-        String paymentAmount = request.getParameter("paymentAmount");
-        String paymentDate = request.getParameter("paymentDate");
     %>
     <body>
         <header>

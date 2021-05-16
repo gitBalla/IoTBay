@@ -232,6 +232,10 @@ public void addOrder(int userID) throws SQLException {
 }
 
 
+public void deleteOrder(int orderID) throws SQLException {
+    st.executeUpdate("DELETE FROM ORDER_T WHERE ORDERID=" + orderID + "");
+}
+
 //Add a product-data into the database   
 public void addProduct(int productID, String name, String description, float price, int stock) throws SQLException {                   
     //code for add-operation       
