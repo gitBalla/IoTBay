@@ -24,18 +24,13 @@ public class SubmitPaymentServlet extends HttpServlet {
 
         Payment payment = (Payment)session.getAttribute("payment");
         int orderID = payment.getOrderID();
-
-        try {   
-            if (payment != null) {
-                manager.deletePayment(orderID);
-                request.getSession().removeAttribute("payment");
-                request.getSession().removeAttribute("order");
-                request.getRequestDispatcher("index.jsp").include(request, response);
-            } else {                    
-                request.getRequestDispatcher("payment.jsp").include(request, response);
-            }   
-        } catch (SQLException ex) {           
-            Logger.getLogger(PaymentServlet.class.getName()).log(Level.SEVERE, null, ex);       
-        }
+ 
+        if (payment != null) {
+            request.getSession().removeAttribute("payment");
+            request.getSession().removeAttribute("order");
+            request.getRequestDispatcher("index.jsp").include(request, response);
+        } else {                    
+            request.getRequestDispatcher("payment.jsp").include(request, response);
+        }   
     }
 }
