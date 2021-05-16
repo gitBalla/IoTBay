@@ -121,6 +121,36 @@
     </servlet-mapping>
     
     <servlet>
+        <servlet-name>EditPaymentServlet</servlet-name>
+        <servlet-class>isd.iotbay.controller.EditPaymentServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditPaymentServlet</servlet-name>
+        <url-pattern>/EditPaymentServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>DeletePaymentServlet</servlet-name>
+        <servlet-class>isd.iotbay.controller.DeletePaymentServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeletePaymentServlet</servlet-name>
+        <url-pattern>/DeletePaymentServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>SubmitPaymentServlet</servlet-name>
+        <servlet-class>isd.iotbay.controller.SubmitPaymentServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SubmitPaymentServlet</servlet-name>
+        <url-pattern>/SubmitPaymentServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
         <servlet-name>PaymentHistoryServlet</servlet-name>
         <servlet-class>isd.iotbay.controller.PaymentHistoryServlet</servlet-class>
         <load-on-startup>0</load-on-startup>

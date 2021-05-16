@@ -164,7 +164,7 @@ public Payment findPayment(int order) throws SQLException {
             String ccExpiry = rs.getString(4);
             int ccSecurity = rs.getInt(5);
             String paymentEmail = rs.getString(6);
-            int paymentAmount = rs.getInt(7);
+            float paymentAmount = rs.getFloat(7);
             String paymentDate = rs.getString(8);
             return new Payment(paymentMethod, ccNumber, ccExpiry, ccSecurity, paymentEmail, paymentAmount, paymentDate, orderID);
         }
@@ -173,12 +173,12 @@ public Payment findPayment(int order) throws SQLException {
 }
 
 
-public void addPayment(String method, int ccNumber, String ccExp, int ccSecurity, String payEmail, int amount, String date, int orderID) throws SQLException {                   //code for add-operation       
+public void addPayment(String method, int ccNumber, String ccExp, int ccSecurity, String payEmail, float amount, String date, int orderID) throws SQLException {                   //code for add-operation       
     st.executeUpdate("INSERT INTO IOTBAYUSER.PAYMENT_T(PAYMETHOD, CCNUMBER, CCEXP, CCSECURITY, PAYEMAIL, PAYAMOUNT, PAYDATE, ORDERID) " 
             + "VALUES ('" + method + "', " + ccNumber + ", '" + ccExp + "', " + ccSecurity + ", '" + payEmail + "', " + amount + ", '" + date + "', " + orderID + ")");
 }
 
-public void updatePayment(String method, int ccNumber, String ccExp, int ccSecurity, String payEmail, int amount, String date, int orderID) throws SQLException {       
+public void updatePayment(String method, int ccNumber, String ccExp, int ccSecurity, String payEmail, float amount, String date, int orderID) throws SQLException {       
     st.executeUpdate("UPDATE IOTBAYUSER.PAYMENT_T SET PAYMETHOD='" + method + "', CCNUMBER=" + ccNumber + ", CCEXP='" + ccExp + "', CCSECURITY=" + ccSecurity + ", PAYEMAIL='" + payEmail + "', PAYAMOUNT=" + amount + ", PAYDATE='" + date + "', ORDERID=" + orderID + " WHERE ORDERID=" + orderID + "");
 }
 
@@ -200,7 +200,7 @@ public ArrayList<Payment> fetchPayments(int userid) throws SQLException{
         String ccExpiry = rs.getString(4);
         int ccSecurity = rs.getInt(5);
         String paymentEmail = rs.getString(6);
-        int paymentAmount = rs.getInt(7);
+        float paymentAmount = rs.getInt(7);
         String paymentDate = rs.getString(8);
         int orderID = rs.getInt(9);
         temp.add(new Payment(paymentMethod, ccNumber, ccExpiry, ccSecurity, paymentEmail, paymentAmount, paymentDate, orderID));

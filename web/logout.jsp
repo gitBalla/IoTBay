@@ -20,20 +20,7 @@
     %>
     <body>
       <header>
-        <nav>
-          <ul class="menu">
-            <li><a href="./index.jsp">Home</a></li>
-            <li><a href="./registration.jsp">Register</a></li>
-            <li><a href="./login.jsp">Login</a></li>
-            <li><a href="CatalogueServlet">Browse Catalogue</a></li>
-            <div class="search-container">
-              <form action="">
-                <button type="submit">Submit</button>
-                <input id="searchbar" type="text" placeholder="Search.." />
-              </form>
-            </div>
-          </ul>
-        </nav>
+      <jsp:include page="./navBar.jsp" flush="true"/>
       </header>
       <h1 class="main_title">You are now logged out.</h1>
       <div class="landing_body"><p>Thanks for visiting IoTBay<%= (name != null ? " " + name : "" )%>!</p>

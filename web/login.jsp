@@ -23,20 +23,7 @@
     %>
     <body>
         <header>
-            <nav>
-                <ul class="menu">
-                    <li><a href="./index.jsp">Home</a></li>
-                    <li><a href="./registration.jsp">Register</a></li>
-                    <li><a href="./login.jsp">Login</a></li>
-                    <li><a href="CatalogueServlet">Browse Catalogue</a></li>
-                    <div class="search-container">
-                        <form action="">
-                            <button type="submit">Submit</button>
-                            <input id="searchbar" type="text" placeholder="Search.." />
-                        </form>
-                    </div>
-                </ul>
-            </nav>
+        <jsp:include page="./navBar.jsp" flush="true"/>
         </header>
         <main>
             <h1 class="main_title">IoTBay Account Login</h1>
