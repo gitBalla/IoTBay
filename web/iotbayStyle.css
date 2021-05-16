@@ -32,21 +32,50 @@ body {
 }
 
 .landing_body p {
-    font-size: 20px;
+    font-size: 30px;
 }
 
-.landing_body a {
+.formButton{
+    font-size: 16px;
     background-color: green;
     color: white;
-    padding: 1em 1.5em;
+    padding: 1em;
     text-decoration: none;
     text-transform: uppercase;
     position: relative;
     top: 20px;
-    margin: 0 20px;
+    margin: 0 5px 10px;
+    display: inline-flex;
+    width: 40%;
+    justify-content: center;
 }
 
-.landing_body a:hover {
+.formButton:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+.buttonTable td{
+    padding: 1px;
+}
+
+.submit { /*a submit button mimic of the a type above so submit form buttons have the same style*/
+    font-size: 16px;
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    top: 20px;
+    margin: 0 5px 10px;
+    display: inline-flex ;
+    width: 40%;
+    justify-content: center;
+}
+
+.submit:hover {
     background-color: grey;
     cursor: pointer;
 }
@@ -93,6 +122,57 @@ body {
 
 .search-container button:hover {
     background-color: #ddffbc;
+}
+
+.user_access_form {
+    width: 500px;
+    margin: 40px auto;
+    font-size: 20px;
+}
+
+.formInput {
+    font-size: 20px;
+}
+
+.overflowTable {
+    overflow: auto;
+    height: 600px;
+}
+
+.displayTable {
+    margin: 20px auto;
+    width: 30%;
+}
+
+.displayTable td, .displayTable th {
+    border: 1px solid #eee;
+    padding: 2px;
+}
+
+.displayTable tr {
+    text-align: left;
+}
+
+.displayTable tr:nth-child(even) {
+    background-color: #f0f0f0;
+}
+
+.displayTable tr:hover {
+    background-color: #ddffbc;
+}
+
+.displayTable th {
+    background-color: green;
+    color: white;
+}
+
+.displayTable.long {
+    width: auto;
+}
+
+.message {
+    color: orangered;
+    font-size: 30px;
 }
 
 /* ids */

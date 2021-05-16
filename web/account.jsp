@@ -1,0 +1,57 @@
+<%-- 
+    Document   : account
+    Created on : 26/04/2021, 1:54:57 AM
+    Author     : johnballa
+--%>
+<%@page import="isd.iotbay.model.User"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>View Account</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./iotbayStyle.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+    <jsp:include page="./navBar.jsp" flush="true"/>
+    </header>
+    <main>
+      <h1 class="main_title">Account details</h1>
+      <div class="landing_body">
+            <table class="displayTable">
+                <tr>
+                    <td>Name: </td><td>${user.firstName} ${user.lastName}</td>
+                </tr>
+                <tr>
+                    <td>Email: </td><td>${user.email}</td>
+                </tr>
+                <tr>
+                    <td>Phone: </td><td>${user.phoneNum}</td>
+                </tr>
+                <tr>
+                    <td>Address: </td><td>${user.addressLine1}</td>
+                </tr>
+                <tr>
+                    <td></td><td>${user.addressLine2}</td>
+                </tr>
+                <tr>
+                    <td></td><td>${user.city}, ${user.state} ${user.postCode}</td>
+                </tr>
+            </table></br>
+            <table class="buttonTable">
+                <a class="formButton" href="EditAccountServlet">Edit My Account</a>
+                <a class="formButton" href="ViewLogsServlet">View My Access Logs</a>
+                <a class="formButton" href="">View My Orders</a>
+                <a class="formButton" href="./deleteAccount.jsp">Delete My Account</a>
+                <a class="formButton" href="PaymentHistoryServlet">View My Payment History</a>
+            </table>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<%-- 
+    Document   : editAccount
+    Created on : 26/04/2021, 2:20:26 AM
+    Author     : johnballa
+--%>
+
+<%@page import="isd.iotbay.model.User"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Account</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./iotbayStyle.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <%
+      String updated = (String)session.getAttribute("updated");
+  %>
+  <body>
+    <header>
+    <jsp:include page="./navBar.jsp" flush="true"/>
+    </header>
+    <main>
+      <h1 class="main_title">Edit Account Details</h1>
+      <div class="landing_body"><span class="message"> <%= (updated != null ? updated : "" )%></span>
+        <form class="user_access_form" action="UpdateAccountServlet" method="post">
+            <fieldset>
+                <legend>My Account Details:</legend>
+                <table>
+                    <tr>
+                        <td><label for="firstName">First Name*:</label></td>
+                        <td><input type="text" id="firstName" name="firstName" value="${user.firstName}" required></input></td>
+                    </tr>
+                    <tr>
+                        <td><label for="lastName">Last Name*:</label></td>
+                        <td><input type="text" id="lastName" name="lastName" value="${user.lastName}" required></input></td>
+                    </tr>                    
+                    <tr>
+                        <td><label for="email">Email*:</label></td>
+                        <td><input type="email" id="email" name="email" value="${user.email}" placeholder="Enter Email" required></input></td>
+                    </tr>
+                    <tr>
+                        <td><label for="password">Password*:</label></td>
+                        <td><input type="password" id="password" name="password" value="${user.password}" placeholder="Enter Password" required></input></td>
+                    </tr>
+                    <tr>
+                        <td><label for="addressLine1">Address Line 1:</label></td>
+                        <td><input type="text" id="addressLine1" name="addressLine1" value="${user.addressLine1}" required></input></td>
+                    </tr>
+                    <tr>
+                        <td><label for="addressLine2">Address Line 2:</label></td>
+                        <td><input type="text" id="addressLine2" name="addressLine2" value="${user.addressLine2}"></input></td>
+                    </tr>
+                    <tr>
+                        <td><label for="city">City:</label></td>
+                        <td><input type="text" id="city" name="city" value="${user.city}" required></input></td>
+                    </tr>
+                    <tr>
+                        <td><label for="postCode">Postcode:</label></td>
+                        <td><input type="number" id="postCode" name="postCode" value="${user.postCode}" minlength="4" maxlength="5" required></input></td>
+                    </tr>
+                    <tr>
+                        <td><label for="state">State/Territory:</label></td>
+                        <td><input type="text" id="state" name="state" value="${user.state}" minlength="2" maxlength="3" pattern="[A-Z]*" title="Please use state abbreviation, i.e. 'NSW','SA'" required></input></td>
+                    </tr>
+                    <tr>
+                        <td><label for="phoneNum">Phone Number:</label></td>
+                        <td><input type="text" id="phoneNum" name="phoneNum" value="${user.phoneNum}" minlength="7" maxlength="15"></input></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <table class="buttonTable">
+                <input type="submit" id="update" class="submit" name="update" value="Update"></input></a>
+                <a class="submit" href="./account.jsp">Go Back</a>
+            </table>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
