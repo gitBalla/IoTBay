@@ -56,6 +56,12 @@ public class RegistrationServlet extends HttpServlet {
             //12- redirect user back to the registration.jsp          
             request.getRequestDispatcher("registration.jsp").include(request, response);
             request.getSession().removeAttribute("passwordErr");
+        } else if (tos.equals("no")) { /*if tos is not agreed with  */
+            //11-set tos error to the session           
+            session.setAttribute("tosErr","Please agree to the terms of service to continue");
+            //12- redirect user back to the registration.jsp          
+            request.getRequestDispatcher("registration.jsp").include(request, response);
+            request.getSession().removeAttribute("tosErr");
         } else {
             try {   
                 if (manager.checkUser(email)) { //if user exists in database
