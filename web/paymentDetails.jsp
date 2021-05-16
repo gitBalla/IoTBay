@@ -80,9 +80,9 @@
             <h1>Your expiry is ${payment.ccExp}</h1>
             <h1>Your security is ${payment.ccSecurity}</h1> 
             <table class="buttonTable">
-                <a class="formButton" href="editPayment">Edit my Payment Details</a>
-                <a class="formButton" href="deletePayment">Delete my Payment Details</a>
-                <a class="formButton" href="submitPayment">Submit Payment</a>
+                <a class="formButton" href="editPayment.jsp">Edit my Payment Details</a>
+                <a class="formButton" href="DeletePaymentServlet">Delete my Payment Details</a>
+                <a class="formButton" href="SubmitPaymentServlet">Submit Payment</a>
             </table>
         </div>
     </body>
