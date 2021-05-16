@@ -26,14 +26,14 @@ public class AddProductServlet extends HttpServlet {
                 
         //collected parameters from the AddNewItem.jsp
         Integer productid = Integer.parseInt(request.getParameter("productid"));
-        String name = request.getParameter("name");
+        String productname = request.getParameter("productname");
         String description = request.getParameter("description");
         Float price = Float.parseFloat(request.getParameter("price"));
         Integer stock = Integer.parseInt(request.getParameter("stock"));
            
         try {
-            if(name != null) {
-                manager.addProduct(productid, name, description, price, stock);
+            if(productname != null) {
+                manager.addProduct(productid, productname, description, price, stock);
                 session.setAttribute("added", "Item has been added");
                 request.getRequestDispatcher("staffAddProduct.jsp").include(request, response);
             } else {
