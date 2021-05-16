@@ -29,11 +29,15 @@
         </header>
         <main>
             <h1 class="main_title">Update Product Details</h1>
-            <div class="landing_body"><span class="message"> <%= (updated != null ? updated : "" )%></span>
+            <div class="landing_body">
               <form class="user_access_form" action="UpdateProductServlet" method="post">
                   <fieldset>
                     <legend>Current Product Details:</legend>
                     <table>
+                        <tr>
+                            <td><label for="tid">Target Product ID:</label></td>
+                            <td><input type="text" id="tid" name="tid" value="${product.id}" required></input></td>
+                        </tr>
                         <tr>
                             <td><label for="id">Product ID:</label></td>
                             <td><input type="text" id="id" name="id" value="${product.id}" required></input></td>

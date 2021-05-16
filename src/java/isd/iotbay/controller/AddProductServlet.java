@@ -44,6 +44,5 @@ public class AddProductServlet extends HttpServlet {
         } catch (SQLException ex){
             Logger.getLogger(AddProductServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 }
