@@ -27,18 +27,21 @@
         </header>
         <main>
             <h1 class="main_title">IoTBay Account Login</h1>
-            <div class="landing_body"><span class="message"> <%=(existErr != null ? existErr : "")%> </span><!-- error messages -->
+            <div class="landing_body">
+                <span class="message"> <%=(existErr != null ? existErr : "")%> </span><!-- error messages -->
+                <span class="message"> <%=(emailErr != null ? emailErr : "")%> </span><!-- error messages -->
+                <span class="message"> <%=(passErr != null ? passErr : "")%> </span><!-- error messages -->
             <form class="user_access_form" action="LoginServlet" method="post">
                 <fieldset>
                     <legend>Login Details:</legend>
                     <table>
                         <tr>
                             <td><label for="email">Email:</label></td>
-                            <td><input class="formInput" type="email" placeholder="<%=(emailErr != null ? emailErr : "Enter email")%>" required id="email" name="email"></input></td>
+                            <td><input class="formInput" type="email" placeholder="Enter email" required id="email" name="email"></input></td>
                         </tr>
                         <tr>
                             <td><label for="password">Password:</label></td>
-                            <td><input class="formInput" type="password" placeholder="<%=(passErr != null ? passErr : "Enter password")%>" required id="password" name="password"></input></td>
+                            <td><input class="formInput" type="password" placeholder="Enter password" required id="password" name="password"></input></td>
                         </tr>
                     </table>
                     <input type="hidden" name="tos" value="yes">

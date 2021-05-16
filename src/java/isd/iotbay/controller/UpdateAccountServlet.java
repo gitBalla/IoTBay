@@ -22,6 +22,8 @@ public class UpdateAccountServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException {       
         //1- retrieve the current session
         HttpSession session = request.getSession();
+        //2- create an instance of the Validator class    
+        Validator validator = new Validator();
         //2- capture the posted email, firstName, lastName, password, addressLine1, addressLine2, city, state, postCode, phoneNum
         String email = request.getParameter("email");
         String password = request.getParameter("password");
@@ -38,28 +40,42 @@ public class UpdateAccountServlet extends HttpServlet {
         //4- retrieve the manager instance from session      
         DBManager manager= (DBManager) session.getAttribute("manager");
 
-        try {   
-            if (currentUser != null) {
-                //update with updateUser method
-                manager.updateUser(email, firstName, lastName, password, addressLine1, addressLine2, city, state, postCode, phoneNum, currentUser.isStaff(), currentUser.isAdmin(), currentUser.getEmail());
-                //save the logged in user object to the session 
-                currentUser = manager.findUser(email, password);
-                session.setAttribute("user",currentUser);
-                //update the userlog that there has been an update
-                manager.addUserLog(currentUser.getUserID(), "UPDATE");
-                session.setAttribute("updated", " Update was successful.");
-                //7- redirect user back to edit.jsp     
-                request.getRequestDispatcher("editAccount.jsp").include(request, response);
-                request.getSession().removeAttribute("updated");
-            } else {
-                //8-send update failure message           
-                session.setAttribute("updated"," Update was not successful.");
-                //9- redirect user back to the edit.jsp       
-                request.getRequestDispatcher("editAccount.jsp").include(request, response);
-                request.getSession().removeAttribute("updated");
-            }   
-        } catch (SQLException ex) {           
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);       
+        if (!validator.validateEmail(email)) { /*7-   validate email  */
+            //8-set incorrect email error to the session           
+            session.setAttribute("updated","Error: Email format incorrect");
+            //9- redirect user back to the registration.jsp
+            request.getRequestDispatcher("editAccount.jsp").include(request, response);
+            request.getSession().removeAttribute("updated");
+        } else if (!validator.validatePassword(password)) { /*10-   validate password  */
+            //11-set incorrect password error to the session           
+            session.setAttribute("updated","Error: Password format incorrect (at least 5 letters and numbers)");
+            //12- redirect user back to the editAccount.jsp          
+            request.getRequestDispatcher("editAccount.jsp").include(request, response);
+            request.getSession().removeAttribute("updated");
+        } else {
+            try {   
+                if (currentUser != null) {
+                    //update with updateUser method
+                    manager.updateUser(email, firstName, lastName, password, addressLine1, addressLine2, city, state, postCode, phoneNum, currentUser.isStaff(), currentUser.isAdmin(), currentUser.getEmail());
+                    //save the logged in user object to the session 
+                    currentUser = manager.findUser(email, password);
+                    session.setAttribute("user",currentUser);
+                    //update the userlog that there has been an update
+                    manager.addUserLog(currentUser.getUserID(), "UPDATE");
+                    session.setAttribute("updated", " Update was successful.");
+                    //7- redirect user back to edit.jsp     
+                    request.getRequestDispatcher("editAccount.jsp").include(request, response);
+                    request.getSession().removeAttribute("updated");
+                } else {
+                    //8-send update failure message           
+                    session.setAttribute("updated"," Update was not successful.");
+                    //9- redirect user back to the edit.jsp       
+                    request.getRequestDispatcher("editAccount.jsp").include(request, response);
+                    request.getSession().removeAttribute("updated");
+                }   
+            } catch (SQLException ex) {           
+                Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);       
+            }
         }
     }
 }

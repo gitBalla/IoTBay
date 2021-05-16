@@ -29,7 +29,12 @@
         </header>
         <main>
             <h1 class="main_title">IoTBay Account Registration</h1>
-            <div class="landing_body"><span class="message"> <%= (existErr != null ? existErr : "")%></span><span class="message"> <%= (tosErr != null ? tosErr : "")%></span>
+            <div class="landing_body">
+                <span class="message"><%= (existErr != null ? existErr : "")%></span>
+                <span class="message"> <%= (nameErr != null ? nameErr : "")%></span>
+                <span class="message"> <%= (tosErr != null ? tosErr : "")%></span>
+                <span class="message"> <%= (emailErr != null ? emailErr : "")%></span>
+                <span class="message"> <%= (passErr != null ? passErr : "")%></span>
                 <form class="user_access_form" action="RegistrationServlet" method="post">
                     <fieldset>
                         <legend>Registration Details:</legend>
@@ -44,11 +49,11 @@
                             </tr>                    
                             <tr>
                                 <td><label for="email">Email*:</label></td>
-                                <td><input class="formInput" type="email" id="email" name="email" placeholder="<%=(emailErr != null ? emailErr : "Enter email")%>" required></input></td>
+                                <td><input class="formInput" type="email" id="email" name="email" placeholder="Enter Email" required></input></td>
                             </tr>
                             <tr>
                                 <td><label for="password">Password*:</label></td>
-                                <td><input class="formInput" type="password" id="password" name="password" placeholder="<%=(passErr != null ? passErr : "Enter password")%>" required></input></td>
+                                <td><input class="formInput" type="password" id="password" name="password" placeholder="Enter Password" required></input></td>
                             </tr>
                             <tr>
                                 <td><label for="addressLine1">Address Line 1:</label></td>

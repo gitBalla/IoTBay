@@ -34,18 +34,18 @@ public class LoginServlet extends HttpServlet {
 
         User user = null;       
 
-        validator.clear(session);
-
         if (!validator.validateEmail(email)) { /*7-   validate email  */
-               //8-set incorrect email error to the session           
-               session.setAttribute("emailErr","Error: Email format incorrect");
-               //9- redirect user back to the login.jsp
-               request.getRequestDispatcher("login.jsp").include(request, response);
+            //8-set incorrect email error to the session           
+            session.setAttribute("emailErr","Error: Email format incorrect");
+            //9- redirect user back to the login.jsp
+            request.getRequestDispatcher("login.jsp").include(request, response);
+            request.getSession().removeAttribute("emailErr");
         } else if (!validator.validatePassword(password)) { /*10-   validate password  */
-               //11-set incorrect password error to the session           
-               session.setAttribute("passErr","Error: Password format incorrect");
-               //12- redirect user back to the login.jsp          
-               request.getRequestDispatcher("login.jsp").include(request, response);
+            //11-set incorrect password error to the session           
+            session.setAttribute("passErr","Error: Password format incorrect");
+            //12- redirect user back to the login.jsp          
+            request.getRequestDispatcher("login.jsp").include(request, response);
+            request.getSession().removeAttribute("passErr");
         } else {
             try {       
                 //6- find user by email and password
@@ -62,6 +62,7 @@ public class LoginServlet extends HttpServlet {
                     session.setAttribute("existErr","User does not exist in our database.");
                     //16- redirect user back to the login.jsp       
                     request.getRequestDispatcher("login.jsp").include(request, response);
+                    request.getSession().removeAttribute("existErr");
                 }   
 
             } catch (SQLException ex) {           

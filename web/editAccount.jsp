@@ -42,11 +42,11 @@
                     </tr>                    
                     <tr>
                         <td><label for="email">Email*:</label></td>
-                        <td><input type="email" id="email" name="email" value="${user.email}" pattern='([a-zA-Z0-9]+)(([._-])([a-zA-Z0-9]+))*(@)([a-z]+)(.)([a-z]{3})((([.])[a-z]{0,2})*)' title='Please use a valid email address' required></input></td>
+                        <td><input type="email" id="email" name="email" value="${user.email}" placeholder="Enter Email" required></input></td>
                     </tr>
                     <tr>
                         <td><label for="password">Password*:</label></td>
-                        <td><input type="password" id="password" name="password" value="${user.password}" pattern='^(?=.*[A-Za-z])(?=.*[0-9]).{5,}$' title='Minimum length 5 characters, including one letter and one number' required></input></td>
+                        <td><input type="password" id="password" name="password" value="${user.password}" placeholder="Enter Password" required></input></td>
                     </tr>
                     <tr>
                         <td><label for="addressLine1">Address Line 1:</label></td>

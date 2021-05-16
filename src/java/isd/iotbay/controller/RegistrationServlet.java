@@ -38,10 +38,7 @@ public class RegistrationServlet extends HttpServlet {
         String tos = request.getParameter("tos");
         //4- retrieve the manager instance from session      
         DBManager manager= (DBManager) session.getAttribute("manager");
-
-        //5- clear validator
-        validator.clear(session);
-        
+                
         User user = null;
 
         if (!validator.validateEmail(email)) { /*7-   validate email  */
@@ -55,7 +52,7 @@ public class RegistrationServlet extends HttpServlet {
             session.setAttribute("passErr","Error: Password format incorrect");
             //12- redirect user back to the registration.jsp          
             request.getRequestDispatcher("registration.jsp").include(request, response);
-            request.getSession().removeAttribute("passwordErr");
+            request.getSession().removeAttribute("passErr");
         } else if (tos.equals("no")) { /*if tos is not agreed with  */
             //11-set tos error to the session           
             session.setAttribute("tosErr","Please agree to the terms of service to continue");
