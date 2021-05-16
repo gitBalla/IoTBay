@@ -77,6 +77,7 @@
             </table>
         </fieldset>
         <table class="buttonTable">
+            <a class="formButton" href="DeleteOrderServlet">Delete Order</a>
             <button class="submit" name="paymentMethod" value="Credit Card" type="submit">Pay</button>
         </table>
     </form>
