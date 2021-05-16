@@ -57,7 +57,7 @@ public class PaymentServlet extends HttpServlet {
                 //13-save the logged in user object to the session           
                 session.setAttribute("payment", payment);
                 //14- redirect user to the main.jsp     
-                request.getRequestDispatcher("payment_test.jsp").include(request, response);
+                request.getRequestDispatcher("paymentDetails.jsp").include(request, response);
             }   
         } catch (SQLException ex) {           
             Logger.getLogger(PaymentServlet.class.getName()).log(Level.SEVERE, null, ex);       

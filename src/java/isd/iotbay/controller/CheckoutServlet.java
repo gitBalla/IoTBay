@@ -30,11 +30,13 @@ public class CheckoutServlet extends HttpServlet {
         if (user != null) {
             userID = user.getUserID();
         }
+        int orderID = 1;
+        if (order != null) {
+           orderID = order.getOrderID(); 
+        }
         //4- retrieve the manager instance from session      
         DBManager manager= (DBManager) session.getAttribute("manager");
-
-        int orderID = 1;
-        
+  
         try {   
             if (user != null && order == null) {
                 manager.addOrder(userID);
@@ -55,7 +57,7 @@ public class CheckoutServlet extends HttpServlet {
             Payment payment = manager.findPayment(orderID);    
             if (payment != null) {
                 session.setAttribute("payment", payment);
-                request.getRequestDispatcher("payment_test.jsp").include(request, response);
+                request.getRequestDispatcher("paymentDetails.jsp").include(request, response);
             } else {                    
                 request.getRequestDispatcher("payment.jsp").include(request, response);
             } 
