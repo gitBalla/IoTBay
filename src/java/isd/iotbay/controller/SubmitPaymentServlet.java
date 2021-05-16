@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import isd.iotbay.model.User;
+import isd.iotbay.model.Payment;
 import isd.iotbay.model.dao.DBManager;
 
 public class SubmitPaymentServlet extends HttpServlet {
@@ -21,22 +22,20 @@ public class SubmitPaymentServlet extends HttpServlet {
         //5- retrieve the manager instance from session      
         DBManager manager= (DBManager) session.getAttribute("manager");
 
-        User user = null;       
+        Payment payment = (Payment)session.getAttribute("payment");
+        int orderID = payment.getOrderID();
 
-        if(session != null) {
-            //get user from session
-            user = (User) session.getAttribute("user");
-
-            if (user != null) {                     
-                //14- redirect user back to the edit.jsp     
-                request.getRequestDispatcher("editAccount.jsp").include(request, response);
-            } else {                       
-                //16- redirect user back to the index.jsp       
+        try {   
+            if (payment != null) {
+                manager.deletePayment(orderID);
+                request.getSession().removeAttribute("payment");
+                request.getSession().removeAttribute("order");
                 request.getRequestDispatcher("index.jsp").include(request, response);
+            } else {                    
+                request.getRequestDispatcher("payment.jsp").include(request, response);
             }   
-        } else {
-            //16- redirect user back to the index.jsp       
-            request.getRequestDispatcher("index.jsp").include(request, response);
+        } catch (SQLException ex) {           
+            Logger.getLogger(PaymentServlet.class.getName()).log(Level.SEVERE, null, ex);       
         }
     }
 }
