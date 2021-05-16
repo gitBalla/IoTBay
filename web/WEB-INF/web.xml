@@ -81,6 +81,16 @@
     </servlet-mapping>
     
     <servlet>
+        <servlet-name>AddProductServlet</servlet-name>
+        <servlet-class>isd.iotbay.controller.AddProductServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddProductServlet</servlet-name>
+        <url-pattern>/AddProductServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
         <servlet-name>DeleteAccountServlet</servlet-name>
         <servlet-class>isd.iotbay.controller.DeleteAccountServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
