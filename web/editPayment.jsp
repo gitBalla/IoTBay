@@ -16,13 +16,19 @@
       User user = (User)session.getAttribute("user");
       Payment payment = (Payment)session.getAttribute("payment");
       String existErr = (String) session.getAttribute("existErr");
+      String emailErr = (String) session.getAttribute("emailErr");
+      String intErr = (String) session.getAttribute("intErr");
     %>
     <body>
         <header>
         <jsp:include page="./navBar.jsp" flush="true"/>
         </header>
     <h1 class="main_title">Edit ${payment.payMethod} Details</h1>
-    <div class="landing_body"><span class="message"> <%= (existErr != null ? existErr : "")%></span></div>
+    <div class="landing_body">
+        <span class="message"> <%= (existErr != null ? existErr : "")%></span>
+        <span class="message"> <%= (intErr != null ? intErr : "")%></span>
+        <span class="message"> <%= (emailErr != null ? emailErr : "")%></span>
+    </div>
     <form class="user_access_form" action="EditPaymentServlet" method="post">
         <fieldset>
             <table>

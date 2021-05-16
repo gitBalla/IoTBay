@@ -19,6 +19,8 @@
   <%
       User user = (User)session.getAttribute("user");
       String existErr = (String) session.getAttribute("existErr");
+      String emailErr = (String) session.getAttribute("emailErr");
+      String intErr = (String) session.getAttribute("intErr");
   %>
   <body>
     <header>
@@ -42,7 +44,11 @@
         }
     </script>
     <h1 class="main_title">Select your payment method</h1>
-    <div class="landing_body"><span class="message"> <%= (existErr != null ? existErr : "")%></span></div>
+    <div class="landing_body">
+        <span class="message"> <%= (existErr != null ? existErr : "")%></span>
+        <span class="message"> <%= (intErr != null ? intErr : "")%></span>
+        <span class="message"> <%= (emailErr != null ? emailErr : "")%></span>
+    </div>
     <div class="landing_body">
         <input type="radio" onclick="showMe()" id="creditcardButton" name="paymentmethod" value="creditcardButton">
         <label for="creditcardButton">Credit Card</label>
@@ -64,7 +70,7 @@
                 </tr>                    
                 <tr>
                     <td><label for="ccSecurity">Security Code*:</label></td>
-                    <td><input class="formInput" type="text" id="ccSecurity" name="ccSecurity" placeholder="Enter Security Code" required></input></td>
+                    <td><input class="formInput" type="text" id="ccSecurity" name="ccSecurity" placeholder="Enter Security Number"" required></input></td>
                 </tr>
                 <tr>
                     <td><label for="paymentEmail">Payment Email*:</label></td>
@@ -72,7 +78,7 @@
                 </tr>
                 <tr>
                     <td><label for="paymentAmount">Placeholder Amount*:</label></td>
-                    <td><input class="formInput" type="text" id="paymentAmount" name="paymentAmount" placeholder="Enter Amount" required></input></td>
+                    <td><input class="formInput" type="text" id="paymentAmount" name="paymentAmount" placeholder="Enter Payment Amount" required></input></td>
                 </tr>
             </table>
         </fieldset>
