@@ -21,6 +21,7 @@
         String emailErr = (String) session.getAttribute("emailErr");
         String passErr = (String) session.getAttribute("passErr");
         String nameErr = (String) session.getAttribute("nameErr");
+        String tosErr = (String) session.getAttribute("tosErr");
     %>
     <body>
         <header>
@@ -28,7 +29,7 @@
         </header>
         <main>
             <h1 class="main_title">IoTBay Account Registration</h1>
-            <div class="landing_body"><span class="message"> <%= (existErr != null ? existErr : "")%></span>
+            <div class="landing_body"><span class="message"> <%= (existErr != null ? existErr : "")%></span><span class="message"> <%= (tosErr != null ? tosErr : "")%></span>
                 <form class="user_access_form" action="RegistrationServlet" method="post">
                     <fieldset>
                         <legend>Registration Details:</legend>
