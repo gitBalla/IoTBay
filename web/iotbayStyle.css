@@ -125,18 +125,23 @@ body {
 }
 
 .user_access_form {
-  width: 500px;
-  margin: 40px auto;
-  font-size: 20px;
+    width: 500px;
+    margin: 40px auto;
+    font-size: 20px;
 }
 
 .formInput {
-  font-size: 20px;
+    font-size: 20px;
+}
+
+.overflowTable {
+    overflow: auto;
+    height: 600px;
 }
 
 .displayTable {
-  margin: 20px auto;
-  width: 30%;
+    margin: 20px auto;
+    width: 30%;
 }
 
 .displayTable td, .displayTable th {

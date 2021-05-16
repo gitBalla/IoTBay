@@ -33,7 +33,9 @@
       <div class="landing_body"><span class="message"> <%= (existErr != null ? existErr : "")%></span>
         <label class="user_access_form">Search Log Entries:</label>
         <input class="formInput" type="text" name="logSearchInput" id="logSearchInput" onkeyup="searchLogTable()" placeholder="Enter date"></input>
-        <jsp:include page="./userLogTable.jsp" flush="true"/>
+        <div class="overflowTable">
+            <jsp:include page="./userLogTable.jsp" flush="true"/>
+        </div>
         <table class="buttonTable">
           <a class='formButton' href="./account.jsp">View Account</a>
           <a class='formButton' href="LogoutServlet">Logout</a>

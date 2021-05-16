@@ -20,35 +20,40 @@
             <nav>
                 <ul class="menu">
                   <li><a href="./index.jsp">Home</a></li>
-                  <%
-                      if (user != null) {
-                  %>
-                  <li><a href="./account.jsp">${user.firstName}'s Account</a></li>
-                  <li><a href="LogoutServlet">Logout</a></li>
-                  <%
-                      } else {
-                  %>
-                  <li><a href="./registration.jsp">Register</a></li>
-                  <li><a href="./login.jsp">Login</a></li>
-                  <%
-                      }
-                  %>
                   <li><a href="CatalogueServlet">Browse Catalogue</a></li>
                   <li><a href="CheckoutServlet">Checkout</a></li>
-                    <%
-                    if(user != null && user.isStaff()) {
-                    %>
-                    <li><a href="./staff.jsp"> Staff Menu</a></li>
-                    <%
-                    }
-                    if(user != null && user.isAdmin()) {
-                    %>
-                    <li><a href="./admin.jsp"> Admin Menu</a></li>
-                    <%
-                    }
-                    %>
+
                   <div class="search-container">
                     <form action="">
+                      <%
+                        if (user != null) {
+                      %>
+                      <li><a href="./account.jsp">${user.firstName}'s Account</a></li>
+                        <%
+                            if(user.isStaff()) {
+                        %>
+                        <li><a href="./staff.jsp"> Staff Menu</a></li>
+                        <%
+                            }
+                            if(user.isAdmin()) {
+                        %>
+                        <li><a href="./admin.jsp"> Admin Menu</a></li>
+                      <%
+                            }
+                        } else {
+                      %>
+                      <li><a href="./registration.jsp">Register</a></li>
+                      <li><a href="./login.jsp">Login</a></li>
+                      <%
+                          }
+                      %>
+                      <%
+                        if (user != null) {
+                      %>
+                      <li><a href="LogoutServlet">Logout</a></li>
+                      <%
+                        }
+                      %>
                       <button type="submit">Submit</button>
                       <input id="searchbar" type="text" placeholder="Search.." />
                     </form>
