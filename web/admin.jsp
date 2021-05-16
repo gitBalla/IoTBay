@@ -1,7 +1,7 @@
 <%-- 
     Document   : admin
     Created on : 09/05/2021, 3:17:18 PM
-    Author     : johnballa
+    Author     : reeve
 --%>
 
 <%@page import="isd.iotbay.model.User"%>
@@ -32,10 +32,10 @@
             %>            <h1 class="main_title">Admin Menu</h1>
             <div class="landing_body">
                 <table class="buttonTable">
-                    <a class='formButton' href="">Add New User</a>
-                    <a class='formButton' href="">List User Records</a>
-                    <a class='formButton' href="">Edit User Record</a>            
-                    <a class='formButton' href="">Delete User</a>
+                    <a class='formButton' href="UserAddListServlet">Add New User</a>
+                    <a class='formButton' href="UserServlet">List User Records</a>
+                    <a class='formButton' href="UserEditListServlet">Edit User Record</a>            
+                    <a class='formButton' href="UserDeleteListServlet">Delete User</a>
                 </table>
             </div>
             <%
