@@ -245,9 +245,9 @@ public void addProduct(int productID, String name, String description, float pri
 }
 
 //update a product details in the database   
-public void updateProduct(int productID, String name, String description, float price, int stock) throws SQLException {       
+public void updateProduct(int productID, String name, String description, float price, int stock, int targetID) throws SQLException {       
     //code for update-operation   
-    st.executeUpdate("UPDATE IOTBAYUSER.PRODUCT_T SET PRODUCTID=" + productID + ", NAME='" + name + "', DESCRIPTION='" + description + "', PRICE=" + price + ", STOCK=" + stock + "");
+    st.executeUpdate("UPDATE IOTBAYUSER.PRODUCT_T SET PRODUCTID=" + productID + ", NAME='" + name + "', DESCRIPTION='" + description + "', PRICE=" + price + ", STOCK=" + stock + " WHERE PRODUCTID=" + targetID + "");
 }
 
 //delete a product from the database   
